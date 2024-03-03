@@ -1,0 +1,121 @@
+## Pack Info
+global.pack.name=Moonlight Pack	#
+global.pack.name_bold=§lMoonlight Pack	#
+global.pack.name_boldItalic=§l§oMoonlight Pack	#
+global.pack_info.name=팩 이름: §pMoonlight Pack	#
+global.pack_info.made_by=제작자: §dNeroLuna §fwith §7Moonlight Team(TrueToneTeam)	#
+global.pack_info.editor=수정자: [ 이 곳에 수정자 닉네임 작성 ]	#
+global.pack_info.build=빌드: §cBETA	#
+global.pack_info.version=팩 버전: §bv0.0.1	#
+global.pack_info.url=홈페이지: §etruetoneteam.kro.kr	#
+global.pack_info.licenses.title=라이센스:	#
+global.pack_info.licenses.1= * 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
+global.pack_info.licenses.2= * 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
+
+
+## Setting Screen
+options.category.beta=베타	#
+options.category.custom=커스텀	#
+options.category.support=도움	#
+options.category.visual=시각 표현	#
+options.category.files=파일	#
+options.category.profile=프로필	#
+options.category.setting=설정	#
+
+options.view=표현	#
+options.viewTitle=표현 설정	#
+options.particleRenderDistance=파티클 렌더링 거리	#
+options.crossPlatformPlay=크로스 플렛폼 플레이	#
+options.creditsHeader=제작진 & 권한 정보	#
+options.advanced_video_options=고급 비디오	#
+options.myResourcePacks=나의 리소스 팩	#
+options.minecraftInfo=Minecraft 정보	#
+
+controls_section.contorl_title=컨트롤	#
+controls_section.sensitivity_title=감도	#
+controls_section.button_title=버튼	#
+controls_section.hotbar_title=핫바	#
+
+video_section.frame_title=프레임	#
+video_section.graphic_and_rendering_title=그래픽 & 렌더링	#
+video_section.vr_title=VR	#
+
+view_section.play_title=플레이	#
+view_section.uiAgui_title=UI & GUI	#
+view_section.splitscreen_title=분할 화면	#
+
+general_section.effect_title=효과	#
+general_section.text_title=텍스트	#
+general_section.storage_management_title=저장 공간 관리	#
+general_section.safe_zone_setting_title=안전 영역 설정	#
+
+world_section.multiplay_title=멀티 플레이	#
+world_section.experimental_title=실험	#
+
+settingScreen.etc=기타	#
+settingScreen.etcTitle=기타 설정	#
+
+settingScreen.network=네트워크	#
+settingScreen.networkTitle=네트워크 설정	#
+
+settingScreen.info_group=정보	#
+settingScreen.pack_info=Moonlight Pack	#
+
+
+## Play Screen
+playScreen.title=플레이	#
+playScreen.tab.all_worlds=모든 월드	#
+playScreen.tab.multiplay=멀티 플레이	#
+playScreen.tab.server=서버	#
+
+playScreen.search_world.name=월드 이름 검색...	#
+
+playScreen.side_menu.friends.title=친구	#
+playScreen.side_menu.friends.player_search=플레이어 검색	#
+playScreen.side_menu.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...	#
+playScreen.side_menu.friends.not_friends.lore=친구에게 같이 플레이하자고 말해보세요! 아니면 새로운 친구를 찾아서 새로운 인연을 만들어보세요!	#
+
+playScreen.contentButton.quick_play.title=빠른 플레이	#
+playScreen.contentButton.quick_play.lore=랜덤한 시드로 새로운 월드를 빠르게 생성할 수 있습니다.	#
+playScreen.contentButton.change_to_new_ui.title=새 UI로 전환	#
+playScreen.contentButton.change_to_new_ui.lore=새롭게 디자인된 UI를 만나보세요! 해당 기능은 Beta 또는 Preview 버전에서먄 이용하실 수 있습니다.	#
+
+playScreen.category.main.title=메인 화면	#
+
+playScreen.category.realms_plus.title=Realms Plus	#
+playScreen.category.realms_plus.lore_short=§gRealms Plus§f를 이용해서 언제나 친구나 다른 사람들을 만나보세요!	#
+playScreen.category.realms_plus.lore.1=§gRealms Plus§f는 매달 결제되는 §c유료 서비스§f로서 §a24시간 언제나 어디서나§f §e친구들§f이나 §e다른 사람§f들과 함께 즐길 수 있는 서버를 제공해줍니다.	#
+playScreen.category.realms_plus.lore.2=§e2명§f 또는 §e10명§f과 함께 플레이하실 수 있는 §gRealms Plus§f를 구매해서 서비스를 이용해보세요!	#
+playScreen.category.realms_plus.lore.3=또한 §gRealms Plus§f 이용 시 §e150가지 이상§f의 §a마켓플레이스 콘텐츠§f를 이용하실 수 있습니다. 	#
+
+playScreen.category.lan.title=LAN 서버	#
+playScreen.category.lan.lore_short=같은 네트워크에서 플레이 중인 사람과 같이 플레이 해보세요!	#
+playScreen.category.lan.lore.1=같은 §a네트워크§f에서 플레이하고 있는 §e다른 유저§f나 §b친구§f와 함께 플레이 하실 수 있는 기능입니다.	#
+playScreen.category.lan.lore.2=월드 설정에서 §e멀티 플레이 설정§f 및 §eLAN 설정§f을 §a활성화§f 해주셔야 다른 유저의 화면에서 자신의 LAN 서버가 표시됩니다.	#
+
+playScreen.quick_menu.title=빠른 메뉴	#
+
+
+## Other
+createWorldScreen.beta.settings=베타 설정	#
+createWorldScreen.classroom.settings=클래스 설정	#
+
+networkWorld.join_network_server=외부 서버 접속	#
+networkWorld.join_third_party_server=추천 서버 접속	#
+networkWorld.no_lan_game=현재 같은 네트워크에서 Minecraft를 플레이 중인 플레이어가 없습니다.	#
+
+selectWorld.import=월드 불러오기	#
+selectWorld.quick_play=빠른 플레이	#
+
+button.modify_control_layouts=컨트롤 레이아웃 수정	#
+button.accept.text=§l수락	#
+
+gui.upload=업로드	#
+
+chat.setting_text=채팅 설정	#
+
+
+## Screenshot Save Path
+screenshot.save_path.ios=저장 위치: §s파일 앱\(나의 iPhone) 또는 (나의 iPad)\Minecraft\screenshots\00000000-0000-0000-0000-000000000000\photos	#
+screenshot.save_path.android=저장 위치: §s파일\Android\data\com.mojang.minecraftpe\files\screenshots\00000000-0000-0000-0000-000000000000\photos	#
+screenshot.save_path.windows=저장 위치: §sC:\Users\(사용자 명)\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\Screenshots	#

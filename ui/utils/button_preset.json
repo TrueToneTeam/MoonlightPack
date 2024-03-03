@@ -1,0 +1,174 @@
+{
+  "namespace": "button_preset",
+
+  //Toggle
+  "ore_toggle_base@common_toggles.light_content_toggle": {
+    "$default_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$pressed_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_lightpressednohover",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$button_pressed_offset|default": [ 0, 2 ]
+  },
+
+  "color_ore_toggle@button_preset.light_ore_toggle": {
+    "$image_color|default": [ 0.89, 0.831, 0.82 ],
+    "$button_image_color": "$image_color"
+  },
+
+  "light_ore_toggle@button_preset.ore_toggle_base": {
+    "$button_type_panel": "custom_common.button_text_content_panel",
+
+    "$font_type": "MinecraftTen",
+    "$button_font_scale_factor": 1.0,
+
+    "$default_text_color": [ 0.3, 0.3, 0.3 ],
+    "$hover_text_color": [ 0.3, 0.3, 0.3 ],
+    "$default_checked_text_color": [ 0.3, 0.3, 0.3 ],
+    "$hover_checked_text_color": [ 0.3, 0.3, 0.3 ]
+  },
+
+  "green_ore_toggle@button_preset.ore_toggle_base": {
+    "$button_type_panel": "custom_common.button_text_content_panel",
+
+    "$default_texture": "textures/ui/ore/button_borderless_green",
+    "$hover_texture": "textures/ui/ore/button_borderless_greenpressed",
+    "$pressed_texture": "textures/ui/ore/button_borderless_greenhover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_greenpressednohover",
+
+    "$font_type": "MinecraftTen",
+    "$button_font_scale_factor": 1.0,
+
+    "$default_text_color": [ 1.0, 1.0, 1.0 ],
+    "$hover_text_color": [ 1.0, 1.0, 1.0 ],
+    "$default_checked_text_color": [ 1.0, 1.0, 1.0 ],
+    "$hover_checked_text_color": [ 1.0, 1.0, 1.0 ]
+  },
+
+
+  //Section Toggle
+  "ore_section_toggle_base@common_toggles.light_content_toggle": {
+    "$button_type_panel": "custom_common.tab_button_content_panel",
+
+    "$default_texture": "textures/ui/ore/button_flat_dark",
+    "$hover_texture": "textures/ui/ore/button_flat_darkpressed",
+    "$pressed_texture": "textures/ui/ore/button_flat_darkhover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_flat_darkpressed",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$button_offset|default": [ 0, 1 ],
+    "$void_panel_size|default": [ 10, "100%" ],
+
+    "$radio_toggle_group": true,
+    "$toggle_name": "new_navigation_toggle",
+    "$toggle_group_default_selected": "$default_selector_toggle_index",
+    "$toggle_view_binding_name": "($section_topic + '_tab')",
+    "$toggle_state_binding_name": "#toggle_state",
+    "$toggle_on_hover_binding_name": "none",
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence"
+  },
+
+  "color_ore_section_toggle@button_preset.light_ore_section_toggle": {
+    "$default_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$pressed_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$locked_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$button_texture_color|default": "$f_color_format",
+    "$default_texture_color": "$button_texture_color",
+    "$default_checked_texture_color": "$button_texture_color",
+    "$hover_texture_color": "$button_texture_color",
+    "$hover_checked_texture_color": "$button_texture_color",
+
+    "$button_text_color|default": "$light_toggle_default_text_color",
+    "$default_text_color": "$button_text_color",
+    "$hover_text_color": "$button_text_color",
+    "$default_checked_text_color": "$button_text_color",
+    "$hover_checked_text_color": "$button_text_color"
+  },
+
+  "light_ore_section_toggle@button_preset.ore_section_toggle_base": {
+    "$font_type": "MinecraftTen",
+    "$button_font_scale_factor": 1.0,
+
+    "$default_text_color": [ 1.0, 1.0, 1.0 ],
+    "$hover_text_color": [ 1.0, 1.0, 1.0 ],
+    "$default_checked_text_color": [ 1.0, 1.0, 1.0 ],
+    "$hover_checked_text_color": [ 1.0, 1.0, 1.0 ]
+  },
+
+
+  //Icon Button
+  "icon_button_base@common_buttons.light_content_button": {
+    "$button_type_panel": "common_buttons.button_content_panel",
+
+    "$default_button_texture": "textures/ui/start/round_button",
+    "$hover_button_texture": "textures/ui/start/round_button_hover",
+    "$pressed_button_texture": "textures/ui/start/round_button_pressed",
+    "$locked_button_texture": "textures/ui/start/round_button_locked",
+
+    "$default_state_border_visible": false,
+    "$hover_state_border_visible": false,
+    "$pressed_state_border_visible": false,
+    "$locked_state_border_visible": false,
+
+    "$button_color|default": [ 0.89, 0.831, 0.82 ],
+    "$button_image_color": "$button_color",
+
+    "$button_pressed_offset|default": [ 0, 0 ]
+  },
+
+
+  //Button
+  "ore_button_base@common_buttons.light_content_button": {
+    "$default_button_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+
+    "$default_state_border_visible": false,
+    "$hover_state_border_visible": false,
+    "$pressed_state_border_visible": false,
+    "$locked_state_border_visible": false,
+
+    "$button_pressed_offset|default": [ 0, 2 ]
+  },
+
+  "color_ore_button@button_preset.light_ore_button": {
+    "$image_color|default": [ 0.89, 0.831, 0.82 ],
+    "$button_image_color": "$image_color"
+  },
+
+  "light_ore_button@button_preset.ore_button_base": {
+    "$button_type_panel|default": "custom_common.button_text_content_panel",
+
+    "$font_type": "MinecraftTen",
+    "$button_font_scale_factor": 1.0,
+
+    "$light_button_hover_text_color": [ 0.3, 0.3, 0.3 ],
+    "$light_button_pressed_text_color": [ 0.3, 0.3, 0.3 ]
+  },
+
+  "green_ore_button@button_preset.ore_button_base": {
+    "$button_type_panel|default": "custom_common.button_text_content_panel",
+
+    "$default_button_texture": "textures/ui/ore/button_borderless_green",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_greenhover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_greenpressed",
+
+    "sound_name": "click_on.ore_button_click",
+
+    "$font_type": "MinecraftTen",
+    "$button_font_scale_factor": 1.0,
+
+    "$default_text_color": [ 1.0, 1.0, 1.0 ],
+    "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
+    "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ]
+  }
+}

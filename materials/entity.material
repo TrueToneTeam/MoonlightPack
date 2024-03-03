@@ -1,0 +1,17 @@
+{
+  "materials": {
+    "version": "1.0.0",
+    "armor:entity_emissive_alpha": {
+      "emissive_alpha": 1
+    },
+    "armor_leather:entity_alphatest_change_color": {
+      "emissive_alpha": 1
+    },
+    "armor_enchanted:entity_emissive_alpha": {
+      "emissive_alpha": 1
+    },
+    "armor_leather_enchanted:entity_alphatest_change_color_glint": {
+      "emissive_alpha": 1
+    }
+  }
+}

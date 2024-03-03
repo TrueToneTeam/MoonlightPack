@@ -1,0 +1,515 @@
+{
+  "namespace": "info_section",
+
+  // Pack Info Settings Button & Section
+  "pack_info_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "pack_info_button_toggle",
+    "$glyph_texture": "textures/ui/pack_info_glyph",
+    "$glyph_color_texture": "textures/ui/pack_info_glyph_color",
+    "$glyph_size": [ 16, 16 ],
+    "$button_text": "global.pack.name",
+    "$toggle_property_bag": {
+      "#panel_title": "global.pack.name_bold"
+    }
+  },
+
+
+  "pack_info_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "pack_info_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "pack_info_label_header": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "global.pack.name"
+        }
+      },
+
+      {
+        "pack_name_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.name"
+        }
+      },
+      {
+        "pack_build_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.build"
+        }
+      },
+      {
+        "pack_version_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.version"
+        }
+      },
+      {
+        "pack_made_by_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.made_by"
+        }
+      },
+      {
+        "pack_url_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.url"
+        }
+      },
+      {
+        "pack_editor_label": {
+          "visible": false,
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.editor"
+        }
+      },
+
+      { "pack_licenses_label_light_line@settings_common.light_line_panel": {} },
+
+      {
+        "pack_licenses_title_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.licenses.title"
+        }
+      },
+      {
+        "pack_licenses_1_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.licenses.1"
+        }
+      },
+      {
+        "pack_licenses_2_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "global.pack_info.licenses.2"
+        }
+      }
+    ]
+  },
+
+
+  // Minecraft Info Settings Button & Section
+  "minecraft_info_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "minecraft_info_button_toggle",
+    "$glyph_texture": "textures/ui/minecraft_info_glyph",
+    "$glyph_color_texture": "textures/ui/minecraft_info_glyph_color",
+    "$glyph_size": [ 16, 16 ],
+    "$toggle_property_bag": {
+      "#panel_title": "options.minecraftInfo"
+    }
+  },
+    
+  "minecraft_info_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "minecraft_info_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "termsNConditions_label_header": {
+          "type": "label",
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "options.creditsHeader"
+        }
+      },
+
+      {
+        "ffTermsNConditions": {
+          "ignored": "($is_holographic or $fire_tv or not $thirdpartyconsole)",
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "terms_and_conditions_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or not $thirdpartyconsole)",
+          "$button_text": "options.termsAndConditions",
+          "bindings": [
+            {
+              "binding_name": "#terms_and_conditions_hyperlink",
+              "binding_name_override": "#hyperlink",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingTermsNConditionsPopUp": {
+          "ignored": "((not $is_holographic and not $fire_tv) or not $thirdpartyconsole)",
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "terms_and_conditions_content_popup_button@settings_common.action_button": {
+          "ignored": "((not $is_holographic and not $fire_tv) or not $thirdpartyconsole)",
+          "$pressed_button_name": "button.terms_and_conditions_popup",
+          "$button_text": "options.termsAndConditions"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingCreditsButton": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "credits_button@settings_common.action_button": {
+          "$pressed_button_name": "button.credits",
+          "$button_text": "options.credits"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingAttribution": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "attribution_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $education_edition_china)",
+          "$button_text": "options.attribution",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$attribution_button_url": "https://www.minecraft.net/attribution/?hideChrome"
+            },
+            {
+              "requires": "($nx_os)",
+              "$attribution_button_url": "https://aka.ms/switchattribution"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$attribution_button_url"
+          }
+        }
+      },
+      {
+        "attribution_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv)",
+          "$pressed_button_name": "button.attribution_popup",
+          "$button_text": "options.attribution"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingLicenses": {
+          "type": "panel",
+          "size": "$paddingLineDivider"
+        }
+      },
+
+      {
+        "dividerLicenses": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 14px" ],
+          "controls": [
+            {
+              "section_divider": {
+                "type": "image",
+                "size": [ "100% - 30px", 1 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 3,
+                "texture": "textures/ui/list_item_divider_line_light"
+              }
+            }
+          ]
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingLicensesAfter": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingLicensesHeader": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "licenses_label_header": {
+          "type": "label",
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "options.licenses"
+        }
+      },
+
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingLicensedContent": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "licensed_content_link_button@settings_common.link_button": {
+          "ignored": "($is_holographic or $fire_tv or $education_edition)",
+          "$button_text": "options.licensed_content",
+          "variables": [
+            {
+              "requires": "(not $nx_os)",
+              "$licensed_content_button_url": "https://www.minecraft.net/licensed-content/?hideChrome"
+            },
+            {
+              "requires": "($nx_os)",
+              "$licensed_content_button_url": "https://aka.ms/switchcontent"
+            }
+          ],
+          "property_bag": {
+            "#hyperlink": "$licensed_content_button_url"
+          }
+        }
+      },
+      {
+        "licensed_content_popup_button@settings_common.action_button": {
+          "ignored": "(not $is_holographic and not $fire_tv)",
+          "$pressed_button_name": "button.licensed_content_popup",
+          "$button_text": "options.licensed_content",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingFontLicense": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+
+      {
+        "font_license_popup_button@settings_common.action_button": {
+          "$pressed_button_name": "button.font_license_popup",
+          "$button_text": "options.font_license",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      {
+        "third_party_copyright_info_label_panel": {
+          "ignored": "(not $display_copyright_info)",
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "spacer_0": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "text": "thirdPartyConsole.copyright"
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "copyright_icon": {
+                "type": "image",
+                "size": [ 117, 41 ],
+                "texture": "textures/ui/third_party_copyright"
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "paddingContentLog": {
+          "type": "panel",
+          "size": "$paddingLineDivider"
+        }
+      },
+
+      {
+        "sectionDividerContentLog": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 14px" ],
+          "controls": [
+            {
+              "section_divider": {
+                "type": "image",
+                "size": [ "100% - 30px", 1 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 3,
+                "texture": "textures/ui/list_item_divider_line_light"
+              }
+            }
+          ]
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
+        "paddingSectionDividerContentLog": {
+          "type": "panel",
+          "size": "$paddingLineDivider"
+        }
+      },
+
+      {
+        "build_info_label_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "build_id_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#build_id",
+                "bindings": [
+                  {
+                    "binding_name": "#build_id"
+                  }
+                ]
+              }
+            },
+
+            // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+            {
+              "paddingVersionLabel": {
+                "type": "panel",
+                "size": "$spatialPatternsPadding"
+              }
+            },
+
+            {
+              "protocol_version_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#protocol_version",
+                "bindings": [
+                  {
+                    "binding_name": "#protocol_version"
+                  }
+                ]
+              }
+            },
+            {
+              "treatment_ids_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "size": [ "100%", "default" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#treatment_ids",
+                "bindings": [
+                  {
+                    "binding_name": "#treatment_ids"
+                  }
+                ]
+              }
+            },
+            {
+              "build_date_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#build_date",
+                "bindings": [
+                  {
+                    "binding_name": "#build_date"
+                  }
+                ]
+              }
+            },
+            {
+              "world_converter_label": {
+                "type": "label",
+                "color": "$body_text_color",
+                "offset": [ 2, 0 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#world_conversion_version",
+                "bindings": [
+                  {
+                    "binding_name": "#world_conversion_version"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "namespace": "custom_common",
+
+  //Type Base
+  "panel_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor"
+  },
+
+  "stack_panel_base": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "orientation": "horizontal" //horizontal or vertical
+  },
+
+  "image_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor"
+  },
+
+  "label_base": {
+    "type": "label",
+    "size": [ "default", "default" ],
+    "max_size": [ "default", "default" ],
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor"
+  },
+
+  "panel_in_stack_panel_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "max_size": [ "100%", "100%" ],
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "controls": [
+      {
+        "stack_panel@stack_panel_base": {
+          "size": "$in_size",
+          "orientation": "$in_orientation",
+          "$in_anchor|default": "center",
+          "anchor_from": "$in_anchor",
+          "anchor_to": "$in_anchor",
+          "controls": "$in_controls"
+        }
+      }
+    ]
+  },
+
+
+  //Color Background
+  "color_background_panel": {
+    "$panel_size|default": [ "100%", "100%" ],
+    "$panel_controls|default": [],
+    "$background_color|default": [ 0.05, 0.05, 0.05 ],
+    "type": "image",
+    "size": "$panel_size",
+    "layer": 10,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "texture": "textures/ui/White",
+    "color": "$background_color",
+    "controls": "$panel_controls"
+  },
+
+
+  //Light Line
+  "light_line_vertical_panel": {
+    "type": "panel",
+    "size": [ 20, "100%" ],
+    "$line_size|default": [ 2, "50%" ],
+    "$line_offset|default": [ 0, 0 ],
+    "$line_color|default": [ 1.0, 1.0, 1.0 ],
+    "controls": [
+      {
+        "section_divider": {
+          "type": "image",
+          "size": "$line_size",
+          "offset": "$line_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 3,
+          "color": "$line_color",
+          "texture": "textures/ui/light_line"
+        }
+      }
+    ]
+  },
+
+  "light_line_horizontal_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%c + 14px" ],
+    "$line_size|default": [ "100% - 30px", 2 ],
+    "$line_color|default": [ 1.0, 1.0, 1.0 ],
+    "controls": [
+      {
+        "section_divider": {
+          "type": "image",
+          "size": "$line_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 3,
+          "color": "$line_color",
+          "texture": "textures/ui/list_item_divider_line_light"
+        }
+      }
+    ]
+  },
+
+  "ore_line_horizontal_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "$line_size": [ "100%", 1 ],
+    "controls": [
+      { "top_divider@custom_common.light_line_horizontal_panel": { "size": [ "100%", "100%c" ], "$line_color": [ 0.1, 0.1, 0.1 ] } },
+      {
+        "bottom_divider_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            { "bottom_divider@custom_common.light_line_horizontal_panel": { "size": [ "99%", "100%c" ], "$line_color": [ 0.3, 0.3, 0.3 ] } }
+          ]		
+        }
+      }
+    ]
+  },
+
+
+  //Void Panel
+  "visible_void_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 2,
+    "$void_binding_name|default": "none",
+    "bindings": [
+      {
+        "binding_name": "$void_binding_name",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+
+  //Button Content
+  "button_text_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 2,
+    "$new_ui_label_offset|default": "$button_offset",
+    "controls": [
+      {
+        "text_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": "$new_ui_label_offset",
+          "controls": [
+            { "text": { "type": "label", "max_size": [ "100%", "100%" ], "text": "$button_text", "color": "$text_color", "text_alignment": "center", "offset": [ 0, -1 ] } }
+          ]		
+        }
+      }
+    ]
+  },
+
+  "button_image_text_content_panel": {
+    "type": "panel",
+    "size": [ "100%c", "100%" ],
+    "layer": 2,
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "$button_texture_size|default": [ "100%", "100%" ],
+    "$void_panel_size|default": [ 2, "100%" ],
+    "$image_offset|default": [ 0, 0 ],
+    "$new_ui_label_offset|default": "$button_offset",
+    "controls": [
+      {
+        "custom_image_text_stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%c", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": "$new_ui_label_offset",
+          "controls": [
+            {
+              "image_panel": {
+                "type": "panel",
+                "size": [ "100%y", "90%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  { "image": { "type": "image", "size": "$button_texture_size", "texture": "$button_texture", "color": "$button_texture_color", "offset": "$image_offset" } }
+                ]
+              } 
+            },
+            { "void": { "type": "panel", "size": "$void_panel_size" } },
+            {
+              "text_panel": { 
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  { "text": { "type": "label", "max_size": [ "default", "100%" ], "text": "$button_text", "color": "$text_color", "offset": [ 0, -1 ] } }
+                ]
+              } 
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "category_button_image_text_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 2,
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "$void_panel_size|default": [ 2, "100%" ],
+    "$image_offset|default": [ 0, 0 ],
+    "$new_ui_label_offset|default": "$button_offset",
+    "controls": [
+      {
+        "custom_image_text_stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100% - 20%", "100%" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": "$new_ui_label_offset",
+          "controls": [
+            { "image": { "type": "image", "size": [ 14, "90%" ], "texture": "$button_texture", "color": "$button_texture_color", "offset": "$image_offset" } },
+            { "void": { "type": "panel", "size": "$void_panel_size" } },
+            {
+              "text": { 
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  { "text": { "type": "label", "max_size": [ "default", "100%" ], "text": "$button_text", "color": "$text_color", "offset": [ 0, -1 ] } }
+                ]
+              } 
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "tab_button_content_panel@button_image_text_content_panel": {
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "$void_panel_size|default": [ 6, "100%" ],
+    "$image_offset|default": [ 0, 0 ],
+    "$new_ui_label_offset|default": "$button_offset"
+  },
+
+  "sub_tab_button_content_panel@category_button_image_text_content_panel": {
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "$void_panel_size|default": [ 6, "100%" ],
+    "$image_offset|default": [ 0, 0 ],
+    "$new_ui_label_offset|default": "$button_offset"
+  },
+
+
+  //Toggle Button
+  "toggle_button_control": {
+    "type": "panel",
+    "$image_size|default": [ 16, 16 ],
+    "size": "$image_size",
+    "layer": 2,
+    "controls": [
+      {
+        "tab_button_image": {
+          "type": "image",
+          "size": [ "100%", "100%" ],
+          "texture": "('textures/ui/icon/' + $icon_name)"
+        }
+      }
+    ]
+  },
+
+  "section_toggle_button@common_toggles.light_ui_toggle_collection": {
+    "$checked_control": "common_toggles.toggle_unchecked",
+    "$radio_toggle_group": true,
+    "$toggle_name": "navigation_tab",
+    "$toggle_group_default_selected": "$default_selector_toggle_index",
+
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+    "$toggle_on_hover_binding_type": "global",
+    "$toggle_on_hover_binding_name": "#toggle_on_hover",
+
+    "$toggle_property_bag": {
+      "#panel_title": "('custom.' + $section_topic + '.name')"
+    }
+  }
+}

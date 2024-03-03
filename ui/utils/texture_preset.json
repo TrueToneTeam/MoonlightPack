@@ -1,0 +1,167 @@
+{
+  "namespace": "texture_preset",
+
+  //Start Screen
+  "play_icon": {
+    "type": "image",
+    "texture": "textures/ui/controller_glyph_color",
+    "layer": 3,
+    "size": [ 20, 20 ],
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "texture": "textures/ui/controller_glyph",
+          "layer": 4,
+          "color": [ 0, 0, 0, 0 ],
+          "size": [ 20, 20 ]
+        }
+      }
+    ]
+  },
+
+  "gathering_icon": {
+    "type": "image",
+    "texture": "textures/ui/multiplayer_glyph_color",
+    "layer": 3,
+    "size": [ 20, 20 ],
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "texture": "textures/ui/multiplayer_glyph",
+          "layer": 4,
+          "color": [ 0, 0, 0, 0 ],
+          "size": [ 20, 20 ]
+        }
+      }
+    ]
+  },
+
+  "switch_accounts_icon": {
+    "type": "image",
+    "texture": "textures/ui/switch_accounts",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "buy_game_icon": {
+    "type": "image",
+    "texture": "textures/ui/icon_new",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "profile_icon": {
+    "type": "image",
+    "texture": "textures/ui/mashup_hangar",
+    "layer": 3,
+    "size": [ 22, 22 ]
+  },
+
+  "marketplace_icon": {
+    "type": "image",
+    "texture": "textures/ui/sidebar_icons/marketplace",
+    "size": [ 18, 18 ]
+  },
+
+  "settings_icon": {
+    "type": "image",
+    "texture": "textures/ui/settings_glyph_color_2x",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "user_icon": {
+    "type": "image",
+    "texture": "textures/ui/sidebar_icons/unowned_skins_icon",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "login_icon": {
+    "type": "image",
+    "texture": "textures/ui/login_icon",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "toolbox_mode_icon": {
+    "type": "image",
+    "texture": "textures/ui/debug_glyph_color",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "none_icon": {
+    "type": "image",
+    "texture": "textures/ui/icon_none",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "feedback_icon": {
+    "type": "image",
+    "texture": "textures/ui/Feedback",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "feedback_icon_edu": {
+    "type": "image",
+    "texture": "$feedback_texture",
+    "offset": [ -0.5, -0.5 ],
+    "size": [ 20, 20 ],
+    "layer": 3,
+
+    "$feedback_texture": "textures/ui/feedback",
+    "variables": [
+      {
+        "requires": "($hover_state or $pressed_state)",
+        "$feedback_texture": "textures/ui/feedback_hover"
+      }
+    ]
+  },
+
+  "invite_notification_icon": {
+    "type": "image",
+    "texture": "textures/ui/invite_base",
+    "size": [ 24, 24 ]
+  },
+
+  "achievements_icon": {
+    "type": "image",
+    "texture": "textures/ui/achievements",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+  "get_started_icon": {
+    "type": "image",
+    "texture": "textures/ui/glyph_world_template",
+    "layer": 3,
+    "size": [ 20, 20 ],
+    "color": [ 0.3, 0.3, 0.3 ]
+  },
+
+  "debug_icon": {
+    "type": "image",
+    "texture": "textures/ui/csb_faq_parrot",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
+
+  //Not Use
+  "ore_toggle_base@common_toggles.light_content_toggle": {
+    "$default_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$pressed_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_lightpressednohover",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$button_pressed_offset|default": [ 0, 2 ]
+  }
+}

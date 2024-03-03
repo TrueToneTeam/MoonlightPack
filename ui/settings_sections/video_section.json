@@ -1,0 +1,500 @@
+{
+  "namespace": "video_section",
+
+  // Video Settings Button & Section
+  "video_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "graphics_button_toggle",
+    "$glyph_texture": "textures/ui/video_glyph",
+    "$glyph_color_texture": "textures/ui/video_glyph_color",
+    "$glyph_size": [ 17, 17 ],
+    "$button_text": "optionsvideoTitle",
+    "$toggle_property_bag": {
+      "#panel_title": "options.videoTitle"
+    }
+  },
+    
+  "video_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "graphics_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "graphics_and_rendering_label_header": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "video_section.graphic_and_rendering_title"
+        }
+      },
+      {
+        "graphic_and_rendering_void": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "brightness_slider@settings_common.option_slider": {
+          "ignored": "($is_holographic)",
+          "$option_label": "#gamma_slider_label",
+          "$slider_name": "gamma",
+          "$slider_value_binding_name": "#gamma",
+          "$option_enabled_binding_name": "#gamma_enabled",
+          "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+          "$label_bindings": [
+            {
+              "binding_name": "#gamma_slider_label"
+            }
+          ]
+        }
+      },
+      {
+        "render_distance_slider@settings_common.option_slider": {
+          "ignored": "($is_holographic)",
+          "$option_label": "#render_distance_slider_label",
+          "$slider_name": "render_distance",
+          "$slider_value_binding_name": "#render_distance",
+          "$slider_tts_text_value": "#render_distance_text_value",
+          "$option_enabled_binding_name": "#render_distance_enabled",
+          "$slider_steps_binding_name": "#render_distance_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ],
+          "controls": [
+            { "render_distance_warning@general_section.render_distance_warning": {} },
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#show_render_distance",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "deferred_render_distance_slider@settings_common.option_slider": {
+          "ignored": "($is_holographic or not $new_video_settings)",
+          "$option_label": "#deferred_render_distance_slider_label",
+          "$slider_name": "deferred_render_distance",
+          "$slider_value_binding_name": "#deferred_render_distance",
+          "$slider_tts_text_value": "#deferred_render_distance_text_value",
+          "$option_enabled_binding_name": "#deferred_render_distance_enabled",
+          "$slider_steps_binding_name": "#deferred_render_distance_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ],
+          "controls": [
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#show_deferred_render_distance",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "render_distance_warning_text": {
+          "type": "panel",
+          "size": [ "100%", "100%cm + 16px" ],
+          "controls": [
+            {
+              "render_distance_popup@common.static_tooltip_popup_with_image_and_text": {
+                "size": [ "100% - 4px", "100%cm + 8px" ],
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "$tooltip_panel_offset": [ 0, 6 ],
+                "$tooltip_popup_image": "textures/ui/WarningGlyph",
+                "$tooltip_button_binding_type": "global",
+                "$tooltip_button_collection_name": "",
+                "$tooltip_popup_visible_binding": "#render_distance_warning_visible",
+                "$tooltip_text_binding_name": "#render_distance_performance_tooltip_text",
+                "$tooltip_chevron_anchor": "top_right",
+                "$tooltip_popup_chevron_offset": [ "-30%x", "-10px" ],
+                "$tooltip_popup_chevron_texture": "textures/ui/tooltip_inverted_chevron"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#render_distance_warning_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "msaa_slider@general_section.msaa_slider": {
+          "ignored": "$new_video_settings"
+        }
+      },
+      {
+		"particle_view_distance_slider@settings_common.option_slider": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "options.particleRenderDistance",
+          "$slider_name": "particle_view_distance",
+          "$slider_value_binding_name": "#particle_view_distance",
+          "$option_enabled_binding_name": "#particle_view_distance_enabled",
+		  "$slider_steps_binding_name": "#particle_view_distance_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "rendering_profile_option_slider@settings_common.option_slider": {
+          "ignored": true,
+          "$option_label": "#rendering_profile_slider_label",
+          "$slider_name": "rendering_profile",
+          "$slider_value_binding_name": "#rendering_profile",
+          "$slider_tts_text_value": "#rendering_profile_text_value",
+          "$option_enabled_binding_name": "#rendering_profile_slider_enabled",
+          "$slider_steps_binding_name": "#rendering_profile_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "render_clouds_toggle@settings_common.option_toggle": {
+          "$option_label": "options.renderClouds",
+          "$option_binding_name": "#render_clouds",
+          "$option_enabled_binding_name": "#fancy_skies",
+          "$toggle_name": "render_clouds"
+        }
+      },
+      {
+        "fancy_clouds_toggle@settings_common.option_toggle": {
+          "ignored": "($new_video_settings)",
+          "$option_label": "options.fancyskies",
+          "$option_binding_name": "#fancy_skies",
+          "$option_enabled_binding_name": "#fancy_skies_enabled",
+          "$toggle_name": "fancy_skies"
+        }
+      },
+      {
+        "fancy_bubbles_toggle@settings_common.option_toggle": {
+          "$option_label": "options.bubbleparticles",
+          "$option_binding_name": "#bubble_particles",
+          "$option_enabled_binding_name": "#bubble_particles_enabled",
+          "$toggle_name": "bubble_particles"
+        }
+      },
+      {
+        "fancy_leaves_toggle@settings_common.option_toggle": {
+          "ignored": "($pocket_edition or $education_ios or $is_holographic)",
+          "$option_label": "options.transparentleaves",
+          "$option_binding_name": "#transparent_leaves",
+          "$option_enabled_binding_name": "#transparent_leaves_enabled",
+          "$toggle_name": "transparent_leaves"
+        }
+      },
+      {
+        "smooth_lighting_toggle@settings_common.option_toggle": {
+          "ignored": "($is_holographic or $new_video_settings)",
+          "$option_label": "options.smooth_lighting",
+          "$option_binding_name": "#smooth_lighting",
+          "$option_enabled_binding_name": "#smooth_lighting_enabled",
+          "$toggle_name": "smooth_lighting"
+        }
+      },
+      {
+        "graphics_toggle@settings_common.option_toggle": {
+          "ignored": "($is_holographic or $new_video_settings)",
+          "$option_label": "options.graphics",
+          "$option_binding_name": "#graphics_toggle",
+          "$option_enabled_binding_name": "#graphics_toggle_enabled",
+          "$toggle_name": "graphics_toggle"
+        }
+      },
+      {
+        "texel_anti_aliasing_toggle@settings_common.option_toggle": {
+          "$option_label": "options.texelAA",
+          "$option_binding_name": "#texel_aa",
+          "$option_enabled_binding_name": "#texel_aa_enabled",
+          "$toggle_name": "texel_aa",
+          "bindings": [
+            {
+              "binding_name": "#show_texel_aa",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "advanced_video_options_toggle@settings_common.option_toggle": {
+          "$option_label": "options.advanced_video_options",
+          "$option_binding_name": "#advanced_video_options",
+          "$toggle_state_binding_name": "#advanced_video_options",
+          "$toggle_name": "advanced_video_options"
+        }
+      },
+      {
+        "upscaling_toggle@general_section.upscaling_toggle": {
+          "ignored": "$new_video_settings"
+        }
+      },
+      {
+        "raytracing_toggle@settings_common.option_toggle": {
+          "ignored": "($is_holographic or $new_video_settings)",
+          "$option_label": "options.raytracing",
+          "$option_binding_name": "#raytracing",
+          "$option_enabled_binding_name": "#raytracing_enabled",
+          "$toggle_name": "raytracing",
+          "controls": [
+            { "rtx_disabled_option_upsell@general_section.rtx_disabled_option_upsell": {} },
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ]
+        }
+      },
+      {
+        "raytracing_render_distance_slider@settings_common.option_slider": {
+          "ignored": "($is_holographic)",
+          "$option_label": "#raytracing_render_distance_slider_label",
+          "$slider_name": "raytracing_render_distance",
+          "$slider_value_binding_name": "#raytracing_render_distance",
+          "$slider_tts_text_value": "#raytracing_render_distance_text_value",
+          "$option_enabled_binding_name": "#raytracing_render_distance_enabled",
+          "$slider_steps_binding_name": "#raytracing_render_distance_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ],
+          "controls": [
+            { "rtx_render_distance_warning@general_section.rtx_render_distance_warning": {} },
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#show_raytracing_render_distance",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "advanced_graphics_options_panel": {
+          "ignored": "(not $new_video_settings)",
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%", "100%c + 4px" ],
+          "controls": [
+            {
+              "graphics_mode@settings_common.option_dropdown": {
+                "$option_label": "options.graphicsMode",
+                "$dropdown_content": "general_section.graphics_mode_dropdown_content",
+                "$dropdown_area": "content_area",
+                "$dropdown_name": "graphics_mode_dropdown",
+                "$option_enabled_binding_name": "#graphics_mode_dropdown_enabled",
+                "$options_dropdown_toggle_label_binding": "#graphics_mode_dropdown_toggle_label",
+                "$dropdown_scroll_content_size": [ "100%", "255%" ]
+              }
+            },
+            {
+              "advanced_graphics_options_button@common_buttons.light_content_button": {
+                "size": [ "100%", 20 ],
+                "$button_content": "general_section.advanced_graphics_options_button_content",
+                "$pressed_button_name": "button.expand_advanced_graphics"
+              }
+            },
+            {
+              "advanced_graphics_options_section@general_section.advanced_graphics_options_section": {
+                "bindings": [
+                  {
+                    "binding_name": "#advanced_graphics_options_grid_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+
+      {
+        "frame_light_line_panel@settings_common.light_line_panel": {}
+      },
+      {
+        "frame_label_header": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "video_section.frame_title"
+        }
+      },
+      {
+        "frame_void": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "max_framerate_slider@general_section.max_framerate_slider": {
+          "ignored": "($new_video_settings or $education_edition)"
+        }
+      },
+      {
+        "vsync_toggle@settings_common.option_toggle": {
+          "ignored": "(not$microsoft_os or not$vsync_video_setting)",
+          "$option_label": "options.vsync",
+          "$option_binding_name": "#vsync",
+          "$option_enabled_binding_name": "#vsync_enabled",
+          "$toggle_name": "vsync",
+          "layer": 1,
+          "controls": [
+            { "vsync_tooltip_option@general_section.vsync_tooltip_option": {} },
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ]
+        }
+      },
+      {
+        "option_toggle_improved_input_response@settings_common.option_toggle": {
+          "ignored": "(not $is_improve_input_response_platform_supported)",
+          "$option_label": "options.improvedInputResponsePlaceholder",
+          "$option_binding_name": "#improved_input_response_options",
+          "$option_enabled_binding_name": "#improved_input_response_options_enabled",
+          "$toggle_name": "improved_input_response_options",
+          "layer": 1,
+          "controls": [
+            { "improved_input_response_option@general_section.improved_input_response_option": {} },
+            { "option_generic_core@settings_common.option_generic_core": {} }
+          ]
+        }
+      },
+
+
+      {
+        "vr_light_line_panel@settings_common.light_line_panel": {
+          "ignored": "(not $is_holographic)"
+        }
+      },
+      {
+        "vr_label_header": {
+          "ignored": "(not $is_holographic)",
+          "type": "label",
+          "color": "$main_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "video_section.vr_title"
+        }
+      },
+      {
+        "vr_void": {
+          "ignored": "(not $is_holographic)",
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "vr_render_distance_slider@settings_common.option_slider": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "#vr_render_distance_slider_label",
+          "$slider_name": "vr_render_distance",
+          "$slider_value_binding_name": "#vr_render_distance",
+          "$slider_tts_text_value": "#vr_render_distance_text_value",
+          "$option_enabled_binding_name": "#vr_render_distance_enabled",
+          "$slider_steps_binding_name": "#vr_render_distance_steps",
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            }
+          ]
+        }
+      },
+      {
+        "vr_smooth_lighting_toggle@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "options.smooth_lighting",
+          "$option_binding_name": "#vr_smooth_lighting",
+          "$option_enabled_binding_name": "#vr_smooth_lighting_enabled",
+          "$toggle_name": "vr_smooth_lighting"
+        }
+      },
+      {
+        "vr_fancy_leaves_toggle@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "options.transparentleaves",
+          "$option_binding_name": "#vr_transparent_leaves",
+          "$option_enabled_binding_name": "#vr_transparent_leaves_enabled",
+          "$toggle_name": "vr_transparent_leaves"
+        }
+      },
+      {
+        "vr_3d_rendering@settings_common.option_toggle": {
+          "ignored": "(not $gear_vr or not $is_holographic)",
+          "$option_label": "options.3DRendering",
+          "$option_binding_name": "#vr_3d_rendering",
+          "$option_enabled_binding_name": "#vr_3d_rendering_enabled",
+          "$toggle_name": "vr_3d_rendering"
+        }
+      },
+      {
+        "vr_mirror_texture@settings_common.option_toggle": {
+          "ignored": "($gear_vr or $psvr or not $is_holographic)",
+          "$option_label": "options.vrMirrorTexture",
+          "$option_binding_name": "#vr_mirror_texture",
+          "$option_enabled_binding_name": "#vr_mirror_texture_enabled",
+          "$toggle_name": "vr_mirror_texture"
+        }
+      },
+      {
+        "vr_hand_pointer_visible@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic or not $supports_hand_controllers)",
+          "$option_label": "options.vrHandPointer",
+          "$option_binding_name": "#vr_hand_pointer",
+          "$option_enabled_binding_name": "#vr_hand_pointer_enabled",
+          "$toggle_name": "vr_hand_pointer"
+        }
+      },
+      {
+        "vr_hands_visible@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic or not $supports_hand_controllers)",
+          "$option_label": "options.vrHandsVisible",
+          "$option_binding_name": "#vr_hands_visible",
+          "$option_enabled_binding_name": "#vr_hands_visible_enabled",
+          "$toggle_name": "vr_hands_visible"
+        }
+      },
+      {
+        "reset_light_line_panel@settings_common.light_line_panel": {
+          "ignored": "(not $is_pregame)"
+        }
+      },
+      {
+        "reset_button@settings_common.action_button": {
+          "ignored": "(not $is_pregame)",
+          "$pressed_button_name": "button.reset_settings",
+          "$button_text": "options.resetSettings",
+          "property_bag": {
+            "reset_group": "video"
+          }
+        }
+      }
+    ]
+  }
+}

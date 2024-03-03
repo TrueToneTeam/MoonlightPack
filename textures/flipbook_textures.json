@@ -1,0 +1,123 @@
+[ 
+
+	{
+		"flipbook_texture":"textures/blocks/diamond_ore",
+		"atlas_tile":"diamond_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_diamond_ore",
+		"atlas_tile":"deepslate_diamond_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/gold_ore",
+		"atlas_tile":"gold_ore",
+		"ticks_per_frame":4
+	},
+	
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_gold_ore",
+		"atlas_tile":"deepslate_gold_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/emerald_ore",
+		"atlas_tile":"emerald_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_emerald_ore",
+		"atlas_tile":"deepslate_emerald_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/coal_ore",
+		"atlas_tile":"coal_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_coal_ore",
+		"atlas_tile":"deepslate_coal_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/redstone_ore",
+		"atlas_tile":"redstone_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_redstone_ore",
+		"atlas_tile":"deepslate_redstone_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/copper_ore",
+		"atlas_tile":"copper_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_copper_ore",
+		"atlas_tile":"deepslate_copper_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/iron_ore",
+		"atlas_tile":"iron_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_iron_ore",
+		"atlas_tile":"deepslate_iron_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/lapis_ore",
+		"atlas_tile":"lapis_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/deepslate/deepslate_lapis_ore",
+		"atlas_tile":"deepslate_lapis_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/ancient_debris_side",
+		"atlas_tile":"ancient_debris_side",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/ancient_debris_top",
+		"atlas_tile":"ancient_debris_top",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/nether_gold_ore",
+		"atlas_tile":"nether_gold_ore",
+		"ticks_per_frame":4
+	},
+
+	{
+		"flipbook_texture":"textures/blocks/quartz_ore",
+		"atlas_tile":"quartz_ore",
+		"ticks_per_frame":4
+	}
+
+]

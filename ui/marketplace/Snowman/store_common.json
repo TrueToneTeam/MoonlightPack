@@ -1,0 +1,117 @@
+{
+  "namespace": "common_store",
+
+  "promo_banner_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "promo_banner_panel_content": {
+          "type": "panel",
+          "size": [ "100% - 8px", "100%cm + 8px" ],
+          "controls": [
+            {
+              "banner_full_button@common.button": {
+                "size": [ "100%", "100%sm" ],
+                "layer": 3,
+                "$focus_id": "banner_full_button",
+                "$focus_override_down": "banner_button",
+                "$pressed_button_name": "button.promotion_page",
+                "bindings": [
+                  {
+                    "binding_name": "#promo_page_is_ready",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "controls": [
+                  { "default@common.empty_panel": {} },
+                  { "hover@common.empty_panel": {} },
+                  { "pressed@common.empty_panel": {} }
+                ]
+              }
+            },
+            {
+              "banner_image@common_store.promo_banner_image": {}
+            },
+            {
+              "banner_text_panel": {
+                "type": "stack_panel",
+                "orientation": "vertical",
+                "size": [ "40%", "fill" ],
+                "offset": [ 5, 5 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "layer": 2,
+                "controls": [
+                  {
+                    "banner_title@common_store.promo_banner_title": {}
+                  },
+                  {
+                    "banner_description": {
+                      "type": "label",
+                      "size": [ "100%", "default" ],
+                      "font_type": "smooth",
+                      "font_scale_factor": 0.8,
+                      "color": [ 0.40000, 1.00000, 0.20000 ],
+                      "text": "#banner_description_text",
+                      "bindings": [
+                        {
+                          "binding_name": "#banner_description_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "banner_button@common_buttons.light_content_button": {
+                "size": [ "100%c", 16 ],
+                "min_size": [ "40%", 16 ],
+                "max_size": [ "100%", 16 ],
+                "offset": [ 5, -8 ],
+                "anchor_from": "bottom_left",
+                "anchor_to": "bottom_left",
+                "$button_state_panel": "common_buttons.new_ui_width_fitting_button_panel",
+                "$button_type_panel": "common_buttons.width_fitting_button_content_panel",
+                "$button_content": "common_store.promo_banner_button_content",
+                "$button_size_override": [ "100%c + 8px", "100%" ],
+                "$anchor": "bottom_left",
+                "layer": 4,
+                "$focus_id": "banner_button",
+                "$focus_override_up": "banner_full_button",
+                "$pressed_button_name": "button.promotion_page",
+                "bindings": [
+                  {
+                    "binding_name": "#promo_page_is_ready",
+                    "binding_name_override": "#enabled"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "promo_banner_image": {
+    "type": "image",
+    "size": [ "100%", "17.689%x" ],
+    "texture": "textures/ui/MobileStaticSnowmanBanner",
+    "layer": 1,
+    "uv_size": [424,76]
+  },
+
+  "promo_banner_title@common.minecraftTenLabel": {
+    "size": [ "default", "default" ],
+    "color": [ 1.00000, 0.60000, 0.00000 ],
+    "text": "#banner_title_text",
+    "font_scale_factor": 1.2,
+    "bindings": [
+      {
+        "binding_name": "#banner_title_text"
+      }
+    ]
+  }
+}

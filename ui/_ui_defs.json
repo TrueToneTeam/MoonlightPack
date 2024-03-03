@@ -1,0 +1,15 @@
+{
+  "ui_defs": [
+    "ui/utils/glitch_label.json",
+    "ui/utils/minecraft_title.json",
+    "ui/utils/play_common.json",
+    "ui/utils/button_preset.json",
+    "ui/utils/button_content_preset.json",
+    "ui/utils/custom_common.json",
+    "ui/utils/texture_preset.json",
+
+    "ui/settings_sections/video_section.json",
+    "ui/settings_sections/view_section.json",
+    "ui/settings_sections/info_section.json"
+  ]
+}

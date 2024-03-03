@@ -1,0 +1,58 @@
+{
+  "namespace": "sign",
+
+  "sign_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "sign_edit_title": {
+          "type": "label",
+          "size": [ "100%", "12px" ],
+          "offset": [ 0, "10%" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text_alignment": "center",
+          "shadow": true,
+          "font_scale_factor": 1.2,
+          "text": "표지판 문구 편집"
+        }
+      },
+      {
+        "input_eating_panel": {
+          "type": "input_panel",
+          "layer": 2,
+          "size": [ "100%c", "100%c" ],
+          "focus_enabled": false,
+          // Ensure the entire text edit box is visible over the virtual keyboard
+          "$virtual_keyboard_buffer_control": "text_edit",
+          "controls": [
+            { "text_edit@$sign_text_multiline": {} }
+          ]
+        }
+      },
+      {
+        "invisible_exit_background": {
+          "type": "input_panel",
+          "layer": 1,
+          "size": [ "100%", "100%" ],
+          "focus_enabled": true,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            {
+              "binding_name": "#close_button_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_select",
+              "to_button_id": "button.menu_exit",
+              "mapping_type": "pressed"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

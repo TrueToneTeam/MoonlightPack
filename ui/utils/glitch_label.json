@@ -1,0 +1,81 @@
+{
+  "namespace": "glitch_label",
+  
+	//{
+	//	"test_glitch@glitch_label.glitch": {
+	//	  "$glitch_text_label": "TrueTone: ProtoType",
+	//	  "anchor_from": "top_left",
+	//	  "anchor_to": "top_left"
+	//	}
+	//  },
+  
+  "glitch": {
+    "type": "panel",
+    "size": [ 1000, 27 ],
+    "$glitch_text_label": "any text",
+    "controls": [
+      {
+        "glitch_pink_text@glitch_label.glitch_pink": {
+          "$glitch_text": "$glitch_text_label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 1
+        }
+      },
+      {
+        "glitch_lightblue_text@glitch_label.glitch_lightblue": {
+          "$glitch_text": "$glitch_text_label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 1
+        }
+      },
+      {
+        "glitch_white_text@glitch_label.glitch_white": {
+          "$glitch_text": "$glitch_text_label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2
+        }
+      }
+    ]
+  },
+  
+  "glitch_pink": {
+    "type": "label",
+    "offset": [ 1, 0.5 ],
+    "size": [ 1000, 10 ],
+    "$glitch_text": "$glitch_text_label",
+    "text": "(§o + $glitch_text)",
+    "color": [ 1.0, 0.0, 1.0 ],
+    "font_type": "MinecraftTen",
+    "shadow": false,
+    "anchor_from": "center",
+    "anchor_to": "center"
+  },
+  "glitch_lightblue": {
+    "type": "label",
+    "offset": [ -1, -0.5 ],
+    "size": [ 1000, 10 ],
+    "$glitch_text": "$glitch_text_label",
+    "text": "(§o + $glitch_text)",
+    "color": [ 0.0, 1.0, 1.0 ],
+    "font_type": "MinecraftTen",
+    "shadow": false,
+    "anchor_from": "center",
+    "anchor_to": "center"
+  },
+  "glitch_white": {
+    "type": "label",
+    "offset": [ 0, 0 ],
+    "size": [ 1000, 10 ],
+    "$glitch_text": "$glitch_text_label",
+    "text": "(§o + $glitch_text)",
+    "color": [ 1.0, 1.0, 1.0 ],
+    "font_type": "MinecraftTen",
+    "shadow": false,
+    "anchor_from": "center",
+    "anchor_to": "center"
+  }
+  
+}

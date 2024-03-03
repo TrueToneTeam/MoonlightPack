@@ -1,0 +1,52 @@
+{
+  "namespace": "disconnect",
+
+  "disconnect_screen_text": {
+    "type": "label",
+    "color": "$loading_text_color",
+    "size": [ "default", 100 ],
+    "max_size": [ "100% - 20px", 100 ],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "text_alignment": "center",
+    "font_scale_factor": 1.1,
+    "layer": 2,
+    "shadow": true
+  },
+
+  "button_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [ 0, "-20%" ],
+    "controls": [
+      {
+        "open_uri_button_panel": {
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "ignored": "$is_holographic",
+          "visible": false,
+          "bindings": [
+            {
+              "binding_name": "#open_uri_button_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            { "open_uri_button@disconnect.open_uri_button": {} }
+          ]
+        }
+      },
+      {
+        "open_button_panel": {
+          "type": "panel",
+          "size": [ "100%", 26 ],
+          "controls": [
+            { "ok_button@disconnect.ok_button": {} }
+          ]
+        }
+      }
+    ]
+  }
+}

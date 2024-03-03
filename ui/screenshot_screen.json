@@ -1,0 +1,151 @@
+{
+  "namespace": "screenshot",
+
+  "white_banner": {
+    "type": "image",
+    "texture": "textures/ui/White",
+	"color": [ 0.6, 0.6, 0.6, 0.8 ]
+  },
+
+  "new_content_panel": {
+    "type": "panel",
+    "$panel_size|default": [ "300px + 1.5%", "225px + 3%" ],
+    "$offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "$microsoft_os",
+        "$panel_size": [ "300px + 6.5%", "225px + 8%" ],
+        "$offset": [ 0, 0 ]
+      },
+      {
+        "requires": "$apple_os",
+        "$panel_size": [ "300px - 2.5%", "225px - 4%" ],
+        "$offset": [ 0, -15 ]
+      },
+      {
+        "requires": "$google_os",
+        "$panel_size": [ "300px - 2.5%", "225px - 4%" ],
+        "$offset": [ 0, -15 ]
+      }
+    ],
+    "size": "$panel_size",
+    "offset": "$offset",
+    "controls": [      
+      { "popup_dialog_bg@feed_common.popup_dialog_bg": {} },
+      {
+        "popup_content": {
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 1,
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "new_post_dialog_header@screenshot.new_post_dialog_header": {
+                "size": [ "100%", "10%" ]
+              }
+            },
+            {
+              "new_post_share_post@screenshot.new_post_share_post": {
+                "size": [ "100%", "15%" ],
+                "offset": [ 0, "10%" ]
+              }
+            },
+            {
+              "screenshot_image@screenshot.screenshot_image": {
+                "size": [ "100%", "75%" ],
+                "offset": [ 0, "25%" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "save_location_text_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$save_location_text|default": "",
+    "variables": [
+      {
+        "requires": "$microsoft_os",
+        "$save_location_text": "screenshot.save_path.windows"
+      },
+      {
+        "requires": "$apple_os",
+        "$save_location_text": "screenshot.save_path.ios"
+      },
+      {
+        "requires": "$google_os",
+        "$save_location_text": "screenshot.save_path.android"
+      }
+    ],
+    "controls": [
+      {
+        "save_location": {
+          "type": "label",
+          "max_size": [ "70%", "100%" ],
+          "offset": [ 0, "-4%" ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "$save_location_text",
+          "text_alignment": "center",
+          "font_type": "smooth"
+        }
+      }
+    ]
+  },
+
+  "screenshot_screen@common.base_screen": {
+    "cache_screen": true,
+
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "$default_text_color": "$light_button_default_text_color",
+    "$screen_content": "screenshot.screenshot_screen_content",
+    "$is_full_screen_layout": true
+  },
+
+  "screenshot_screen_content@common.common_panel": {
+    "type": "panel",
+    "controls": [
+      //{ "transparent_background@feed_common.transparent_background": {} },
+      { "screenshot_flash@screenshot.screenshot_flash_image": {} },
+      { "gamepad_helpers@feed_common.gamepad_helpers": {} },
+      { "new_content_panel@screenshot.new_content_panel": {} }, //Luna Added.
+      { "save_location_text_panel@screenshot.save_location_text_panel": {} } //Luna Added.
+    ]
+  }
+}

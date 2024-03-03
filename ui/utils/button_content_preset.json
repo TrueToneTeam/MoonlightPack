@@ -1,0 +1,187 @@
+{
+  "namespace": "button_content_preset",
+
+  // Other Content
+  "image_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+    ]
+  },
+
+  "image_text_content_panel": {
+    "type": "stack_panel",
+    "size": [ "100%c", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "image_panel@custom_common.panel_base": {
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+          ]
+        }
+      },
+      { "void_panel@custom_common.panel_base": { "size": [ 4, "100%" ] } },
+      {
+        "text_panel@custom_common.panel_base": {
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            { "text": { "type": "label", "size": [ "default", "default" ], "max_size": [ "fill", "100%" ], "text": "$text", "text_alignment": "center", "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // Orientation Content
+  "orientation_content_panel_base": {
+    "type": "panel",
+    "size": "$panel_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": "$panel_controls"
+  },
+
+  "vertical_image_text_content_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$content_panel_size|default": [ "100%", "100%" ],
+    "$new_ui_label_offset|default": "$button_offset",
+    "offset": "$new_ui_label_offset",
+    "controls": [
+      {
+        "panel": {
+          "type": "panel",
+          "size": "$content_panel_size",
+          "controls": [
+            {
+              "button_content_stack_panel": {
+                "type": "stack_panel",
+                "size": "$content_panel_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "icon_panel@play_common.orientation_content_panel_base": {
+                      "$panel_size": [ "100%", "60%" ],
+                      "$panel_controls": [
+                        { "icon": { "layer": 5, "type": "image", "size": [ "80%", "80%" ], "texture": "$content_image", "anchor_from": "center", "anchor_to": "center" } }
+                      ]
+                    }
+                  },
+                  { "void_panel": { "type": "panel", "size": [ "100%", 4 ] } },
+                  {
+                    "title_panel@play_common.orientation_content_panel_base": {
+                      "$panel_size": [ "100%", "100%c" ],
+                      "$panel_controls": [
+                        { "title": { "layer": 5, "type": "label", "size": [ "100%", "default" ], "max_size": [ "85%", "default" ], "text": "$content_title", "text_alignment": "center", "font_type": "smooth", "font_scale_factor": 1.5, "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+                      ]
+                    }
+                  },
+                  {
+                    "lore_panel@play_common.orientation_content_panel_base": {
+                      "$panel_size": [ "100%", "fill" ],
+                      "$panel_controls": [
+                        { "lore": { "layer": 5, "type": "label", "size": [ "100%", "100%" ], "max_size": [ "85%", "100%" ], "text": "$content_lore", "text_alignment": "center", "font_type": "smooth", "font_scale_factor": 1.0, "color": "$text_color", "anchor_from": "top_middle", "anchor_to": "top_middle" } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "horizontal_image_text_content_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$content_panel_size|default": [ "100%", "100%" ],
+    "$new_ui_label_offset|default": "$button_offset",
+    "offset": "$new_ui_label_offset",
+    "controls": [
+      {
+        "content_panel": {
+          "type": "panel",
+          "size": "$content_panel_size",
+          "controls": [
+            {
+              "button_content_stack_panel": {
+                "type": "stack_panel",
+                "size": "$content_panel_size",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "icon_panel@play_common.orientation_content_panel_base": {
+                      "$panel_size": [ "40%", "100%" ],
+                      "$panel_controls": [
+                        { "icon": { "layer": 5, "type": "image", "size": [ "70%", "70%" ], "texture": "$content_image", "anchor_from": "center", "anchor_to": "center" } }
+                      ]
+                    }
+                  },
+                  { "void_panel": { "type": "panel", "size": [ 2, "100%" ] } },
+                  {
+                    "title_lore_panel@play_common.orientation_content_panel_base": {
+                      "$panel_size": [ "fill", "100%" ],
+                      "$panel_controls": [
+                        {
+                          "title_and_lore_panel": {
+                            "type": "stack_panel",
+                            "size": [ "90%", "100%c" ],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "controls": [
+                              {
+                                "title_panel@play_common.orientation_content_panel_base": {
+                                  "$panel_size": [ "100%", "100%c + 6px" ],
+                                  "$panel_controls": [
+                                    { "title": { "layer": 5, "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$content_title", "text_alignment": "center", "font_type": "smooth", "font_scale_factor": 1.2, "color": "$text_color", "anchor_from": "center", "anchor_to": "center" } }
+                                  ]
+                                }
+                              },
+                              {
+                                "lore_panel@play_common.orientation_content_panel_base": {
+                                  "$panel_size": [ "100%", "100%c" ],
+                                  "$panel_controls": [
+                                    { "lore": { "layer": 5, "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$content_lore", "text_alignment": "center", "font_type": "smooth", "font_scale_factor": 0.8, "color": "$text_color", "anchor_from": "top_middle", "anchor_to": "top_middle" } }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "ore_toggle_base@common_toggles.light_content_toggle": {
+    "$default_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$pressed_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_no_hover_texture": "textures/ui/ore/button_borderless_lightpressednohover",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$button_pressed_offset|default": [ 0, 2 ]
+  }
+}

@@ -1,0 +1,333 @@
+ /********************************************************
++*   (c) Mojang. All rights reserved                      *
++*   (c) Microsoft. All rights reserved.                  *
++*********************************************************/
+
+{
+  "namespace": "npc_interact",
+
+  "student_message_bubble": {
+    "type": "panel",
+    "texture": "textures/ui/empty",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "dialog_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "$virtual_keyboard_buffer_control": "text_scroll",
+          "$custom_color": [ 1, 1, 1 ],
+          "controls": [
+            { "text_scroll@npc_interact.text_scroll": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "new_student_button@common.empty_panel": {
+    "size": [ "100%", 20 ],
+    "controls": [
+      {
+        "button@common_buttons.light_text_button": {
+          "$button_type_panel": "npc_interact.student_button_label_panel",
+          "$pressed_button_name": "button.student_button",
+          "layer": 4,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "student_buttons_collection",
+              "binding_collection_prefix": "student_buttons"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#student_button_visible",
+        "binding_type": "collection",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "student_buttons_collection"
+      }
+    ]
+  },
+
+  "new_student_buttons@custom_common.image_base": {
+    "size": [ "100%", "100%c" ],
+    "texture": "textures/ui/hud_text_background_white",
+    "color": [ 0.694, 0.376, 0.616 ],
+    "controls": [
+      {
+        "buttons": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          // A bit bigger than 100% so edges line up with other ui, as the buttons are -2px smaller for padding
+          "size": [ "30% + 2px", "200%c" ],
+          "offset": [ 0, -20 ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "controls": [
+            {
+              "actions": {
+                "type": "grid",
+                "size": [ "100%", "default" ],
+                "grid_item_template": "npc_interact.new_student_button",
+                "grid_dimension_binding": "#student_button_grid_dimensions",
+                "collection_name": "student_buttons_collection",
+                "bindings": [
+                  {
+                    "binding_name": "#student_button_grid_dimensions"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "student_message_section@common.empty_panel": {
+    "size": [ "100%", 80 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "message@npc_interact.student_message_bubble": {}
+      }
+    ]
+  },
+
+  "npc_message@npc_interact.multiline_text_edit_control": {
+    "$enabled": true,
+    "size": [ "100%", "100%cm" ],
+    "enabled": "$enabled",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$custom_color|default": "$npc_dialog_text_color",
+    "$text_background_default": "npc_interact.edit_box_background",
+    "$text_background_hover": "npc_interact.edit_box_background",
+    "$text_box_text_color": "$custom_color",
+    "$text_box_name": "student_message_bubble",
+    "$text_edit_box_content_binding_name": "#dialogtext",
+    "$color": "$custom_color",
+    "$disabled_alpha": 1,
+    "max_length": 1000,
+    "constrain_to_rect": false,
+    "$text_edit_box_placeholder_content_binding_name": "#placeholder_dialog_text",
+    "$text_alpha": 1,
+    "$locked_text_alpha": "$disabled_alpha",
+    "$locked_color": "$color",
+    "variables": [
+      {
+        // Clear placeholder text for non-worldbuilders so they don't see "add text here" when they don't have permission to add text
+        "requires": "(not $is_worldbuilder)",
+        "$place_holder_text": "",
+        "$enabled": false
+      }
+    ],
+    // Clear enabled binding, we're using a variable
+    "bindings": [
+    ],
+    "locked_control": "background",
+    "default_control": "background",
+    "hover_control": "background",
+    "pressed_control": "background",
+    "text_control": "label",
+    "place_holder_control": "place_holder",
+    "controls": [
+      {
+        "label@common.text_edit_box_label": {
+          "layer": 1,
+          "size": [ "100%", "default" ],
+          "$text_alignment": "center",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "visibility_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "controls": [
+            {
+              "place_holder@common.text_edit_box_place_holder_label": {
+                "layer": 1,
+                "size": [ "100%", "default" ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ],
+
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "label",
+              "source_property_name": "(#item_name = '')",
+              "target_property_name": "#visible",
+              "resolve_sibling_scope": true
+            }
+          ]
+        }
+      },
+      { "background@common.empty_panel": { "size": [ "100%", "100%sm" ] } }
+    ]
+  },
+
+  "student_stack_panel@npc_interact.main_stack_panel": {
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      { "buttons@npc_interact.new_student_buttons": { "anchor_from": "top_right", "anchor_to": "top_right" } },
+      {
+        "npc_message": {
+          "type": "image",
+          "size": [ "100%", "100%c" ],
+          "texture": "textures/ui/White",
+          "color": [ 0, 0, 0 ],
+          "alpha": 0.7,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "stack_panel": {
+                "type": "stack_panel",
+                "size": [ "90%", "100%c" ],
+                "orientation": "vertical",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "title_panel": {
+                      "type": "panel",
+                      "size": [ "100%", 16 ],
+                      "controls": [
+                        { "title@common_dialogs.standard_title_label": { "size": [ "100%", "default" ], "$text_name": "#title_text", "text_alignment": "center", "color": [ 0.871, 0.694, 0.176 ], "anchor_from": "center", "anchor_to": "center" } }
+                      ]
+                    }
+                  },
+                  { "light_line_horizontal@custom_common.light_line_horizontal_panel": { "size": [ "100%", 2 ], "$line_size": [ "60%", 2 ], "$line_color": [ 0.871, 0.694, 0.176 ] } },
+                  { "message@npc_interact.student_message_section": {} },
+                  { "message_pad@common.empty_panel": { "size": [ "100%", 4 ] } }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "student_view_content": {
+    // Arbitrary type, just want to group all advanced controls together
+    "type": "panel",
+    "size": [ "100%", "100%cm" ],
+    "controls": [
+      { "student@npc_interact.student_stack_panel": {} },
+      {
+        "close@npc_interact.close_button_holder": {
+          "offest": [ "-5%", 0 ],
+          "$close_button_to_button_id": "button.exit_student"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#student_view_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "npc_screen_contents": {
+    "type": "panel",
+    "controls": [
+      {
+        // Teacher window containing basic and advanced editing screens
+        "teacher@npc_interact.root_panel": {
+          "$child_control": "npc_interact.main_content",
+          "bindings": [
+            {
+              "binding_name": "#teacher_view_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+      /*{
+        // Student view is form fitting because there could be any amount of student buttons and we don't want dead space
+        "student@common_dialogs.form_fitting_main_panel_no_buttons": {
+          "$panel_size": [ 320, "100%cm" ],
+          "size": "$panel_size",
+          "$child_control": "npc_interact.student_view_content",
+          "$title_panel": "common_dialogs.standard_title_label",
+          "$text_name": "#title_text",
+          "$title_text_binding_type": "global",
+          // Don't show default close button, we want our own
+          "$show_close_button": false,
+          "$custom_background": "common_dialogs.dialog_background_opaque_with_child",
+          "bindings": [
+            {
+              "binding_name": "#student_view_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },*/
+      {
+        // Student view is form fitting because there could be any amount of student buttons and we don't want dead space
+        "student_genshin_impact": {
+          "type": "stack_panel",
+          "$panel_size": [ "100%", "100%c" ],
+          "size": "$panel_size",
+          "orientation": "vertical",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "$text_name": "#title_text",
+          "$title_text_binding_type": "global",
+          "$custom_background": "common_dialogs.dialog_background_opaque_with_child",
+          "controls": [
+            {
+              "screen@npc_interact.student_view_content": {}
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#student_view_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+      {
+        "npc_screen_close@npc_interact.close_text": {
+          "anchor_to": "bottom_left",
+          "anchor_from": "bottom_left",
+          "offset": [ 20, 0 ]
+        }
+      }
+    ]
+  },
+
+  "npc_screen@common.base_screen": {
+    "type": "screen",
+    "$screen_content": "npc_interact.npc_screen_contents",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_exit",
+        "to_button_id": "button.menu_continue",
+        "mapping_type": "global"
+      }
+    ]
+  }
+}
