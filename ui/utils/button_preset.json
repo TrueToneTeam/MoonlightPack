@@ -1,6 +1,50 @@
 {
   "namespace": "button_preset",
 
+  //Button
+  "ore_button_base@common_buttons.light_text_button": {
+    "$default_button_texture": "textures/ui/ore/button_borderless_light",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+    "$button_text_max_size": [ "100%", "100%" ],
+    "$default_text_color": "$light_button_default_text_color",
+    "$hover_text_color": "$light_button_default_text_color",
+    "$pressed_text_color": "$light_button_default_text_color",
+    "$locked_text_color": "$light_button_hover_text_color",
+
+    "$border_visible": false,
+
+    "$button_pressed_offset|default": [ 0, 2 ]
+  },
+
+  "color_ore_button@button_preset.light_ore_button": {
+    "$image_color|default": [ 0.89, 0.831, 0.82 ],
+    "$button_image_color": "$image_color"
+  },
+
+  "light_ore_button@button_preset.ore_button_base": {
+    "$font_type|default": "default",
+    "$button_font_scale_factor|default": 1.0
+  },
+
+  "green_ore_button@button_preset.ore_button_base": {
+    "$default_button_texture": "textures/ui/ore/button_borderless_green",
+    "$hover_button_texture": "textures/ui/ore/button_borderless_greenhover",
+    "$pressed_button_texture": "textures/ui/ore/button_borderless_greenpressed",
+
+    "sound_name": "click_on.ore_button_click",
+
+    "$font_type|default": "default",
+    "$button_font_scale_factor|default": 1.0,
+
+    "$default_text_color": "$light_button_hover_text_color",
+    "$hover_text_color": "$light_button_hover_text_color",
+    "$pressed_text_color": "$light_button_hover_text_color"
+  },
+
+
   //Toggle
   "ore_toggle_base@common_toggles.light_content_toggle": {
     "$default_texture": "textures/ui/ore/button_borderless_light",
@@ -125,50 +169,19 @@
     "$button_pressed_offset|default": [ 0, 0 ]
   },
 
-
-  //Button
-  "ore_button_base@common_buttons.light_content_button": {
+  "ore_icon_button@button_preset.icon_button_base": {
     "$default_button_texture": "textures/ui/ore/button_borderless_light",
     "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
     "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
-
-    "$default_state_border_visible": false,
-    "$hover_state_border_visible": false,
-    "$pressed_state_border_visible": false,
-    "$locked_state_border_visible": false,
+    "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
 
     "$button_pressed_offset|default": [ 0, 2 ]
   },
 
-  "color_ore_button@button_preset.light_ore_button": {
-    "$image_color|default": [ 0.89, 0.831, 0.82 ],
-    "$button_image_color": "$image_color"
-  },
-
-  "light_ore_button@button_preset.ore_button_base": {
-    "$button_type_panel|default": "custom_common.button_text_content_panel",
-
-    "$font_type": "MinecraftTen",
-    "$button_font_scale_factor": 1.0,
-
-    "$light_button_hover_text_color": [ 0.3, 0.3, 0.3 ],
-    "$light_button_pressed_text_color": [ 0.3, 0.3, 0.3 ]
-  },
-
-  "green_ore_button@button_preset.ore_button_base": {
-    "$button_type_panel|default": "custom_common.button_text_content_panel",
-
-    "$default_button_texture": "textures/ui/ore/button_borderless_green",
-    "$hover_button_texture": "textures/ui/ore/button_borderless_greenhover",
-    "$pressed_button_texture": "textures/ui/ore/button_borderless_greenpressed",
-
-    "sound_name": "click_on.ore_button_click",
-
-    "$font_type": "MinecraftTen",
-    "$button_font_scale_factor": 1.0,
-
-    "$default_text_color": [ 1.0, 1.0, 1.0 ],
-    "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
-    "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ]
+  "transparent_icon_button@button_preset.icon_button_base": {
+    "$default_button_texture": "textures/ui/empty",
+    "$hover_button_texture": "textures/ui/gray_transparent",
+    "$pressed_button_texture": "textures/ui/gray_transparent",
+    "$locked_button_texture": "textures/ui/empty"
   }
 }

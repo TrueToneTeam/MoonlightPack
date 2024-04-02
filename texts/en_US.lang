@@ -2,12 +2,17 @@
 global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name=Pack Name: §pMoonlight Pack	#
-global.pack_info.made_by=Mader: §dNeroLuna §fwith §7 TrueToneTeam	#
-global.pack_info.editor=Editor: [ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.build=Build: §cBETA	#
-global.pack_info.version=Pack Version: §bv0.0.1	#
-global.pack_info.url=Homepage: §etruetoneteam.kro.kr	#
+global.pack_info.name.title=Pack Name:	#
+global.pack_info.name=§pMoonlight Pack	#
+global.pack_info.made_by.title=Made By:	#
+global.pack_info.made_by=§dNeroLuna	#
+global.pack_info.made_by.team=§7Moonlight Team(TrueToneTeam)	#
+global.pack_info.editor.title=Editor:	#
+global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
+global.pack_info.build.title=Build:	#
+global.pack_info.base_version.title=Pack Version:	#
+global.pack_info.url.title=Homepage:	#
+global.pack_info.url=§etruetoneteam.kro.kr	#
 global.pack_info.licenses.title=Licenses:	#
 global.pack_info.licenses.1= * The resource pack is an open-source project by the Moonlight Team (TrueToneTeam) that can be modified and redistributed by anyone.	#
 global.pack_info.licenses.2= * However, the contents of the tab and the display of the original creator and team name cannot be modified or removed. Secondary modifiers can be distributed by adding a name to the Modifier item.	#
@@ -39,6 +44,7 @@ controls_section.hotbar_title=Hotbar	#
 video_section.frame_title=Frame	#
 video_section.graphic_and_rendering_title=Graphic & Rendering	#
 video_section.vr_title=VR	#
+video_section.render_dragon_title=Render Dragon	#
 
 view_section.play_title=Play	#
 view_section.uiAgui_title=UI & GUI	#
@@ -54,6 +60,8 @@ world_section.experimental_title=Experimental	#
 
 settingScreen.etc=ETC	#
 settingScreen.etcTitle=ETC Setting	#
+etc_section.beta.title=Beta	#
+etc_section.beta.info=Beta	#
 
 settingScreen.network=Network	#
 settingScreen.networkTitle=Network Setting	#

@@ -41,53 +41,60 @@
           "text": "global.pack.name"
         }
       },
+      {
+        "void_panel": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
 
       {
-        "pack_name_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.name"
+        "pack_name_label@info_text_base": {
+          "$title_text": "global.pack_info.name.title",
+          "$data_text": "global.pack_info.name"
         }
       },
       {
-        "pack_build_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.build"
+        "pack_build_label@info_text_base": {
+          "$title_text": "global.pack_info.build.title",
+          "$data_text": "Alpha",
+          "$data_text_color": [ 0.882, 0.816, 0.969 ]
+          //Alpha Build Color: [ 0.882, 0.816, 0.969 ]
+          //Preview Build Color: [ 0.412, 1, 0.192 ]
+          //BETA Build Color: [ 0.969, 0.306, 0.424 ]
         }
       },
       {
-        "pack_version_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.version"
+        "pack_base_version_label@info_text_base": {
+          "$title_text": "global.pack_info.base_version.title",
+          "$data_text": "v1",
+          "$data_text_color": [ 0.043, 0.984, 0.953 ]
         }
       },
       {
-        "pack_made_by_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.made_by"
+        "pack_made_by_label@info_text_base": {
+          "$title_text": "global.pack_info.made_by.title",
+          "$data_texts": [
+            { "made_by@data_label_base": { "$data_text": "global.pack_info.made_by", "$data_text_color": [ 0.827, 0.592, 0.831 ] } },
+            { "made_by_team@data_label_base": { "$data_text": "global.pack_info.made_by.team", "$data_text_color": [ 0.337, 0.694, 0.78 ] } }
+          ]
         }
       },
       {
-        "pack_url_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.url"
+        "pack_url_label@info_text_base": {
+          "$title_text": "global.pack_info.url.title",
+          "$data_text": "global.pack_info.url"
         }
       },
       {
-        "pack_editor_label": {
+        "pack_editor_label@info_text_base": {
           "visible": false,
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.editor"
+          "$title_text": "global.pack_info.editor.title",
+          "$data_text": "global.pack_info.editor"
         }
       },
 
       { "pack_licenses_label_light_line@settings_common.light_line_panel": {} },
-
       {
         "pack_licenses_title_label": {
           "type": "label",
@@ -112,6 +119,64 @@
     ]
   },
 
+  "info_text_base": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$title_text|default": "unknow",
+    "$data_text|default": "unknow",
+    "$data_text_color|default": [ 1.0, 1.0, 1.0 ],
+    "controls": [
+      {
+        "title_label": {
+          "type": "label",
+          "max_size": [ "100%", "default" ],
+          "text": "$title_text",
+          "font_scale_factor": 1.3
+        }
+      },
+      {
+        "data_label": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "$data_texts|default": [
+            { "data_label@data_label_base": { "text": "$data_text", "color": "$data_text_color" } }
+          ],
+          "controls": "$data_texts"
+        }
+      },
+      {
+        "void_panel": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      }
+    ]
+  },
+
+  "data_label_base": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "size": [ "100% - 6px", "default" ],
+          "max_size": [ "100% - 6px", "default" ],
+          "offset": [ 6, 0 ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$data_text_color",
+          "text": "$data_text",
+          "text_alignment": "left"
+        }
+      }
+    ]
+  },
+
 
   // Minecraft Info Settings Button & Section
   "minecraft_info_button@settings_common.section_toggle_base": {
@@ -123,7 +188,7 @@
       "#panel_title": "options.minecraftInfo"
     }
   },
-    
+
   "minecraft_info_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
@@ -139,7 +204,143 @@
         "target_property_name": "#visible"
       }
     ],
+    "$minecraft_logo_texture|default": "textures/ui/minecraft_logo",
+    "$minecraft_edition_text|default": "Minecraft",
+    "variables": [
+      {
+        "requires": "($pre_release and not $google_os)",
+        "$minecraft_logo_texture": "textures/ui/minecraft_preview_logo",
+        "$minecraft_edition_text": "Minecraft Preview"
+      },
+      {
+        "requires": "($pre_release and $google_os)",
+        "$minecraft_logo_texture": "textures/ui/minecraft_preview_logo",
+        "$minecraft_edition_text": "Minecraft Beta"
+      }
+    ],
     "controls": [
+      {
+        "minecraft_info_stack_panel@custom_common.stack_panel_base": {
+          "size": [ "100%", 60 ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "logo_panel@custom_common.panel_base": {
+                "size": [ "100%y", "100%" ],
+                "controls": [
+                  {
+                    "logo@custom_common.image_base": {
+                      "size": [ "90%", "90%" ],
+                      "texture": "$minecraft_logo_texture"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "other_stack_panel@custom_common.stack_panel_base": {
+                "size": [ "fill", "100%" ],
+                "orientation": "vertical",
+                "controls": [
+                  { "start_void_panel@custom_common.panel_base": { "size": [ "100%", "fill" ] } },
+                  {
+                    "edition_text_panel@custom_common.panel_base": {
+                      "size": [ "100%", "100%c" ],
+                      "controls": [
+                        {
+                          "edition_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "$minecraft_edition_text",
+                            "text_alignment": "left",
+                            "font_type": "MinecraftTen",
+                            "font_scale_factor": 1.5
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "version_info_text_stack_panel@custom_common.stack_panel_base": {
+                      "size": [ "100%", "100%c" ],
+                      "orientation": "vertical",
+                      "controls": [
+                        {
+                          "version_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "#version",
+                            "text_alignment": "left",
+                            "font_type": "smooth",
+                            "color": [ 0.7, 0.7, 0.7 ],
+                            "bindings": [
+                              {
+                                "binding_name": "#version"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "protocol_text@custom_common.label_base": {
+                            "size": [ "100%", "default" ],
+                            "max_size": [ "100%", "default" ],
+                            "text": "#protocol_version",
+                            "text_alignment": "left",
+                            "font_type": "smooth",
+                            "color": [ 0.7, 0.7, 0.7 ],
+                            "bindings": [
+                              {
+                                "binding_name": "#protocol_version"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "end_void_panel@custom_common.panel_base": { "size": [ "100%", "fill" ] } }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+      { "minecraft_build_info_void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
+
+      {
+        "build_id_text@custom_common.label_base": {
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#build_id",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#build_id"
+            }
+          ]
+        }
+      },
+      {
+        "build_date_text@custom_common.label_base": {
+          "visible": false,
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#build_date",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#build_date"
+            }
+          ]
+        }
+      },
+
+      { "termsNConditions_light_line_panel@settings_common.light_line_panel": {} },
       {
         "termsNConditions_label_header": {
           "type": "label",
@@ -215,7 +416,7 @@
 
       {
         "attribution_link_button@settings_common.link_button": {
-          "ignored": "($is_holographic or $fire_tv or $education_edition_china)",
+          "ignored": "($is_holographic or $fire_tv)",
           "$button_text": "options.attribution",
           "variables": [
             {
@@ -240,49 +441,7 @@
         }
       },
 
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingLicenses": {
-          "type": "panel",
-          "size": "$paddingLineDivider"
-        }
-      },
-
-      {
-        "dividerLicenses": {
-          "type": "panel",
-          "size": [ "100%", "100%c + 14px" ],
-          "controls": [
-            {
-              "section_divider": {
-                "type": "image",
-                "size": [ "100% - 30px", 1 ],
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 3,
-                "texture": "textures/ui/list_item_divider_line_light"
-              }
-            }
-          ]
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingLicensesAfter": {
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingLicensesHeader": {
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
+      { "dividerLicenses@settings_common.light_line_panel": {} },
       {
         "licenses_label_header": {
           "type": "label",
@@ -383,86 +542,15 @@
         }
       },
 
-      {
-        "paddingContentLog": {
-          "type": "panel",
-          "size": "$paddingLineDivider"
-        }
-      },
-
-      {
-        "sectionDividerContentLog": {
-          "type": "panel",
-          "size": [ "100%", "100%c + 14px" ],
-          "controls": [
-            {
-              "section_divider": {
-                "type": "image",
-                "size": [ "100% - 30px", 1 ],
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 3,
-                "texture": "textures/ui/list_item_divider_line_light"
-              }
-            }
-          ]
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingSectionDividerContentLog": {
-          "type": "panel",
-          "size": "$paddingLineDivider"
-        }
-      },
-
+      { "dividerBuildInfo@settings_common.light_line_panel": {} },
       {
         "build_info_label_panel": {
           "type": "stack_panel",
           "size": [ "100%", "100%c" ],
           "controls": [
             {
-              "build_id_label": {
-                "type": "label",
-                "color": "$body_text_color",
-                "offset": [ 2, 0 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text": "#build_id",
-                "bindings": [
-                  {
-                    "binding_name": "#build_id"
-                  }
-                ]
-              }
-            },
-
-            // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-            {
-              "paddingVersionLabel": {
-                "type": "panel",
-                "size": "$spatialPatternsPadding"
-              }
-            },
-
-            {
-              "protocol_version_label": {
-                "type": "label",
-                "color": "$body_text_color",
-                "offset": [ 2, 0 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "text": "#protocol_version",
-                "bindings": [
-                  {
-                    "binding_name": "#protocol_version"
-                  }
-                ]
-              }
-            },
-            {
               "treatment_ids_label": {
+                "visible": "(not $education_edition)",
                 "type": "label",
                 "color": "$body_text_color",
                 "offset": [ 2, 0 ],

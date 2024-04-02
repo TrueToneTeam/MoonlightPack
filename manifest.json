@@ -1,29 +1,17 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §eTrueToneTeam§f]",
-		"name": "§lMoonlight Pack§r§7(BETA)§f",
+		"description": "편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §eMoonlight Team§f]",
+		"name": "§lMoonlight Pack§r§f",
 		"uuid": "a8236cb6-84f6-4e16-944f-a79bd8d3bde6",
-		"version": [ 0, 0, 1 ],
-		"min_engine_version": [ 1, 20, 60 ]
+		"version": [ 1, 0, 0 ],
+		"min_engine_version": [ 1, 20, 70 ]
 	},
 	"modules": [
 		{
 			"type": "resources",
 			"uuid": "73b5c5e2-6aff-11ea-bc55-0242ac134737",
-			"version": [ 0, 0, 1 ]
-		}
-	],
-	"subpacks": [
-		{
-			"folder_name": "preview",
-			"name": "Preview",
-			"memory_tier": 0
-		},
-		{
-			"folder_name": "stable",
-			"name": "Stable",
-			"memory_tier": 0
+			"version": [ 1, 0, 0 ]
 		}
 	],
 	"settings": [
@@ -33,7 +21,7 @@
 		},
 		{
 			"type": "label",
-			"text": "오픈 소스 프로젝트로 해당 리소스 팩 수정 작업 시 원제작자 명은 제거하지 마세요!"
+			"text": "오픈 소스 프로젝트로 해당 리소스 팩 수정 작업 및 배포 시 원제작자 명은 제거하지 마세요!"
 		}
 	]
 }

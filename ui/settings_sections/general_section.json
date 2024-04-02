@@ -238,6 +238,134 @@
     ]
   },
 
+  // Etc button & section
+  "etc_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "etc_button_toggle",
+    "$glyph_texture": "textures/ui/etc_glyph",
+    "$glyph_color_texture": "textures/ui/etc_glyph_color",
+    "$glyph_size": [ 16, 16 ],
+    "$button_text": "settingScreen.etc",
+    "$toggle_property_bag": {
+      "#panel_title": "settingScreen.etcTitle"
+    }
+  },
+
+  "drag_dwell_info_label": {
+    "type": "label",
+    "text": "etc_section.drag_dwell.info",
+    "size": [ "100%", "default" ],
+    "color": "$option_description_text_color"
+  },
+
+  "stack_splitting_info_label": {
+    "type": "label",
+    "text": "etc_section.stack_splitting.info",
+    "size": [ "100%", "default" ],
+    "color": "$option_description_text_color"
+  },
+
+  "etc_section": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$spatialPatternsPadding": [ "100%", 8 ],
+    "$paddingLineDivider": [ "100%", 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "etc_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "beta_label_header": {
+          "type": "label",
+          "color": "$sub_header_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "etc_section.beta.title"
+        }
+      },
+      {
+        "beta_info_label": {
+          "type": "label",
+          "text": "etc_section.beta.info",
+          "color": "$option_description_text_color"
+        }
+      },
+      { "paddingBetaInfo": { "type": "panel", "size": [ "100%", 12 ] } },
+
+      {
+        "drag_dwell_stack_splitting_options@settings_common.new_options_design_base": {
+          "enabled": "$touch",
+          "$options_1": [
+            {
+              "option_slider_drag_dwell@settings_common.option_slider": {
+                "$option_label": "#dwell_before_drag_time_slider_label",
+                "$slider_name": "dwell_before_drag_time",
+                "$slider_value_binding_name": "#dwell_before_drag_time",
+                "$slider_tts_text_value": "#dwell_before_drag_time_text_value",
+                "$option_enabled_binding_name": "#dwell_before_drag_time_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "drag_dwell_info_label_wrapper@common.tts_label_focus_wrapper": {
+                "$tts_label_panel": "general_section.drag_dwell_info_label"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_slider_stack_splitting@settings_common.option_slider": {
+                "$option_label": "#stack_splitting_trigger_time_slider_label",
+                "$slider_name": "stack_splitting_trigger_time",
+                "$slider_value_binding_name": "#stack_splitting_trigger_time",
+                "$slider_tts_text_value": "#stack_splitting_trigger_time_text_value",
+                "$option_enabled_binding_name": "#stack_splitting_trigger_time_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "stack_splitting_info_label_wrapper@common.tts_label_focus_wrapper": {
+                "$tts_label_panel": "general_section.stack_splitting_info_label"
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "reset_light_line_panel@settings_common.light_line_panel": {
+          "ignored": "(not $is_pregame)"
+        }
+      },
+      {
+        "reset_button@settings_common.action_button": {
+          "ignored": "(not $is_pregame)",
+          "$pressed_button_name": "button.reset_settings",
+          "$button_text": "options.resetSettings",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+          "property_bag": {
+            "reset_group": "accessibility"
+          }
+        }
+      }
+    ]
+  },
+
   // Network button & section
   "network_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "network_button_toggle",
@@ -373,6 +501,23 @@
 
       // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
       {
+        "paddingEcomode": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding"
+        }
+      },
+      {
+        "ecomode_enabled_toggle@settings_common.option_toggle": {
+          "ignored": "(not $supports_ecomode_toggle)",
+          "$option_label": "options.enableEcoMode",
+          "$option_binding_name": "#ecomode_toggle",
+          "$option_enabled_binding_name": "#ecomode_toggle_enabled",
+          "$toggle_name": "ecomode_toggle"
+        }
+      },
+
+      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
+      {
         "paddingAutoUpdate": {
           "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
           "type": "panel",
@@ -430,91 +575,6 @@
     ]
   },
 
-  // ETC button & section
-  "etc_button@settings_common.section_toggle_base": {
-    "$toggle_view_binding_name": "etc_button_toggle",
-    "$glyph_texture": "textures/ui/etc_glyph",
-    "$glyph_color_texture": "textures/ui/etc_glyph_color",
-    "$glyph_size": [ 16, 16 ],
-    "$button_text": "settingScreen.etc",
-    "$toggle_property_bag": {
-      "#panel_title": "settingScreen.etcTitle"
-    }
-  },
-
-  "etc_section": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$spatialPatternsPadding": [ "100%", 8 ],
-    "$paddingLineDivider": [ "100%", 16 ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "etc_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "storage_management_label_header": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "shadow": true,
-          "font_type": "MinecraftTen",
-          "font_scale_factor": 1.6,
-          "text": "general_section.storage_management_title"
-        }
-      },
-      {
-        "storage_management_void": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-      {
-        "clear_cache_title@settings_common.white_label": {
-          "ignored": "($nx_os or $is_ps4)",
-          "$text": "options.dev_clearStoreCache"
-        }
-      },
-      {
-        "clear_cache_title_void": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "clear_cache_button_panel": {
-          "ignored": "($nx_os or $is_ps4)",
-          "type": "panel",
-          "size": [ "100%", "100%c + 2px" ],
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-          "controls": [
-            { "clear_cache_button@storage_management.clear_cache_button": {} }
-          ]
-        }
-      },
-      {
-        "file_storage_dropdown@settings_common.option_dropdown": {
-          "$option_label": "options.filelocation.title",
-          "ignored": "($is_holographic and $is_reality_mode)",
-          "visible": "(not $gear_vr)",
-          "enabled": "$storage_location_switch_enabled",
-          "$dropdown_content": "general_section.file_storage_location_content",
-          "$dropdown_area": "content_area",
-          "$dropdown_name": "file_storage_location",
-          "$option_enabled_binding_name": "#file_storage_location_enabled",
-          "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
-          "$dropdown_scroll_content_size": [ "100%", "200%" ]
-        }
-      }
-    ]
-  },
-
   // ACCOUNT button & section
   "account_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "account_button_toggle",
@@ -532,7 +592,64 @@
     "size": [ "100%", "100%" ],
     "controls": [
       {
-        "stack_panel@custom_common.stack_panel_base": {
+        "not_login_stack_panel@custom_common.stack_panel_base": {
+          "size": [ "100%", "100%" ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "player_icon_panel@custom_common.panel_base": {
+                "size": [ "100%y", "100%" ],
+                "controls": [
+                  {
+                    "local_icon@custom_common.image_base": {
+                      "size": [ "90%", "90%" ],
+                      "texture": "textures/ui/lan_icon"
+                    }
+                  }
+                ]
+              }
+            },
+            { "void_panel@custom_common.panel_base": { "size": [ 4, "100%" ] } },
+            {
+              "gamertag_stack_panel@custom_common.panel_base": {
+                "size": [ "fill", "100%" ],
+                "controls": [
+                  {
+                    "stack_panel@custom_common.stack_panel_base": {
+                      "size": [ "100%", "100%c" ],
+                      "orientation": "vertical",
+                      "controls": [
+                        {
+                          "name_controls@settings_common.option_custom_control": {
+                            "ignored": "$education_edition",
+                            "size": [ "100%", "100%s" ],
+                            "$option_label": "options.name",
+                            "$control_name": "general_section.name_controls",
+                            "bindings": [
+                              {
+                                "binding_name": "#can_change_name",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "login_stack_panel@custom_common.stack_panel_base": {
           "size": [ "100%", "100%" ],
           "orientation": "horizontal",
           "controls": [
@@ -613,210 +730,13 @@
                 ]
               }
             }
-          ]
-        }
-      }
-    ]
-  },
-
-  "view_account_errors_button_content": {
-    "type": "label",
-    "size": [ "default", "default" ],
-    "color": "$dark_body_text_color",
-    "text": "options.accountErrorButton"
-  },
-
-  "switch_accounts_button_content": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "padded_icon@common.empty_panel": {
-          "size": [ "100%c + 10px", "100%c" ],
-          "controls": [
-            {
-              "icon": {
-                "type": "image",
-                "texture": "textures/ui/switch_accounts",
-                "size": [ 29, 10 ],
-                "offset": [ 2, 2 ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padded_label@common.empty_panel": {
-          "size": [ "100%c + 6px", "100%" ],
-          "controls": [
-            {
-              "label": {
-                "type": "label",
-                "size": [ "default", "default" ],
-                "color": "$text_color",
-                "text": "accounts.switch"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "sign_out_button_content": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "padded_label@common.empty_panel": {
-          "size": [ "100%c + 6px", "100%" ],
-          "controls": [
-            {
-              "label": {
-                "type": "label",
-                "size": [ "default", "default" ],
-                "color": "$text_color",
-                "text": "accounts.signOut"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "switch_accounts_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      {
-        "name_label": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "localize": false,
-          "text": "#ad_account_name",
+          ],
           "bindings": [
             {
-              "binding_name": "#ad_account_name"
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
             }
           ]
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingSwitchAccounts": {
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "switch_accounts@common_buttons.light_content_button": {
-          "size": [ "100%", "24px" ],
-          "enabled": "$is_pregame",
-          // Smaller size to allow the parent element to act as padding
-          "$button_size_override": [ "100%", "100% - 4px" ],
-          "$button_content": "general_section.switch_accounts_button_content",
-          "$pressed_button_name": "button.switch_accounts"
-        }
-      }
-    ]
-  },
-
-  "sign_out_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      {
-        "sign_out@common_buttons.light_content_button": {
-          "size": [ "100%", "24px" ],
-          "enabled": "$is_pregame",
-          // Smaller size to allow the parent element to act as padding
-          "$button_size_override": [ "100%", "100% - 4px" ],
-          "$button_content": "general_section.sign_out_button_content",
-          "$pressed_button_name": "button.sign_out"
-        }
-      }
-    ]
-  },
-
-  "sign_out_fail_popup@popup_dialog.form_fit_modal_dialog_popup": {
-    "$modal_title": "accounts.signOut.fail.title",
-    "$popup_dialog_escape_button_name": "button.close_sign_out_fail_popup",
-    "$no_close_button": true,
-    "$modal_contents": "general_section.sign_out_fail_body_panel",
-    "$modal_contents_padding": [ 6, 6 ]
-  },
-
-  "sign_out_fail_body_panel@edu_common.body_panel": {
-    "$body_stack": "general_section.sign_out_fail_body_content_stack"
-  },
-
-  "sign_out_fail_body_content_stack": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-    "layer": 5,
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      {
-        "body_text_centering_panel1@edu_common.vertical_stack_item": {
-          "controls": [
-            {
-              "body_text1": {
-                "type": "label",
-                "font_type": "smooth",
-                "color": "$body_text_color",
-                "text": "accounts.signOut.fail.body.line1",
-                "size": [ "100%", "default" ],
-                "layer": 1,
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "body_text_centering_panel2@edu_common.vertical_stack_item": {
-          "controls": [
-            {
-              "body_text2": {
-                "type": "label",
-                "font_type": "smooth",
-                "color": "$body_text_color",
-                "text": "#error_code",
-                "size": [ "100%", "default" ],
-                "layer": 1,
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle"
-              }
-            }
-          ]
-        }
-      },
-      { "padding1@common.empty_panel": { "size": [ "100%sm", 8 ] } },
-      {
-        "learn_more_button@edu_common.underline_button": {
-          "$single_label_size": [ "default", "default" ],
-          "$single_line_font_scale_factor": 1,
-          "$pressed_button_name": "button.learn_more",
-          "$single_line_label_text": "accounts.signOut.fail.hyperLink.text",
-          "$font_type": "smooth"
-        }
-      },
-      { "padding2@common.empty_panel": { "size": [ "100%sm", 4 ] } },
-      {
-        "close_button@common_buttons.light_text_button": {
-          "size": [ "100%", 24 ],
-          "$button_text": "gui.close",
-          "$pressed_button_name": "button.close_sign_out_fail_popup"
         }
       }
     ]
@@ -839,6 +759,52 @@
       }
     ],
     "controls": [
+      {
+        "name_controls_panel": {
+          "ignored": "$education_edition",
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "name_controls@settings_common.option_custom_control": {
+                "$option_label": "options.name",
+                "$control_name": "general_section.name_controls",
+                "bindings": [
+                  {
+                    "binding_name": "#can_change_name",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "signin_controls": {
+                "ignored": "(not $is_pregame or not $is_xboxlive_enabled)",
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "action_button@settings_common.action_button": {
+                      "$pressed_button_name": "sign_in_button",
+                      "$button_text": "xbox.signInLong",
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "offset": [ 0, 0 ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#not_logged_in",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
       {
         "gamertag_stack_panel@custom_common.stack_panel_base": {
           "size": [ "100%", 60 ],
@@ -941,43 +907,66 @@
 
       {
         "paddingManageAccount": {
+          "ignored": "($device_must_be_removed_for_xbl_signin or $fire_tv or not $is_pregame or $disable_gamertag_controls)",
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": [ "100%", 4 ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       {
-        "manage_account_button@settings_common.action_button": {
-          "ignored": "($is_ios or $is_android)",
+        "manage_account_panel": {
+          "ignored": "($device_must_be_removed_for_xbl_signin or $fire_tv or not $is_pregame or $disable_gamertag_controls)",
+          "type": "panel",
           "size": [ "100%", 24 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right",
-          "$pressed_button_name": "manage_account_button",
-          "$button_text": "options.manageAccount"
-        }
-      },
-      {
-        "manage_account_button_mobile@settings_common.link_button": {
-          "ignored": "(not ($is_ios or $is_android))",
-          "size": [ "100%", 24 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right",
+          "controls": [
+            {
+              "manage_account_button@settings_common.action_button": {
+                "ignored": "($is_ios or $is_android)",
+                "size": [ "100%", 24 ],
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
+                "$pressed_button_name": "manage_account_button",
+                "$button_text": "options.manageAccount"
+              }
+            },
+            {
+              "manage_account_button_mobile@settings_common.link_button": {
+                "ignored": "(not ($is_ios or $is_android))",
+                "size": [ "100%", 24 ],
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
 
-          "$button_text": "options.manageAccount",
-          "property_bag": {
-            "#hyperlink": "https://account.xbox.com/Settings"
-          }
+                "$button_text": "options.manageAccount",
+                "property_bag": {
+                  "#hyperlink": "https://account.xbox.com/Settings"
+                }
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
 
       {
         "paddingRealmsInvites": {
+          "ignored": "(not $is_realms_enabled or not $is_pregame or $pre_release)",
           "type": "panel",
           "size": [ "100%", 4 ]
         }
       },
       {
         "realms_invites": {
-          "ignored": "(not $is_realms_enabled or not $is_pregame)",
+          "ignored": "(not $is_realms_enabled or not $is_pregame or $pre_release)",
           "type": "panel",
           "size": [ "100%", 24 ],
           "controls": [
@@ -997,6 +986,7 @@
 
       {
         "paddingSignOutAndDeleteAccount": {
+          "ignored": "(not $is_pregame)",
           "type": "panel",
           "size": [ "100%", 4 ],
           "bindings": [
@@ -1009,14 +999,14 @@
       },
       {
         "delete_account_and_sign_out_stack_panel@custom_common.stack_panel_base": {
-          "size": [ "100%", 24 ],
+          "size": [ "100%", "100%cm" ],
           "orientation": "horizontal",
           "controls": [
             {
               "sign_out": {
                 "ignored": "($build_platform_UWP or not $is_pregame or $requires_xbl_signin_to_play)",
                 "type": "panel",
-                "size": [ "fill", "100%" ],
+                "size": [ "fill", 24 ],
                 "controls": [
                   {
                     "action_button@settings_common.action_button": {
@@ -1034,7 +1024,7 @@
               "delete_account@settings_common.action_button": {
                 // (never show in game) AND (never show unless its iOS)
                 "ignored": "((not $is_pregame) or (not $is_ios))",
-                "size": [ "fill", "100%" ],
+                "size": [ "fill", 24 ],
                 "$pressed_button_name": "button.delete_account",
                 "$button_text": "options.delete_account.button",
 
@@ -1061,6 +1051,7 @@
           "$toggle_name": "ad_edu_remember_me"
         }
       },
+
       {
         "paddingUseSSO": {
           "ignored": "$ignore_profile_sso_toggle",
@@ -1068,7 +1059,6 @@
           "size": "$spatialPatternsPadding"
         }
       },
-
       {
         "use_sso@settings_common.option_toggle": {
           "ignored": "$ignore_profile_sso_toggle",
@@ -1080,68 +1070,6 @@
       {
         "switch_accounts@general_section.switch_accounts_panel": {
           "ignored": "$ignore_profile_switch_account_button"
-        }
-      },
-      {
-        "sign_out@general_section.sign_out_panel": {
-          "ignored": "$ignore_profile_sign_out_button"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingNameControls": {
-          "ignored": "$education_edition",
-          "type": "panel",
-          "size": "$spatialPatternsPadding",
-          "bindings": [
-            {
-              "binding_name": "#can_change_name",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-      {
-        "name_controls@settings_common.option_custom_control": {
-          "ignored": "$education_edition",
-          "$option_label": "options.name",
-          "$control_name": "general_section.name_controls",
-          "bindings": [
-            {
-              "binding_name": "#can_change_name",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingSignInControls": {
-          "ignored": "$education_edition",
-          "type": "panel",
-          "size": "$spatialPatternsPadding",
-          "bindings": [
-            {
-              "binding_name": "#not_logged_in",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-      {
-        "signin_controls@settings_common.option_custom_control": {
-          "$control_name": "general_section.signin_controls",
-          "ignored": "$education_edition",
-          "bindings": [
-            {
-              "binding_name": "#not_logged_in",
-              "binding_name_override": "#visible"
-            }
-          ]
         }
       },
 
@@ -1565,7 +1493,7 @@
     ]
   },
 
-  //Global Texture Pack button & section
+  // Global Texture Pack button & section
   "global_texture_pack_button@resource_packs.resource_packs_section_toggle_base": {
     "$toggle_view_binding_name": "global_texture_pack_button_toggle",
     "$cycling_icon_path": "#cycling_icon_path_global",
@@ -1655,7 +1583,7 @@
     ]
   },
 
-  //Storage management button & section
+  // Storage Management button & section
   "storage_management_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "storage_management_button_toggle",
     "enabled": "(not $trial)",
@@ -1704,7 +1632,6 @@
   },
 
   // CREATOR button & section
-
   "creator_button@settings_common.section_toggle_base": {
     "ignored": "$ignore_creator_section",
 
@@ -1901,26 +1828,54 @@
         }
       },
       {
-        "option_content_file_log@settings_common.option_toggle": {
-          "$option_label": "options.content_log_file",
-          "$option_binding_name": "#content_log_file",
-          "$option_enabled_binding_name": "#content_log_file_enabled",
-          "$toggle_name": "content_log_file"
-        }
-      },
-      {
-        "option_content_gui_log@settings_common.option_toggle": {
-          "$option_label": "options.content_log_gui",
-          "$option_binding_name": "#content_log_gui",
-          "$option_enabled_binding_name": "#content_log_gui_enabled",
-          "$toggle_name": "content_log_gui"
+        "content_log_options": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "content_file_log_options_panel": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "controls": [
+                  {
+                    "option_content_file_log@settings_common.option_toggle": {
+                      "$option_label": "options.content_log_file",
+                      "$option_binding_name": "#content_log_file",
+                      "$option_enabled_binding_name": "#content_log_file_enabled",
+                      "$toggle_name": "content_log_file"
+                    }
+                  }
+                ]
+              }
+            },
+            { "void_panel": { "type": "panel", "size": [ 8, 0 ] } },
+            {
+              "content_gui_log_options_panel": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "controls": [
+                  {
+                    "option_content_gui_log@settings_common.option_toggle": {
+                      "$option_label": "options.content_log_gui",
+                      "$option_binding_name": "#content_log_gui",
+                      "$option_enabled_binding_name": "#content_log_gui_enabled",
+                      "$toggle_name": "content_log_gui"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       {
         "content_log_buttons": {
           "type": "stack_panel",
           "orientation": "horizontal",
-          "size": [ "100%", 30 ],
+          "size": [ "100%", 24 ],
           "controls": [
             {
               "open_content_log_history@settings_common.action_button": {
@@ -2042,210 +1997,6 @@
     ]
   },
 
-  // Warning Notification and popup for RTX render distance
-
-  "rtx_render_distance_warning_image": {
-    "type": "image",
-    "size": [ 7, 11 ],
-    "texture": "textures/ui/WarningGlyph"
-  },
-
-  "rtx_render_distance_popup@common.static_tooltip_popup_with_image_and_text": {
-    "size": [ "100% - 4px", "100%cm + 8px" ],
-    "anchor_from": "top_middle",
-    "anchor_to": "bottom_middle",
-    "$tooltip_panel_offset": [ 0, -10 ],
-    "$tooltip_popup_image": "textures/ui/infobulb",
-    "$tooltip_button_binding_type": "global",
-    "$tooltip_button_collection_name": "",
-    "$tooltip_popup_visible_binding": "#rtx_render_distance_warning_tooltip_visible",
-    "$tooltip_text_binding_name": "#rtx_renderdist_performance_tooltip_text",
-    "$tooltip_chevron_anchor": "bottom_right",
-    "$tooltip_popup_chevron_offset": [ "-30%x", "100%y - 3px" ]
-  },
-
-  "rtx_render_distance_warning": {
-    "type": "panel",
-    "size": [ "100%", 0 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "controls": [
-      {
-        "rtx_render_distance_warning_image@general_section.rtx_render_distance_warning_image": {
-          "offset": [ -14, 0 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right",
-          "controls": [
-            {
-              "hover_detection_input_panel": {
-                "type": "input_panel",
-                "consume_hover_events": false,
-                "focus_enabled": true,
-                "button_mappings": [
-                  {
-                    "to_button_id": "button.rtx_warning_is_hovered",
-                    "mapping_type": "pressed"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "rtx_render_distance_popup@general_section.rtx_render_distance_popup": {} }
-    ],
-    "bindings": [
-      {
-        "binding_name": "#rtx_render_distance_warning_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "accessibility_scaling_option_image": {
-    "type": "image",
-    "size": [ 7, 11 ],
-    "texture": "textures/ui/infobulb"
-  },
-
-  "accessibility_scaling_option_popup@common.static_tooltip_popup_with_image_and_text": {
-    "size": [ "100% - 4px", "100%cm + 8px" ],
-    "anchor_from": "top_middle",
-    "anchor_to": "bottom_middle",
-    "$tooltip_panel_offset": [ 0, -10 ],
-    "$tooltip_popup_image": "textures/ui/infobulb",
-    "$tooltip_button_binding_type": "global",
-    "$tooltip_button_collection_name": "",
-    "$tooltip_popup_visible_binding|default": "#accessibility_scaling_option_tooltip_visible",
-    "$tooltip_text_binding_name": "#accessibility_scaling_option_tooltip_text",
-    "$tooltip_chevron_anchor": "bottom_right",
-    "$tooltip_popup_chevron_offset": [ "-30%x", "100%y - 3px" ]
-  },
-
-  "accessibility_scaling_option": {
-    "type": "panel",
-    "size": [ "100%", 0 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "controls": [
-      {
-        "accessibility_scaling_option_image@general_section.accessibility_scaling_option_image": {
-          "offset": [ -14, 0 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right",
-          "layer": 3,
-          "controls": [
-            {
-              "hover_detection_input_panel": {
-                "type": "input_panel",
-                "consume_hover_events": false,
-                "focus_enabled": true,
-                "button_mappings": [
-                  {
-                    "to_button_id": "button.accessibility_scaling_option_is_hovered",
-                    "mapping_type": "pressed"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "accessibility_scaling_option_popup@general_section.accessibility_scaling_option_popup": {} }
-    ]
-  },
-
-  "rtx_disabled_option_upsell_image": {
-    "type": "image",
-    "size": [ 7, 11 ],
-    "texture": "textures/ui/infobulb"
-  },
-
-  "rtx_disabled_option_upsell_popup@common.static_tooltip_popup_with_image_and_text": {
-    "size": [ "100% - 4px", "100%cm + 8px" ],
-    "anchor_from": "top_middle",
-    "anchor_to": "bottom_middle",
-    "$tooltip_panel_offset": [ 0, -10 ],
-    "$tooltip_popup_image": "textures/ui/infobulb",
-    "$tooltip_button_binding_type": "global",
-    "$tooltip_button_collection_name": "",
-    "$tooltip_popup_visible_binding|default": "$rtx_disabled_option_upsell_tooltip_visible",
-    "$tooltip_text_binding_name": "#rtx_disabled_option_upsell_tooltip_text",
-    "$tooltip_chevron_anchor": "bottom_right",
-    "$tooltip_popup_chevron_offset": [ "-30%x", "100%y - 3px" ]
-  },
-
-  "rtx_disabled_option_upsell": {
-    "type": "panel",
-    "size": [ "100%", 0 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "$rtx_disabled_option_upsell_visible|default": "#rtx_disabled_option_upsell_visible",
-    "$rtx_disabled_option_upsell_tooltip_visible|default": "#rtx_disabled_option_upsell_tooltip_visible",
-    "controls": [
-      {
-        "rtx_disabled_option_upsell_image@general_section.rtx_disabled_option_upsell_image": {
-          "offset": [ -14, 0 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right",
-          "controls": [
-            {
-              "hover_detection_input_panel": {
-                "type": "input_panel",
-                "consume_hover_events": false,
-                "focus_enabled": true,
-                "$rtx_disabled_option_is_hovered_button_event|default": "button.rtx_disabled_option_is_hovered",
-                "button_mappings": [
-                  {
-                    "to_button_id": "$rtx_disabled_option_is_hovered_button_event",
-                    "mapping_type": "pressed"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "rtx_disabled_option_upsell_popup@general_section.rtx_disabled_option_upsell_popup": {} }
-    ],
-    "bindings": [
-      {
-        "binding_name": "$rtx_disabled_option_upsell_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  // Render distance warning notification
-
-  "render_distance_warning_image": {
-    "type": "image",
-    "size": [ 7, 11 ],
-    "texture": "textures/ui/WarningGlyph"
-  },
-
-  "render_distance_warning": {
-    "type": "panel",
-    "size": [ "100%", 0 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "controls": [
-      {
-        "render_distance_warning_image@general_section.render_distance_warning_image": {
-          "offset": [ -14, 0 ],
-          "anchor_from": "top_right",
-          "anchor_to": "top_right"
-        }
-      }
-    ],
-    "bindings": [
-      {
-        "binding_name": "#render_distance_warning_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
   "ui_profile_dropdown_content@settings_common.option_radio_dropdown_group": {
     "$radio_buttons": [
       {
@@ -2263,65 +2014,7 @@
     ]
   },
 
-  "split_screen_dropdown_content@settings_common.option_radio_dropdown_group": {
-    "$radio_buttons": [
-      {
-        "@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#split_screen_radio_horizontal",
-          "$radio_label_text": "options.splitscreen.horizontal"
-        }
-      },
-      {
-        "@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#split_screen_radio_vertical",
-          "$radio_label_text": "options.splitscreen.vertical"
-        }
-      }
-    ]
-  },
-
-  "third_person_dropdown_content@settings_common.option_radio_dropdown_group": {
-    "$radio_buttons": [
-      {
-        "@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#thirdperson_radio_first",
-          "$radio_label_text": "options.thirdperson.firstperson"
-        }
-      },
-      {
-        "@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#thirdperson_radio_third_back",
-          "$radio_label_text": "options.thirdperson.thirdpersonback"
-        }
-      },
-      {
-        "@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#thirdperson_radio_third_front",
-          "$radio_label_text": "options.thirdperson.thirdpersonfront"
-        }
-      }
-    ]
-  },
-
-  "file_storage_location_content@settings_common.option_radio_dropdown_group": {
-    "$radio_buttons": [
-      {
-        "file_storage_location_option_external@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#storage_location_radio_external",
-          "$radio_label_text": "options.filelocation.external"
-        }
-      },
-      {
-        "file_storage_location_option_appdata@settings_common.radio_with_label": {
-          "$toggle_state_binding_name": "#storage_location_radio_package",
-          "$radio_label_text": "options.filelocation.appdata"
-        }
-      }
-    ]
-  },
-
   // View Subscriptions controls & section
-
   "background": {
     "type": "panel",
     "controls": [
@@ -2587,25 +2280,47 @@
         }
       },
       {
-        "realms_plus_header_no_active_subscriptions": {
+        "no_active_subscriptions_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c + 2px" ],
-          "$realm_collection_name": "realms_plus_subscriptions_collection",
+          "size": [ "100%", 11 ],
+          "layer": 1,
           "controls": [
             {
-              "text@common.minecraftTenLabel": {
-                "text": "options.viewSubscriptions.noActiveSubscriptions",
-                "color": "$body_text_color",
-                "text_alignment": "center",
-                "anchor_to": "top_middle",
-                "anchor_from": "top_middle",
-                "size": [ "100%", 12 ]
+              "header_no_active_csub_or_realms_subscriptions": {
+                "type": "panel",
+                "size": [ "100%", "100%c + 2px" ],
+                "$realm_collection_name": "realms_plus_subscriptions_collection",
+                "controls": [
+                  {
+                    "text@common.minecraftTenLabel": {
+                      "text": "options.viewSubscriptions.noActiveSubscriptions",
+                      "color": "$body_text_color",
+                      "font_type": "smooth",
+                      "text_alignment": "center",
+                      "layer": 3,
+                      "anchor_to": "bottom_middle",
+                      "anchor_from": "bottom_middle",
+                      "size": [ "100%", 12 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "background_panel": {
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "layer": 1,
+                "keep_ratio": false,
+                "texture": "textures/ui/White",
+                "color": "$red_gray_panel_color",
+                "alpha": 1.0
               }
             }
           ],
           "bindings": [
             {
-              "binding_name": "#no_active_subscriptions_visible",
+              "binding_name": "(not #my_subscriptions_visible)",
               "binding_name_override": "#visible"
             }
           ]
@@ -2654,6 +2369,137 @@
         }
       },
       {
+        "csb_purchased_with_cancel@csb_subscription_panel.csb_container": {
+          "$left_button": "cancel@csb_subscription_panel.csb_cancel_button",
+          "$csb_panel_bindings|default": [
+            {
+              "binding_name": "#csb_purchased_with_cancel_panel",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "csb_purchased_with_buy@csb_subscription_panel.csb_container": {
+          "$left_button": "buy@csb_subscription_panel.csb_buy_container",
+          "$csb_panel_bindings|default": [
+            {
+              "binding_name": "#csb_purchased_with_buy_panel",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "csb_purchased_padding": {
+          "ignored": "$pre_release",
+          "type": "panel",
+          "size": [ "100%", 3 ]
+        }
+      },
+      {
+        "platform_mismatch_container": {
+          "type": "panel",
+          "size": [ "100%sm", "100%cm" ],
+          "controls": [
+            {
+              "black_background@general_section.background": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%-2px", "100%sm-2px" ],
+                "offset": [ 1, 1 ]
+              }
+            },
+            {
+              "possible_store_mismatch@general_section.possible_store_mismatch": {
+                "layer": 3,
+                "$warning_text": "#csb_platform_mismatch_text",
+                "$text_bindings": [
+                  {
+                    "binding_name": "#csb_platform_mismatch_text"
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#csb_platform_mismatch",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "csb_expiration_container": {
+          "type": "panel",
+          "size": [ "100%", 11 ],
+          "layer": 1,
+          "controls": [
+            {
+              "csb_expiration_text_container": {
+                "ignored": "$pre_release",
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", "100%" ],
+                "controls": [
+                  {
+                    "csb_expiration_text_padding": {
+                      "ignored": "$pre_release",
+                      "type": "panel",
+                      "size": [ 2, "100%" ]
+                    }
+                  },
+                  {
+                    "csb_expiration": {
+                      "ignored": "$pre_release",
+                      "type": "label",
+                      "font_type": "smooth",
+                      "text": "#csb_expiration",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "color": "$generic_button_text_color",
+                      "text_alignment": "left",
+                      "offset": [ 0, 1 ],
+                      "layer": 3,
+                      "size": [ "100%", 10 ],
+                      "bindings": [
+                        {
+                          "binding_name": "#csb_expiration"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "background_panel": {
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "layer": 1,
+                "keep_ratio": false,
+                "texture": "textures/ui/White",
+                "color": "$0_color_format"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#expiration_container_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "csb_expiration_and_platform_mismatch_padding": {
+          "ignored": "$pre_release",
+          "type": "panel",
+          "size": [ "100%", 3 ]
+        }
+      },
+      {
         "additional_realms_subscriptions_grid": {
           "type": "stack_panel",
           "orientation": "vertical",
@@ -2674,12 +2520,14 @@
       },
       {
         "active_available_divider@common.section_divider": {
+          "ignored": "$pre_release",
           "$top_padding_size": [ "100%", 0 ],
           "$bottom_padding_size": [ "100%", 1 ]
         }
       },
       {
         "realms_plus_header_label@common.minecraftTenLabel": {
+          "ignored": "$pre_release",
           "text": "#available_or_additional_subscriptions_text",
           "text_alignment": "left",
           "color": "$body_text_color",
@@ -2693,12 +2541,14 @@
       },
       {
         "pad_0": {
+          "ignored": "$pre_release",
           "type": "panel",
           "size": [ "100%", 2 ]
         }
       },
       {
         "realms_plus_buy_offer@general_section.realms_subscription_main": {
+          "ignored": "$pre_release",
           "$realm_collection_name": "realms_plus_subscriptions_collection",
           "$right_pressed_button_name": "button.realms_plus_right_button",
           "$left_pressed_button_name": "button.realms_plus_buy_button",
@@ -2733,12 +2583,14 @@
       },
       {
         "pad_1": {
+          "ignored": "$pre_release",
           "type": "panel",
           "size": [ "100%", 6 ]
         }
       },
       {
         "additional_realms_buy_offer@general_section.realms_subscription_main": {
+          "ignored": "$pre_release",
           "$realm_collection_name": "additional_realms_subscriptions_collection",
           "$right_pressed_button_name": "button.additional_realms_right_button",
           "$left_pressed_button_name": "button.additional_realms_buy_button",
@@ -2782,7 +2634,21 @@
         }
       },
       {
+        "pad_8": {
+          "ignored": "$pre_release",
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      //csb panel
+      {
+        "csb_buy_panel@csb_subscription_panel.csb_container": {
+          "$left_button": "csbBuy@csb_subscription_panel.csb_buy_container"
+        }
+      },
+      {
         "pad_3": {
+          "ignored": "$pre_release",
           "type": "panel",
           "size": [ "100%", 6 ]
         }
@@ -2791,7 +2657,6 @@
   },
 
   // VR button & section
-
   "vr_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "vr_button_toggle",
     "$glyph_texture": "textures/ui/vr_glyph",
@@ -3101,7 +2966,6 @@
   },
 
   // Accessibility button & section
-
   "accessibility_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "accessibility_button_toggle",
     "$glyph_texture": "textures/ui/accessibility_glyph",
@@ -3112,55 +2976,6 @@
     "$toggle_property_bag": {
       "#panel_title": "options.accessibility.title"
     }
-  },
-
-  "darkness_slider_label": {
-    "type": "label",
-    "text": "options.darknessEffectModifier.message",
-    "size": [ "100%", "default" ],
-    "color": "$option_description_text_color"
-  },
-
-  "glint_strength_slider_label": {
-    "type": "label",
-    "text": "options.glintStrength.message",
-    "size": [ "100%", "default" ],
-    "color": "$option_description_text_color"
-  },
-
-  "glint_speed_slider_label": {
-    "type": "label",
-    "text": "options.glintspeed.message",
-    "size": [ "100%", "default" ],
-    "color": "$option_description_text_color"
-  },
-
-  "toast_notification_duration_label": {
-    "type": "label",
-    "text": "options.notificationDuration.Toast",
-    "size": [ "100%", "default" ],
-    "color": "$body_text_color"
-  },
-
-  "toast_notification_duration_info_label": {
-    "type": "label",
-    "text": "options.notificationDuration.ToastMessage",
-    "size": [ "100%", "default" ],
-    "color": "$option_description_text_color"
-  },
-
-  "chat_message_duration_label": {
-    "type": "label",
-    "text": "options.notificationDuration.Chat",
-    "size": [ "100%", "default" ],
-    "color": "$body_text_color"
-  },
-
-  "chat_message_duration_info_label": {
-    "type": "label",
-    "text": "options.notificationDuration.ChatDuration",
-    "size": [ "100%", "default" ],
-    "color": "$option_description_text_color"
   },
 
   "accessibility_section": {
@@ -3194,72 +3009,82 @@
         }
       },
       {
-        "toast_notification_duration_options_panel": {
+        "notification_duration_options": {
           "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "orientation": "vertical",
+          "size": [ "100%", "100%cm" ],
+          "orientation": "horizontal",
           "controls": [
             {
-              "toast_notification_duration_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.toast_notification_duration_label"
+              "toast_notification_duration_options_panel": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "controls": [
+                  {
+                    "toast_notification_duration_label_wrapper@common.tts_label_focus_wrapper": {
+                      "$tts_label_panel": "general_section.toast_notification_duration_label"
+                    }
+                  },
+                  {
+                    "toast_notification_duration_dropdown_spacer_pre": {
+                      "type": "panel",
+                      "size": [ "100%", -8 ]
+                    }
+                  },
+                  {
+                    "toast_notification_duration_dropdown@settings_common.option_dropdown": {
+                      "ignored": "($is_holographic and $is_reality_mode)",
+                      "$dropdown_content": "general_section.toast_notification_duration_dropdown_content",
+                      "$dropdown_area": "content_area",
+                      "$dropdown_name": "toast_notification_duration_dropdown",
+                      "$option_enabled_binding_name": "#toast_notification_duration_dropdown_enabled",
+                      "$options_dropdown_toggle_label_binding": "#toast_notification_duration_dropdown_toggle_label",
+                      "$dropdown_scroll_content_size": [ "100%", "200%" ]
+                    }
+                  },
+                  {
+                    "toast_notification_duration_info_label_wrapper@common.tts_label_focus_wrapper": {
+                      "$tts_label_panel": "general_section.toast_notification_duration_info_label"
+                    }
+                  }
+                ]
               }
             },
+            { "void_panel": { "type": "panel", "size": [ 8, 0 ] } },
             {
-              "toast_notification_duration_info_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.toast_notification_duration_info_label"
-              }
-            },
-            {
-              "toast_notification_duration_dropdown_spacer_pre": {
-                "type": "panel",
-                "size": [ "100%", -8 ]
-              }
-            },
-            {
-              "toast_notification_duration_dropdown@settings_common.option_dropdown": {
-                "ignored": "($is_holographic and $is_reality_mode)",
-                "$dropdown_content": "general_section.toast_notification_duration_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "toast_notification_duration_dropdown",
-                "$option_enabled_binding_name": "#toast_notification_duration_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#toast_notification_duration_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "200%" ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chat_message_duration_options_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "orientation": "vertical",
-          "controls": [
-            {
-              "chat_message_duration_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.chat_message_duration_label"
-              }
-            },
-            {
-              "chat_message_duration_info_label_wrapper@common.tts_label_focus_wrapper": {
-                "$tts_label_panel": "general_section.chat_message_duration_info_label"
-              }
-            },
-            {
-              "chat_message_duration_dropdown_spacer_pre": {
-                "type": "panel",
-                "size": [ "100%", -8 ]
-              }
-            },
-            {
-              "chat_message_duration_dropdown@settings_common.option_dropdown": {
-                "ignored": "($is_holographic and $is_reality_mode)",
-                "$dropdown_content": "general_section.chat_message_duration_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "chat_message_duration_dropdown",
-                "$option_enabled_binding_name": "#chat_message_duration_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#chat_message_duration_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": [ "100%", "200%" ]
+              "chat_message_duration_options_panel": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "controls": [
+                  {
+                    "chat_message_duration_label_wrapper@common.tts_label_focus_wrapper": {
+                      "$tts_label_panel": "general_section.chat_message_duration_label"
+                    }
+                  },
+                  {
+                    "chat_message_duration_dropdown_spacer_pre": {
+                      "type": "panel",
+                      "size": [ "100%", -8 ]
+                    }
+                  },
+                  {
+                    "chat_message_duration_dropdown@settings_common.option_dropdown": {
+                      "ignored": "($is_holographic and $is_reality_mode)",
+                      "$dropdown_content": "general_section.chat_message_duration_dropdown_content",
+                      "$dropdown_area": "content_area",
+                      "$dropdown_name": "chat_message_duration_dropdown",
+                      "$option_enabled_binding_name": "#chat_message_duration_dropdown_enabled",
+                      "$options_dropdown_toggle_label_binding": "#chat_message_duration_dropdown_toggle_label",
+                      "$dropdown_scroll_content_size": [ "100%", "200%" ]
+                    }
+                  },
+                  {
+                    "chat_message_duration_info_label_wrapper@common.tts_label_focus_wrapper": {
+                      "$tts_label_panel": "general_section.chat_message_duration_info_label"
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -3271,6 +3096,7 @@
           "size": [ "100%", 10 ]
         }
       },
+
       {
         "darkness_slider@settings_common.option_slider": {
           "$option_label": "#darkness_slider_label",
@@ -3302,64 +3128,67 @@
           "size": [ "100%", 10 ]
         }
       },
+
       {
-        "glint_strength_slider@settings_common.option_slider": {
-          "$option_label": "#glint_strength_slider_label",
-          "$slider_name": "glint_strength",
-          "$slider_value_binding_name": "#glint_strength",
-          "$slider_tts_text_value": "#glint_strength_text_value",
-          "$option_enabled_binding_name": "#glint_strength_enabled",
-          "$label_bindings": [
+        "glint_options@settings_common.new_options_design_base": {
+          "$options_1": [
             {
-              "binding_name": "$option_label"
+              "glint_strength_slider@settings_common.option_slider": {
+                "$option_label": "#glint_strength_slider_label",
+                "$slider_name": "glint_strength",
+                "$slider_value_binding_name": "#glint_strength",
+                "$slider_tts_text_value": "#glint_strength_text_value",
+                "$option_enabled_binding_name": "#glint_strength_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "glint_strength_slider_label_spacer_pre": {
+                "type": "panel",
+                "size": [ "100%", 2 ]
+              }
+            },
+            {
+              "glint_strength_slider_label_wrapper@common.tts_label_focus_wrapper": {
+                "$tts_label_panel": "general_section.glint_strength_slider_label"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "glint_speed_slider@settings_common.option_slider": {
+                "$option_label": "#glint_speed_slider_label",
+                "$slider_name": "glint_speed",
+                "$slider_value_binding_name": "#glint_speed",
+                "$slider_tts_text_value": "#glint_speed_text_value",
+                "$option_enabled_binding_name": "#glint_speed_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "glint_speed_slider_label_spacer_pre": {
+                "type": "panel",
+                "size": [ "100%", 2 ]
+              }
+            },
+            {
+              "glint_speed_slider_label_wrapper@common.tts_label_focus_wrapper": {
+                "$tts_label_panel": "general_section.glint_speed_slider_label"
+              }
             }
           ]
         }
       },
       {
-        "glint_strength_slider_label_spacer_pre": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "glint_strength_slider_label_wrapper@common.tts_label_focus_wrapper": {
-          "$tts_label_panel": "general_section.glint_strength_slider_label"
-        }
-      },
-      {
-        "glint_strength_slider_label_spacer_post": {
-          "type": "panel",
-          "size": [ "100%", 10 ]
-        }
-      },
-      {
-        "glint_speed_slider@settings_common.option_slider": {
-          "$option_label": "#glint_speed_slider_label",
-          "$slider_name": "glint_speed",
-          "$slider_value_binding_name": "#glint_speed",
-          "$slider_tts_text_value": "#glint_speed_text_value",
-          "$option_enabled_binding_name": "#glint_speed_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "glint_speed_slider_label_spacer_pre": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "glint_speed_slider_label_wrapper@common.tts_label_focus_wrapper": {
-          "$tts_label_panel": "general_section.glint_speed_slider_label"
-        }
-      },
-      {
-        "glint_speed_slider_label_spacer_post": {
+        "glint_options_spacer_post": {
           "type": "panel",
           "size": [ "100%", 10 ]
         }
@@ -3400,59 +3229,97 @@
         }
       },
       {
-        "text_background_opacity_slider@settings_common.option_slider": {
-          "$option_label": "#text_background_opacity_slider_label",
-          "$slider_name": "text_background_opacity",
-          "$slider_value_binding_name": "#text_background_opacity",
-          "$slider_tts_text_value": "#text_background_opacity_text_value",
-          "$option_enabled_binding_name": "#text_background_opacity_enabled",
-          "$label_bindings": [
+        "text_actionbar_background_opacity_options@settings_common.new_options_design_base": {
+          "$options_1": [
             {
-              "binding_name": "$option_label"
+              "text_background_opacity_slider@settings_common.option_slider": {
+                "$option_label": "#text_background_opacity_slider_label",
+                "$slider_name": "text_background_opacity",
+                "$slider_value_binding_name": "#text_background_opacity",
+                "$slider_tts_text_value": "#text_background_opacity_text_value",
+                "$option_enabled_binding_name": "#text_background_opacity_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "actionbar_text_background_opacity_slider@settings_common.option_slider": {
+                "$option_label": "#actionbar_text_background_opacity_slider_label",
+                "$slider_name": "actionbar_text_background_opacity",
+                "$slider_value_binding_name": "#actionbar_text_background_opacity",
+                "$slider_tts_text_value": "#actionbar_text_background_opacity_text_value",
+                "$option_enabled_binding_name": "#actionbar_text_background_opacity_enabled",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
             }
           ]
         }
       },
       {
-        "option_toggle0@settings_common.option_toggle": {
-          "ignored": "(not $supports_flite_tts or not $platform_tts_exists)",
-          "$option_label": "options.enableAutoPlatformTextToSpeech",
-          "$option_binding_name": "#enable_auto_text_to_speech",
-          "$option_enabled_binding_name": "#enable_auto_text_to_speech_enabled",
-          "$toggle_name": "enable_auto_text_to_speech"
-        }
-      },
-      {
-        "option_toggle1@settings_common.option_toggle": {
-          "ignored": "(not $supports_flite_tts)",
-          "$option_label": "options.enableUITextToSpeech",
-          "$option_binding_name": "#enable_ui_text_to_speech",
-          "$option_enabled_binding_name": "#enable_ui_text_to_speech_enabled",
-          "$toggle_name": "enable_ui_text_to_speech"
-        }
-      },
-      {
-        "option_toggle2@settings_common.option_toggle": {
-          "ignored": "(not $supports_flite_tts)",
-          "$option_label": "options.enableChatTextToSpeech",
-          "$option_binding_name": "#enable_chat_text_to_speech",
-          "$option_enabled_binding_name": "#enable_chat_text_to_speech_enabled",
-          "$toggle_name": "enable_chat_text_to_speech",
-          "bindings": [
+        "textToSpeech_uiTextToSpeech_options@settings_common.new_options_design_base": {
+          "$options_1": [
             {
-              "binding_name": "#not_hide_chat",
-              "binding_name_override": "#enabled"
+              "option_toggle0@settings_common.option_toggle": {
+                "ignored": "(not $supports_flite_tts or not $platform_tts_exists)",
+                "$option_label": "options.enableAutoPlatformTextToSpeech",
+                "$option_binding_name": "#enable_auto_text_to_speech",
+                "$option_enabled_binding_name": "#enable_auto_text_to_speech_enabled",
+                "$toggle_name": "enable_auto_text_to_speech"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle1@settings_common.option_toggle": {
+                "ignored": "(not $supports_flite_tts)",
+                "$option_label": "options.enableUITextToSpeech",
+                "$option_binding_name": "#enable_ui_text_to_speech",
+                "$option_enabled_binding_name": "#enable_ui_text_to_speech_enabled",
+                "$toggle_name": "enable_ui_text_to_speech"
+              }
             }
           ]
         }
       },
       {
-        "option_toggle3@settings_common.option_toggle": {
-          "ignored": "(not $supports_flite_tts)",
-          "$option_label": "options.enableOpenChatMessage",
-          "$option_binding_name": "#enable_open_chat_message",
-          "$option_enabled_binding_name": "#enable_open_chat_message_enabled",
-          "$toggle_name": "enable_open_chat_message"
+        "chatTextToSpeech_enableOpenToChat_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle2@settings_common.option_toggle": {
+                "ignored": "(not $supports_flite_tts)",
+                "$option_label": "options.enableChatTextToSpeech",
+                "$option_binding_name": "#enable_chat_text_to_speech",
+                "$option_enabled_binding_name": "#enable_chat_text_to_speech_enabled",
+                "$toggle_name": "enable_chat_text_to_speech",
+                "bindings": [
+                  {
+                    "binding_name": "#not_hide_chat",
+                    "binding_name_override": "#enabled"
+                  }
+                ]
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "option_toggle3@settings_common.option_toggle": {
+                "ignored": "(not $supports_flite_tts)",
+                "$option_label": "options.enableOpenChatMessage",
+                "$option_binding_name": "#enable_open_chat_message",
+                "$option_enabled_binding_name": "#enable_open_chat_message_enabled",
+                "$toggle_name": "enable_open_chat_message"
+              }
+            }
+          ]
         }
       },
       {

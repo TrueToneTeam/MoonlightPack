@@ -353,10 +353,11 @@
                       "orientation": "vertical",
                       "anchor_from": "center",
                       "anchor_to": "center",
+                      "$default_color|default": [ 1.0, 1.0, 1.0 ],
                       "controls": [
                         { "start_void": { "type": "label", "size": [ "100%", "fill" ] } },
-                        { "title": { "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$category_title", "font_scale_factor": 1.5 } },
-                        { "lore": { "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$category_lore", "font_scale_factor": 1.0 } },
+                        { "title": { "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$category_title", "font_scale_factor": 1.5, "locked_color": "$default_color" } },
+                        { "lore": { "type": "label", "size": [ "100%", "default" ], "max_size": [ "100%", "default" ], "text": "$category_lore", "font_scale_factor": 1.0, "locked_color": "$default_color" } },
                         { "end_void": { "type": "label", "size": [ "100%", "fill" ] } }
                       ]
                     }

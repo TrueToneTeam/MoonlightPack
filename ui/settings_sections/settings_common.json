@@ -118,6 +118,42 @@
     ]
   },
 
+  "new_options_design_base": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "$options_1|default": [],
+    "$options_2|default": [],
+    "controls": [
+      {
+        "options": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "options_1": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "controls": "$options_1"
+              }
+            },
+            { "void_panel": { "type": "panel", "size": [ 8, 0 ] } },
+            {
+              "options_2": {
+                "type": "stack_panel",
+                "size": [ "fill", "100%c" ],
+                "orientation": "vertical",
+                "enabled": "($supports_user_configured_safezone or ($is_pregame))",
+                "controls": "$options_2"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "action_button@common_buttons.light_text_button": {
     "$pressed_button_name|default": "unset_button_name",
     "$button_text|default": "unset $button_text",

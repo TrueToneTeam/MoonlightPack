@@ -2,12 +2,17 @@
 global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name=팩 이름: §pMoonlight Pack	#
-global.pack_info.made_by=제작자: §dNeroLuna §fwith §7Moonlight Team(TrueToneTeam)	#
-global.pack_info.editor=수정자: [ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.build=빌드: §cBETA	#
-global.pack_info.version=팩 버전: §bv0.0.1	#
-global.pack_info.url=홈페이지: §etruetoneteam.kro.kr	#
+global.pack_info.name.title=팩 이름:	#
+global.pack_info.name=§pMoonlight Pack	#
+global.pack_info.made_by.title=제작자:	#
+global.pack_info.made_by=NeroLuna	#
+global.pack_info.made_by.team=Moonlight Team(TrueToneTeam)	#
+global.pack_info.editor.title=수정자:	#
+global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
+global.pack_info.build.title=빌드:	#
+global.pack_info.base_version.title=팩 버전:	#
+global.pack_info.url.title=홈페이지:	#
+global.pack_info.url=§etruetoneteam.kro.kr	#
 global.pack_info.licenses.title=라이센스:	#
 global.pack_info.licenses.1= * 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
 global.pack_info.licenses.2= * 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
@@ -39,6 +44,7 @@ controls_section.hotbar_title=핫바	#
 video_section.frame_title=프레임	#
 video_section.graphic_and_rendering_title=그래픽 & 렌더링	#
 video_section.vr_title=VR	#
+video_section.render_dragon_title=랜더 드래곤	#
 
 view_section.play_title=플레이	#
 view_section.uiAgui_title=UI & GUI	#
@@ -54,6 +60,10 @@ world_section.experimental_title=실험	#
 
 settingScreen.etc=기타	#
 settingScreen.etcTitle=기타 설정	#
+etc_section.beta.title=베타	#
+etc_section.beta.info=해당 기능들은 정식 기능이 아닌 테스트 기능들이며, 사용 시 버그를 유발할 수 있습니대.	#
+etc_section.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.	#
+etc_section.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.	#
 
 settingScreen.network=네트워크	#
 settingScreen.networkTitle=네트워크 설정	#

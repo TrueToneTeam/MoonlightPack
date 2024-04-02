@@ -577,9 +577,9 @@
       { "host_main_button@host_options.host_main_button": { "ignored": "$is_pregame", "$focus_override_up": "coordinate_dropdown_focus_id" } },
       { "chat_previous@chat.chat_previous": {} },
       { "chat_next@chat.chat_next": {} },
-	  { "chat_autocomplete_back@chat.chat_autocomplete_back": { "visible": false } },
-      { "chat_autocomplete@chat.chat_autocomplete": { "visible": false } },
 	  { "text_box@chat.text_edit_box": {} },
+	  { "chat_autocomplete_back@chat.chat_autocomplete_back": { "visible": true } },
+      { "chat_autocomplete@chat.chat_autocomplete": { "visible": true } },
       { "send_button@chat.send_button": { "offset": [ -20, 0 ] } }
     ]
   },

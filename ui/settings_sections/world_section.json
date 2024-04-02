@@ -15,66 +15,6 @@
       "$tts_section_header": "options.editSettings"
     },
     "controls": [
-	  {
-        "in_world_snapshot_image": {
-          "ignored": "$is_pregame",
-          "type": "panel",
-          "size": [ "100%", "100%c + 2px" ],
-          "controls": [
-            {
-              "thumbnail": {
-                "type": "image",
-                "force_texture_reload": true,
-                "size": [ "100% - 2px", "56.25%x + 2.25px" ],
-                "bilinear": true,
-                "layer": 2,
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle",
-                "offset": [ 0, 1 ],
-                "fill": true,
-                "controls": [
-                  {
-                    "border": {
-                      "type": "image",
-                      "size": [ "100% + 8px", "100% + 2px" ],
-                      "texture": "textures/ui/BannersTransparent",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 1
-                    }
-                  },
-				  {
-                    "world_image": {
-                      "type": "image",
-                      "size": [ "100%", "100%" ],
-                      "texture": "textures/ui/world_image",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 2
-                    }
-                  },
-				  {
-                    "world_image_cover": {
-                      "type": "image",
-                      "size": [ "100% + 4px", "100% + 8px" ],
-                      "texture": "textures/ui/world_image_cover",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 3
-                    }
-                  }
-                ]
-              }
-            },
-			{
-			  "in_game_void": {
-				"type": "panel",
-				"size": [ "100%", 4 ]
-			  }
-		    }
-          ]
-        }
-      },
       {
         "world_snapshot_image": {
           "ignored": "(not $is_pregame)",

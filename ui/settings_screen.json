@@ -324,17 +324,17 @@
                       "orientation": "horizontal",
                       "controls": [
                         {
-                          "video_button@video_section.video_button": {
-                            "size": [ "fill", "100%" ],
-                            "$button_text":"options.video",
-                            "$toggle_group_forced_index": "$video_forced_index"
-                          }
-                        },
-                        {
                           "view_button@view_section.view_button": {
                             "size": [ "fill", "100%" ],
                             "$button_text":"options.view",
                             "$toggle_group_forced_index": 45
+                          }
+                        },
+                        {
+                          "video_button@video_section.video_button": {
+                            "size": [ "fill", "100%" ],
+                            "$button_text":"options.video",
+                            "$toggle_group_forced_index": "$video_forced_index"
                           }
                         }
                       ]
@@ -366,11 +366,11 @@
                 ]
               }
             },
-            {
+			{
               "etc_button@general_section.etc_button": {
-				"size": [ "100%", 24 ],
-				"$button_text":"settingScreen.etc",
-                "$toggle_group_forced_index": 76
+                "size": [ "100%", 24 ],
+                "$button_text":"settingScreen.etc",
+				"$toggle_group_forced_index": 90
               }
             },
 
@@ -651,7 +651,7 @@
           "type": "stack_panel",
           "ignored": "(not $include_controls_and_settings_sections)",
           "controls": [
-			{ "accessibility_section@general_section.accessibility_section": { "visible": false } },		  
+			{ "accessibility_section@general_section.accessibility_section": { "visible": false } },
             { "keyboard_and_mouse_section@controls_section.keyboard_and_mouse_section": { "ignored": "(not $keyboard_and_mouse_supported)" } },
             { "controller_section@controls_section.controller_section": { "ignored": "(not $gamepad_supported)"  } },
             { "touch_section@controls_section.touch_section": { "ignored": "($is_holographic or not $touch_supported)" } },
@@ -675,35 +675,36 @@
             { "pack_info_section@info_section.pack_info_section": { } },
             { "minecraft_info_section@info_section.minecraft_info_section": { } },
             { "etc_section@general_section.etc_section": { } },
+			{ "view_section@view_section.view_section": { } },
             { "sound_section@general_section.sound_section": { } },
             { "language_section@general_section.language_section": { } },
 			{
               "debug_section@general_section.debug_section": {
-                //"ignored": "$is_publish",
+                "ignored": "$is_publish",
                 "visible": false
               }
             },
             {
               "ui_debug_section@general_section.ui_debug_section": {
-                //"ignored": "$is_publish",
+                "ignored": "$is_publish",
                 "visible": false
               }
             },
             {
               "marketplace_debug_section@general_section.marketplace_debug_section": {
-                //"ignored": "$is_publish",
+                "ignored": "$is_publish",
                 "visible": false
               }
             },
             {
               "flighting_debug_section@general_section.flighting_debug_section": {
-                //"ignored": "$is_publish",
+                "ignored": "$is_publish",
                 "visible": false
               }
             },
             {
               "automation_section@general_section.automation_section": {
-                //"ignored": "($is_publish or $test_infrastructure_disabled)",
+                "ignored": "($is_publish or $test_infrastructure_disabled)",
                 "visible": false
               }
             },
@@ -712,7 +713,6 @@
 			},
 
 			{ "video_section@video_section.video_section": { } },
-			{ "view_section@view_section.view_section": { } },
             { "how_to_play_section@general_section.how_to_play_section": { "visible": false } }
           ]
         }

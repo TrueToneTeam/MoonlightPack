@@ -17,7 +17,6 @@
     "type": "label",
     "color": "$toast_text_color",
     "layer": 1,
-    "shadow": true,
     "font_size": "normal",
     "offset": "$toast_label_offset",
     "$toast_text_alignment|default": "left",

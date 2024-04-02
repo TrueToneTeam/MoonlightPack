@@ -168,7 +168,7 @@
           "anchor_to": "center",
           "offset": "$new_ui_label_offset",
           "controls": [
-            { "text": { "type": "label", "max_size": [ "100%", "100%" ], "text": "$button_text", "color": "$text_color", "text_alignment": "center", "offset": [ 0, -1 ] } }
+            { "text": { "type": "label", "max_size": [ "100%", "100%" ], "text": "$button_text", "color": "$text_color", "text_alignment": "center", "offset": [ 0, -1 ], "font_type": "$font_type", "font_scale_factor": "$button_font_scale_factor" } }
           ]		
         }
       }
@@ -219,6 +219,15 @@
             }
           ]
         }
+      }
+    ]
+  },
+
+  "toggle_image_text_content_base@button_image_text_content_panel": {
+    "variables": [
+      {
+        "requires": "(not $default_state and not $hover_state and not $locked_state)",
+        "$new_ui_label_offset": [ 0, 2 ]
       }
     ]
   },
