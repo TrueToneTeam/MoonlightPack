@@ -1,0 +1,309 @@
+{
+  "namespace": "quick_section",
+
+  // Quick Settings
+  "quick_settings_content": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "content": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "layer": 30,
+          "controls": [
+            {
+              "void_spacer": {
+                "type": "panel",
+                "size": [ "100%", 6 ]
+              }
+            },
+            {
+              "camera_option_label@settings_common.selector_group_label": {
+                "size": [ "100%", "default" ],
+                "text": "options.thirdperson"
+              }
+            },
+            {
+              "camera_option_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 24 ],
+                "controls": [
+                  {
+                    "firstperson_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_first",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.firstperson",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_first" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_first)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "thirdpersonback_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_third_back",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.thirdpersonback",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_third_back" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_third_back)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "thirdpersonfront_button@settings_common.no_image_section_toggle_base": {
+                      "size": [ "fill", 24 ],
+                      "$toggle_name": "#thirdperson_radio_third_front",
+                      "$unchecked_control": "common_toggles.toggle_unchecked",
+                      "$checked_control": "common_toggles.toggle_unchecked",
+                      "$button_text": "options.thirdperson.thirdpersonfront",
+                      "bindings": [
+                        { "binding_name": "#thirdperson_radio_third_front" },
+                        { 
+                          "binding_name": "(not #thirdperson_radio_third_front)",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "spacer_quick_spacer": { "type": "panel", "size": [ "100%", 8 ] } },
+            {
+              "hideHUDandHand_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 16 ],
+                "controls": [
+                  {
+                    "option_toggle_hidehud@settings_common.option_toggle": {
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.hidehud",
+                      "$option_binding_name": "#hide_hud",
+                      "$option_enabled_binding_name": "#hide_hud_enabled",
+                      "$toggle_name": "hide_hud"
+                    }
+                  },
+                  {
+                    "option_toggle_hidehand@settings_common.option_toggle": {
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.hidehand",
+                      "$option_binding_name": "#hide_hand",
+                      "$option_enabled_binding_name": "#hide_hand_enabled",
+                      "$toggle_name": "hide_hand"
+                    }
+                  },
+                  {
+                    "option_toggle_vrhidehand@settings_common.option_toggle": {
+                      "ignored": "(not $is_holographic)",
+                      "size": [ "fill", "100%" ],
+                      "$option_label": "options.vrHideHand",
+                      "$option_binding_name": "#vr_hide_hand",
+                      "$option_enabled_binding_name": "#vr_hide_hand_enabled",
+                      "$toggle_name": "vr_hide_hand"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // Quick Settings Toggle
+  "minus_image": {
+    "type": "image",
+    "size": [ 11, 3 ],
+    "texture": "textures/ui/minus"
+  },
+
+  "plus_image": {
+    "type": "image",
+    "size": [ 11, 11 ],
+    "texture": "textures/ui/plus"
+  },
+
+  "button_and_icon_template@common_toggles.light_template_toggle": {
+    "$unchecked_control|default": "quick_section.toggle_checkbox_unchecked",
+    "$checked_control|default": "quick_section.toggle_checkbox_checked",
+    "$unchecked_hover_control|default": "quick_section.toggle_checkbox_unchecked_hover",
+    "$checked_hover_control|default": "quick_section.toggle_checkbox_checked_hover",
+    "$unchecked_locked_control|default": "quick_section.toggle_checkbox_unchecked_locked",
+    "$unchecked_locked_hover_control|default": "quick_section.toggle_checkbox_unchecked_locked",
+    "$checked_locked_control|default": "quick_section.toggle_checkbox_checked_locked",
+    "$checked_locked_hover_control|default": "quick_section.toggle_checkbox_checked_locked",
+
+    "$default_text_color|default": "$light_button_default_text_color",
+    "$hover_text_color|default": "$dark_button_hover_text_color",
+    "$default_checked_text_color|default": "$light_button_default_text_color",
+    "$hover_checked_text_color|default": "$dark_button_hover_text_color",
+
+    "$default_glyph_color|default": "$light_glyph_toggle_default_color",
+    "$hover_glyph_color|default": "$dark_glyph_toggle_hover_color",
+    "$default_checked_glyph_color|default": "$light_glyph_toggle_checked_default_color",
+    "$hover_checked_glyph_color|default": "$dark_glyph_toggle_checked_hover_color"
+  },
+
+
+  "button_with_checkbox_toggle@common_toggles.light_text_toggle": {
+    "$template_toggle": "quick_section.button_and_icon_template"
+  },
+
+  "toggle_checkbox_unchecked@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$default_texture",
+    "$content_alpha": "$default_texture_alpha",
+    "$text_color": "$default_text_color",
+    "$glyph_color": "$default_glyph_color",
+    "$toggle_image": "quick_section.plus_image",
+    "$border_layer": 1,
+    "$border_visible": "$default_border_visible",
+    "$border_color": "$default_border_color",
+    "$toggle_unchecked": true,
+    "layer": 1
+  },
+
+  "toggle_checkbox_checked@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$hover_texture",
+    "$content_alpha": "$default_checked_texture_alpha",
+    "$text_color": "$default_checked_text_color",
+    "$glyph_color": "$default_checked_glyph_color",
+    "$toggle_image": "quick_section.minus_image",
+    "$border_layer": 2,
+    "$border_visible": "$default_border_visible",
+    "$border_color": "$default_border_color",
+    "$toggle_checked": true,
+    "layer": 2
+  },
+
+  "toggle_checkbox_unchecked_hover@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$pressed_texture",
+    "$content_alpha": "$default_texture_alpha",
+    "$text_color": "$hover_text_color",
+    "$glyph_color": "$hover_glyph_color",
+    "$toggle_image": "quick_section.plus_image",
+    "$border_layer": 3,
+    "$border_visible": "$hover_border_visible",
+    "$border_color": "$hover_border_color",
+    "$toggle_unchecked_hover": true,
+    "layer": 3
+  },
+
+  "toggle_checkbox_checked_hover@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$pressed_no_hover_texture",
+    "$content_alpha": "$default_checked_texture_alpha",
+    "$text_color": "$hover_checked_text_color",
+    "$glyph_color": "$hover_checked_glyph_color",
+    "$toggle_image": "quick_section.minus_image",
+    "$border_layer": 4,
+    "$border_visible": "$hover_border_visible",
+    "$border_color": "$hover_border_color",
+    "$toggle_checked_hover": true,
+    "layer": 4
+  },
+
+  "toggle_checkbox_unchecked_locked@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$unchecked_locked_texture",
+    "$content_alpha": "$locked_alpha",
+    "$text_color": "$default_text_color",
+    "$glyph_color": "$default_glyph_color",
+    "$toggle_image": "quick_section.plus_image",
+    "$border_layer": 1,
+    "$border_visible": "$default_border_visible",
+    "$border_color": "$default_border_color",
+    "$toggle_locked": true,
+    "layer": 1
+  },
+
+  "toggle_checkbox_checked_locked@update_check_box_button_ui_panel": {
+    "$new_ui_button_texture": "$checked_locked_texture",
+    "$content_alpha": "$locked_alpha",
+    "$text_color": "$default_text_color",
+    "$glyph_color": "$default_glyph_color",
+    "$toggle_image": "quick_section.minus_image",
+    "$border_layer": 1,
+    "$border_visible": "$default_border_visible",
+    "$border_color": "$default_border_color",
+    "$toggle_locked": true,
+    "layer": 1
+  },
+
+  "update_check_box_button_ui_panel@common_buttons.new_ui_button_panel": {
+    "controls": [
+      {
+        "toggle_content": {
+          "type": "panel",
+          "$button_content_size|default": [ "100%", "100%" ],
+          "size": "$button_content_size",
+          "$anchor": "right_middle",
+          "$text_alignment": "left",
+          "$button_text_size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "$button_image@$button_image": {
+                "ignored": "(not $button_image_visible)",
+                "size": "$button_image_size",
+                "offset": "$image_offset",
+                "anchor_from": "$image_anchor",
+                "anchor_to": "$image_anchor",
+                "layer": 1
+              }
+            },
+            {
+              "button_content": {
+                "type": "stack_panel",
+                "size": "$button_content_size",
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "button_content": {
+                      "type": "panel",
+                      "size": [ "fill", "100%" ],
+                      "layer": 10,
+                      "controls": [
+                        { "$button_type_panel@$button_type_panel": { "size": [ "100% - 12px", "default" ], "layer": 3, "anchor_from": "center", "anchor_to": "center" } }
+                      ]
+                    }
+                  },
+                  {
+                    "checkbox_image": {
+                      "type": "panel",
+                      "size": [ "100%y", "100%" ],
+                      "layer": 10,
+                      "controls": [
+                        { "image@$toggle_image": { "anchor_from": "center", "anchor_to": "center", "color": "$glyph_color" } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "border@common_buttons.focus_border": {
+                "color": "$border_color",
+                "layer": "$border_layer",
+                "alpha": "$border_alpha",
+                "ignored": "(not $border_visible)"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

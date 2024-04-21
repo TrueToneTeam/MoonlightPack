@@ -47,7 +47,7 @@
     "type": "panel",
     "anchor_from": "bottom_middle",
     "anchor_to": "bottom_middle",
-    "size": [ "100%", 10 ],
+    "size": [ "90%", 10 ],
 	"offset": [ 0, 0 ],
     "layer": 5,
     "controls": [

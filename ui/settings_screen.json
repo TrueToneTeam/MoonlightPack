@@ -116,10 +116,12 @@
       },
 
       //Account
-	  {
-        "account@general_section.account_info_panel": {
+      {
+        "account_button@general_section.account_button": {
           "ignored": "(not $include_controls_and_settings_sections)",
-          "size": [ "100%", 40 ]
+          "size": [ "100%", 40 ],
+          "$toggle_group_forced_index": "$account_forced_index",
+          "$tts_section_header": "$general_section_header"
         }
       },
 	  {
@@ -128,127 +130,41 @@
 	    } 
 	  },
 
-      //Quick
+      //Quick Setting
 	  {
-        "spacer_quick_setting": {
+        "spacer_quick_settings": {
           "ignored": "(not $include_controls_and_settings_sections)",
           "type": "panel",
           "size": [ "100%", 2 ]
         }
       },
       {
-        "camera_option_label@settings_common.selector_group_label": {
+        "quick_settings_toggle@quick_section.button_with_checkbox_toggle": {
           "ignored": "(not $include_controls_and_settings_sections)",
-          "text": "options.thirdperson"
+          "$toggle_group_forced_index": 80,
+          "size": [ "100%", 24 ],
+          "$button_text": "settingScreen.quick_settings",
+          "$toggle_name": "quick_settings_visible_toggle",
+          "$toggle_view_binding_name": "quick_settings_visible"
         }
       },
-      {
-        "camera_option_panel": {
+	  {
+	    "quick_settings@quick_section.quick_settings_content": {
           "ignored": "(not $include_controls_and_settings_sections)",
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", 24 ],
-          "controls": [
+	      "size": [ "100%", "100%c" ],
+          "layer": 30,
+          "bindings": [
             {
-	          "firstperson_button@settings_common.no_image_section_toggle_base": {
-	            "size": [ "fill", 24 ],
-	            "$toggle_name": "#thirdperson_radio_first",
-	            "$unchecked_control": "common_toggles.toggle_unchecked",
-	            "$checked_control": "common_toggles.toggle_unchecked",
-	            "$button_text": "options.thirdperson.firstperson",
-	            "bindings": [
-	              { "binding_name": "#thirdperson_radio_first" },
-	              { 
-	                "binding_name": "(not #thirdperson_radio_first)",
-	                "binding_name_override": "#enabled"
-	              }
-	            ]
-	          }
-            },
-            {
-	          "thirdpersonback_button@settings_common.no_image_section_toggle_base": {
-	            "size": [ "fill", 24 ],
-	            "$toggle_name": "#thirdperson_radio_third_back",
-	            "$unchecked_control": "common_toggles.toggle_unchecked",
-	            "$checked_control": "common_toggles.toggle_unchecked",
-	            "$button_text": "options.thirdperson.thirdpersonback",
-	            "bindings": [
-	              { "binding_name": "#thirdperson_radio_third_back" },
-	              { 
-	                "binding_name": "(not #thirdperson_radio_third_back)",
-	                "binding_name_override": "#enabled"
-	              }
-	            ]
-	          }
-            },
-            {
-	          "thirdpersonfront_button@settings_common.no_image_section_toggle_base": {
-	            "size": [ "fill", 24 ],
-	            "$toggle_name": "#thirdperson_radio_third_front",
-	            "$unchecked_control": "common_toggles.toggle_unchecked",
-	            "$checked_control": "common_toggles.toggle_unchecked",
-	            "$button_text": "options.thirdperson.thirdpersonfront",
-	            "bindings": [
-	              { "binding_name": "#thirdperson_radio_third_front" },
-	              { 
-	                "binding_name": "(not #thirdperson_radio_third_front)",
-	                "binding_name_override": "#enabled"
-	              }
-	            ]
-	          }
-	        }
-	      ]
+              "binding_type": "view",
+              "source_control_name": "quick_settings_visible",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
 	    }
 	  },
 	  {
-        "spacer_quick_spacer": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "type": "panel",
-          "size": [ "100%", 8 ]
-        }
-      },
-	  {
-        "hideHUDandHand_panel": {
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", "16px" ],
-		  "controls": [
-			{
-			  "option_toggle_hidehud@settings_common.option_toggle": {
-				"ignored": "(not $include_controls_and_settings_sections)",
-				"size": [ "fill", "100%" ],
-				"$option_label": "options.hidehud",
-				"$option_binding_name": "#hide_hud",
-				"$option_enabled_binding_name": "#hide_hud_enabled",
-				"$toggle_name": "hide_hud"
-			  }
-		    },
-			{
-			  "option_toggle_hidehand@settings_common.option_toggle": {
-				"ignored": "(not $include_controls_and_settings_sections)",
-				"size": [ "fill", "100%" ],
-				"$option_label": "options.hidehand",
-				"$option_binding_name": "#hide_hand",
-				"$option_enabled_binding_name": "#hide_hand_enabled",
-				"$toggle_name": "hide_hand"
-			  }
-			},
-			{
-			  "option_toggle_vrhidehand@settings_common.option_toggle": {
-				"ignored": "(not $is_holographic)",
-				"size": [ "fill", "100%" ],
-				"$option_label": "options.vrHideHand",
-				"$option_binding_name": "#vr_hide_hand",
-				"$option_enabled_binding_name": "#vr_hide_hand_enabled",
-				"$toggle_name": "vr_hide_hand"
-			  }
-			}
-		  ]
-		}
-	  },
-	  {
-        "light_line_panel@settings_common.light_line_panel": {
+        "quick_settings_light_line@settings_common.light_line_panel": {
 		  "ignored": "(not $include_controls_and_settings_sections)"
 		}
       },
@@ -262,28 +178,7 @@
           "$general_section_header": "stat.generalButton",
           "$debug_section_header": "options.debug",
           "controls": [
-		    // Profile //
-			{
-              "selector_group_label_profile@settings_common.selector_group_label": {
-                "text": "options.category.profile"
-              }
-            },
-            {
-              "account_button@general_section.account_button": {
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$account_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-			
 		    // Setting //
-			{
-              "spacer_group_setting": {
-                "type": "panel",
-                "size": [ "100%", 6 ],
-				"ignored": "$ignore_global_resources_section"
-              }
-            },
 			{
               "selector_group_label_setting@settings_common.selector_group_label": {
                 "text": "options.category.setting"
@@ -674,6 +569,7 @@
             },
             { "pack_info_section@info_section.pack_info_section": { } },
             { "minecraft_info_section@info_section.minecraft_info_section": { } },
+            { "card_info_section@info_section.card_info_section": { } },
             { "etc_section@general_section.etc_section": { } },
 			{ "view_section@view_section.view_section": { } },
             { "sound_section@general_section.sound_section": { } },

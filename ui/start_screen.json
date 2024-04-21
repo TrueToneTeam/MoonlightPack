@@ -631,8 +631,8 @@
     "size": [ "100%", "100%" ],
     "renderer": "gradient_renderer",
     "gradient_direction": "horizontal",
-    "color1": [ 1.0, 1.0, 1.0, 0 ],
-    "color2": [ 0, 0, 0, 1.00 ],
+    "color1": [ 1.0, 1.0, 1.0, 0.0 ],
+    "color2": [ 1.0, 1.0, 1.0, 0.7 ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle"
   },
@@ -643,7 +643,7 @@
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
     "controls": [
-      { "background_image@top_panel_image": { "size": [ "45%", "100%" ], "anchor_from": "right_middle", "anchor_to": "right_middle" } },
+      { "background_image@top_panel_image": { "size": [ "30%", "100%" ], "offset": [ "-15%", 0 ],  "anchor_from": "right_middle", "anchor_to": "right_middle" } },
       {
         "game_text_panel": {
           "type": "panel",
@@ -652,29 +652,63 @@
           "anchor_to": "center",
           "controls": [
             { "gamertag@start.gamertag": {} },
-            { "game_version@start.game_version": {} }
+            {
+              "game_info_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%" ],
+                "offset": [ 0, 4 ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  { "info@start.game_info": { "anchor_from": "right_middle", "anchor_to": "right_middle" } }
+                ]
+              }
+            }
           ]
         }
       }
     ]
   },
 
-  "game_copyright": {
+  "game_info": {
     "type": "stack_panel",
-    "size": [ "default", "100%" ],
-    "offset": [ 0, "27%" ],
-    "anchor_from": "left_middle",
-    "anchor_to": "left_middle",
+    "size": [ "100%", "100%cm" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
     "controls": [
       {
-        "copyright": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "layer": 2,
-          "text": "menu.copyright",
-          "size": [ "default", 10 ],
-          "max_size": [ "100%", "100%" ],
-          "text_alignment": "left"
+        "copyright_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "offset": [ 0, 0 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "controls": [
+            {
+              "copyright": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "color": "$main_header_text_color",
+                "layer": 2,
+                "text": "menu.copyright",
+                "text_alignment": "right",
+                "shadow": true,
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "version_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%s" ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "controls": [
+            { "version@start.game_version": { "offset": [ 2, 0 ], "anchor_from": "right_middle", "anchor_to": "right_middle" } }
+          ]
         }
       }
     ]
@@ -682,36 +716,43 @@
 
   "game_version": {
     "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
+    "size": [ "100%c", "100%s" ],
+    "orientation": "horizontal",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
     "controls": [
+      {
+        "version": {
+          "type": "label",
+          "size": [ "default", "default" ],
+          "max_size": [ "default", "default" ],
+          "layer": 2,
+          "text": "#version",
+          "text_alignment": "center",
+          "color": "$main_header_text_color",
+          "shadow": true,
+          "bindings": [
+            { "binding_name": "#version" }
+          ]
+        }
+      },
+      { "start_text": { "type": "label", "size": [ "default", "default" ], "text": "[", "shadow": true } },
       {
         "development_version": {
           "type": "label",
-          "size": [ "100%", "default" ],
-          "max_size": [ "100%", "default" ],
+          "size": [ "default", "default" ],
+          "max_size": [ "default", "default" ],
           "layer": 2,
           "text": "#development_version",
-          "text_alignment": "right",
+          "text_alignment": "center",
           "color": "$main_header_text_color",
+          "shadow": true,
           "bindings": [
             { "binding_name": "#development_version" }
           ]
         }
       },
-      {
-        "version": {
-          "type": "label",
-          "size": [ "100%", "default" ],
-          "max_size": [ "100%", "default" ],
-          "layer": 2,
-          "text": "#version",
-          "text_alignment": "right",
-          "color": "$main_header_text_color",
-          "bindings": [
-            { "binding_name": "#version" }
-          ]
-        }
-      }
+      { "end_text": { "type": "label", "size": [ "default", "default" ], "text": "]", "shadow": true } }
     ]
   },
 
@@ -721,7 +762,7 @@
     "anchor_from": "left_middle",
     "anchor_to": "left_middle",
     "controls": [
-      { "gamertag@gamertag_panel": { } }
+      { "gamertag@gamertag_panel": {} }
     ]
   },
 
@@ -838,6 +879,15 @@
     "offset": [ 0, 0 ],
     "anchor_from": "center",
     "anchor_to": "center",
+
+    "animation_reset_name": "screen_animation_reset",
+    "anims": [
+      "@common.screen_exit_size_animation_push",
+      "@common.screen_exit_size_animation_pop",
+      "@common.screen_entrance_size_animation_push",
+      "@common.screen_entrance_size_animation_pop"
+    ],
+
     "controls": [
       {
         "functions_stack_panel": {
@@ -935,7 +985,6 @@
       }
     ]
   },
-
 
   //---------------------------------------------------------------------------
   // Start Screen: Main Screen
@@ -1081,7 +1130,6 @@
           ]
         }
       },
-      //{ "title@start.title_panel": {} },
       { "top_tab@start.top_tab_panel": {} },
       {
         "left_bottom_stack_panel": {

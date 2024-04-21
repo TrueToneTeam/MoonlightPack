@@ -92,7 +92,7 @@
                 ]
               }
             },
-            { "void_panel": { "type": "panel", "size": [ 4, 0 ] } },
+            { "void_panel": { "type": "panel", "size": [ 0, 4 ] } },
 
             {
               "panel": {

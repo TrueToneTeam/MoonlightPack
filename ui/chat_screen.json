@@ -852,6 +852,11 @@
   ////////////////////////////
 
   "chat_screen@common.base_screen": {
+    "$header_safezone_control": "common_store.store_top_bar_filler",
+    "$header_bar_control": "common_store.store_top_bar",
+    "$is_full_screen_layout": true,
+    "$fill_alpha": 0.0,
+
     "close_on_player_hurt": true,
     "$screen_content": "chat.chat_screen_content",
     "$screen_bg_content": "chat.chat_background",

@@ -58,6 +58,8 @@ general_section.safe_zone_setting_title=Safe Zone Setting	#
 world_section.multiplay_title=Multiplay	#
 world_section.experimental_title=Experimental	#
 
+settingScreen.quick_settings=Quick Settings	#
+
 settingScreen.etc=ETC	#
 settingScreen.etcTitle=ETC Setting	#
 etc_section.beta.title=Beta	#
@@ -76,7 +78,9 @@ playScreen.tab.all_worlds=All Worlds	#
 playScreen.tab.multiplay=Multiplay	#
 playScreen.tab.server=Server	#
 
+playScreen.search_world.title=Search World	#
 playScreen.search_world.name=Search world name...	#
+playScreen.search_world.result=Search world result: 	#
 
 playScreen.side_menu.friends.title=Friends	#
 playScreen.side_menu.friends.player_search=Search for players	#

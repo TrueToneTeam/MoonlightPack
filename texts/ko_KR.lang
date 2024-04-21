@@ -44,7 +44,7 @@ controls_section.hotbar_title=핫바	#
 video_section.frame_title=프레임	#
 video_section.graphic_and_rendering_title=그래픽 & 렌더링	#
 video_section.vr_title=VR	#
-video_section.render_dragon_title=랜더 드래곤	#
+video_section.render_dragon_title=렌더 드래곤	#
 
 view_section.play_title=플레이	#
 view_section.uiAgui_title=UI & GUI	#
@@ -57,6 +57,8 @@ general_section.safe_zone_setting_title=안전 영역 설정	#
 
 world_section.multiplay_title=멀티 플레이	#
 world_section.experimental_title=실험	#
+
+settingScreen.quick_settings=빠른 설정	#
 
 settingScreen.etc=기타	#
 settingScreen.etcTitle=기타 설정	#
@@ -78,7 +80,9 @@ playScreen.tab.all_worlds=모든 월드	#
 playScreen.tab.multiplay=멀티 플레이	#
 playScreen.tab.server=서버	#
 
+playScreen.search_world.title=월드 검색	#
 playScreen.search_world.name=월드 이름 검색...	#
+playScreen.search_world.result=월드 검색 결과: 	#
 
 playScreen.side_menu.friends.title=친구	#
 playScreen.side_menu.friends.player_search=플레이어 검색	#

@@ -6,238 +6,6 @@
 {
   "namespace": "general_section",
 
-  // GENERAL button & section
-  "general_button@settings_common.section_toggle_base": {
-    "$toggle_view_binding_name": "general_button_toggle",
-    "$glyph_texture": "textures/ui/world_glyph",
-    "$glyph_color_texture": "textures/ui/world_glyph_color",
-    "$glyph_size": [ 16, 16 ],
-    "$button_text": "options.general",
-    "$toggle_property_bag": {
-      "#panel_title": "options.generalTitle"
-    }
-  },
-
-  "general_tab_section": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$spatialPatternsPadding": [ "100%", 8 ],
-    "$paddingLineDivider": [ "100%", 16 ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "general_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "network_label_header": {
-          "type": "label",
-          "color": "$sub_header_text_color",
-          "shadow": true,
-          "font_type": "MinecraftTen",
-          "font_scale_factor": 1.6,
-          "text": "options.networkSettings"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingCrossPlatform": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "cross_platform_enabled_toggle@settings_common.option_toggle": {
-          "ignored": "(not $supports_cross_platform_play_toggle)",
-          "$option_label": "options.crossPlatformPlay",
-          "$option_binding_name": "#crossplatform_toggle",
-          "$option_enabled_binding_name": "#crossplatform_toggle_enabled",
-          "$toggle_name": "crossplatform_toggle"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingCellularData": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition_china)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "mobile_data_option_toggle@settings_common.option_toggle": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition_china)",
-          "$option_label": "options.allowCellularData",
-          "$option_binding_name": "#allow_cellular_data",
-          "$option_enabled_binding_name": "#allow_cellular_data_enabled",
-          "$toggle_name": "allow_cellular_data",
-          "$has_option_description": true,
-          "$option_description": "options.allowCellularData.message"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingWebSockets": {
-          "ignored": "($console_edition or $education_edition_china)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "websocket_option_toggle@settings_common.option_toggle": {
-          "$option_label": "options.websocketEncryption",
-          "$option_binding_name": "#websocket_encryption",
-          "$option_enabled_binding_name": "#websocket_encryption_enabled",
-          "$toggle_name": "websocket_encryption",
-          "ignored": "($console_edition or $education_edition_china)"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingAutoUpdateToggle": {
-          "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "auto_update_enabled_toggle@settings_common.option_toggle": {
-          "ignored": "((not $is_console and not $is_settopbox and not $win10_edition and not $osx_edition) or $nx_os)",
-          "$option_label": "options.autoUpdateEnabled",
-          "$option_binding_name": "#auto_update_enabled",
-          "$toggle_name": "auto_update_enabled"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingTrustedSkins": {
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "only_allow_trusted_skins_toggle@settings_common.option_toggle": {
-          "$option_label": "options.onlyTrustedSkinsAllowed",
-          "$option_binding_name": "#only_trusted_skins_allowed",
-          "$option_enabled_binding_name": "#only_trusted_skins_allowed_enabled",
-          "$toggle_name": "only_trusted_skins_allowed"
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingAutoUpdate": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "auto_update_mode_dropdown@settings_common.option_dropdown": {
-          "ignored": "($is_console or $is_settopbox or $win10_edition or $osx_edition or $education_edition)",
-          "$option_label": "options.autoUpdateMode",
-          "$dropdown_content": "general_section.auto_update_mode_dropdown_content",
-          "$dropdown_area": "content_area",
-          "$dropdown_name": "auto_update_mode_dropdown",
-          "$options_dropdown_toggle_label_binding": "#auto_update_mode_dropdown_toggle_label",
-          "$dropdown_scroll_content_size": [ "100%", "200%" ]
-        }
-      },
-
-      // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
-      {
-        "paddingLinkEduSupport": {
-          "ignored": "(not $education_edition or $education_edition_china or $is_holographic or $fire_tv)",
-          "type": "panel",
-          "size": "$spatialPatternsPadding"
-        }
-      },
-
-      {
-        "link_button@settings_common.link_button": {
-          "ignored": "(not $education_edition or $education_edition_china or $is_holographic or $fire_tv)",
-          "$button_text": "options.goToFeedbackWebsite",
-          "property_bag": {
-            "#hyperlink": "https://aka.ms/minecraftedusupport"
-          }
-        }
-      },
-
-      {
-        "normal_light_line_panel@settings_common.light_line_panel": {}
-      },
-      {
-        "storage_management_label_header": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "shadow": true,
-          "font_type": "MinecraftTen",
-          "font_scale_factor": 1.6,
-          "text": "general_section.storage_management_title"
-        }
-      },
-      {
-        "storage_management_void": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-      {
-        "clear_cache_title@settings_common.white_label": {
-          "ignored": "($nx_os or $is_ps4)",
-          "$text": "options.dev_clearStoreCache"
-        }
-      },
-      {
-        "clear_cache_title_void": {
-          "type": "panel",
-          "size": [ "100%", 2 ]
-        }
-      },
-      {
-        "clear_cache_button_panel": {
-          "ignored": "($nx_os or $is_ps4)",
-          "type": "panel",
-          "size": [ "100%", "100%c + 2px" ],
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-          "controls": [
-            { "clear_cache_button@storage_management.clear_cache_button": {} }
-          ]
-        }
-      },
-      {
-        "file_storage_dropdown@settings_common.option_dropdown": {
-          "$option_label": "options.filelocation.title",
-          "ignored": "($is_holographic and $is_reality_mode)",
-          "visible": "($storage_location_switch_enabled and not $gear_vr)",
-          "$dropdown_content": "general_section.file_storage_location_content",
-          "$dropdown_area": "content_area",
-          "$dropdown_name": "file_storage_location",
-          "$option_enabled_binding_name": "#file_storage_location_enabled",
-          "$options_dropdown_toggle_label_binding": "#file_storage_location_toggle_label",
-          "$dropdown_scroll_content_size": [ "100%", "200%" ]
-        }
-      }
-    ]
-  },
-
   // Etc button & section
   "etc_button@settings_common.section_toggle_base": {
     "$toggle_view_binding_name": "etc_button_toggle",
@@ -577,6 +345,7 @@
 
   // ACCOUNT button & section
   "account_button@settings_common.section_toggle_base": {
+    "$button_type_panel": "general_section.account_info_panel",
     "$toggle_view_binding_name": "account_button_toggle",
     "$glyph_texture": "textures/ui/profile_glyph",
     "$glyph_color_texture": "textures/ui/profile_glyph_color",
@@ -584,7 +353,14 @@
     "$button_text": "options.account",
     "$toggle_property_bag": {
       "#panel_title": "options.accountTitle"
-    }
+    },
+
+    "$default_border_visible": false,
+    "$default_texture": "textures/ui/empty",
+    "$hover_texture": "textures/ui/empty",
+    "$pressed_texture": "textures/ui/empty",
+    "$pressed_no_hover_texture": "textures/ui/empty",
+    "$locked_texture": "textures/ui/empty"
   },
 
   "account_info_panel": {
@@ -621,6 +397,7 @@
                       "controls": [
                         {
                           "name_controls@settings_common.option_custom_control": {
+                            "layer": 10,
                             "ignored": "$education_edition",
                             "size": [ "100%", "100%s" ],
                             "$option_label": "options.name",
@@ -961,7 +738,13 @@
         "paddingRealmsInvites": {
           "ignored": "(not $is_realms_enabled or not $is_pregame or $pre_release)",
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": [ "100%", 4 ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       {
@@ -977,8 +760,17 @@
                 "$button_text": "options.realms.checkInvites",
                 "anchor_from": "top_right",
                 "anchor_to": "top_right",
-                "offset": [ 0, 0 ]
+                "offset": [ 0, 0 ],
+
+                "$hover_button_texture": "textures/ui/realmsContentHover",
+                "$pressed_button_texture": "textures/ui/realmsContentPressed"
               }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
             }
           ]
         }
@@ -1014,7 +806,10 @@
                       "$pressed_button_name": "sign_out_button",
                       "$button_text": "xbox.signOutLong",
                       "anchor_from": "top_right",
-                      "anchor_to": "top_right"
+                      "anchor_to": "top_right",
+
+                      "$hover_button_texture": "textures/ui/button_red",
+                      "$pressed_button_texture": "textures/ui/button_red_pressed"
                     }
                   }
                 ]

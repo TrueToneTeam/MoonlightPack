@@ -13,7 +13,6 @@
     }
   },
 
-
   "pack_info_section": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
@@ -57,17 +56,15 @@
       {
         "pack_build_label@info_text_base": {
           "$title_text": "global.pack_info.build.title",
-          "$data_text": "Alpha",
-          "$data_text_color": [ 0.882, 0.816, 0.969 ]
-          //Alpha Build Color: [ 0.882, 0.816, 0.969 ]
-          //Preview Build Color: [ 0.412, 1, 0.192 ]
-          //BETA Build Color: [ 0.969, 0.306, 0.424 ]
+          "$data_text": "$pack_type",
+          "$data_text_font_type": "MinecraftTen",
+          "$data_text_color": "$pack_type_color"
         }
       },
       {
         "pack_base_version_label@info_text_base": {
           "$title_text": "global.pack_info.base_version.title",
-          "$data_text": "v1",
+          "$data_text": "$pack_version",
           "$data_text_color": [ 0.043, 0.984, 0.953 ]
         }
       },
@@ -127,6 +124,7 @@
     "$title_text|default": "unknow",
     "$data_text|default": "unknow",
     "$data_text_color|default": [ 1.0, 1.0, 1.0 ],
+    "$data_text_font_type|default": "default",
     "controls": [
       {
         "title_label": {
@@ -171,7 +169,8 @@
           "anchor_to": "center",
           "color": "$data_text_color",
           "text": "$data_text",
-          "text_alignment": "left"
+          "text_alignment": "left",
+          "font_type": "$data_text_font_type"
         }
       }
     ]

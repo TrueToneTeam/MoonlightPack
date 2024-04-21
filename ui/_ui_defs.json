@@ -9,6 +9,7 @@
 
     "ui/settings_sections/video_section.json",
     "ui/settings_sections/view_section.json",
+    "ui/settings_sections/quick_section.json",
     "ui/settings_sections/info_section.json"
   ]
 }
