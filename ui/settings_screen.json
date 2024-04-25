@@ -141,7 +141,7 @@
       {
         "quick_settings_toggle@quick_section.button_with_checkbox_toggle": {
           "ignored": "(not $include_controls_and_settings_sections)",
-          "$toggle_group_forced_index": 80,
+          "$toggle_group_forced_index": 180,
           "size": [ "100%", 24 ],
           "$button_text": "settingScreen.quick_settings",
           "$toggle_name": "quick_settings_visible_toggle",
