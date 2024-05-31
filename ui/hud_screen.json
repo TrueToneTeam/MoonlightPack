@@ -8,7 +8,7 @@
         "operation": "insert_front",
         "value": [
           {
-            "win10_chat_panel": {
+            "bottom_chat_panel": {
               "type": "panel",
               "size": [ "100%", "100%" ],
               "$anchor": "bottom_left",
@@ -16,7 +16,7 @@
               "$max_children_size": 16,
               "layer": 30,
               "controls": [
-                { "chat_panel@hud.win10_chat_panel": { "$max_size": [ "40%", "100%c" ] } }
+                { "chat_panel@hud.bottom_chat_panel": { "$max_size": [ "40%", "100%c" ] } }
               ]
             }
           },
@@ -218,11 +218,11 @@
   },
 
   "chat_panel@hud.chat_panel_base": {
-    "visible": "(not $win10_edition)"
+    "visible": "($touch)"
   },
 
-  "win10_chat_panel@hud.chat_panel_base": {
-    "visible": "$win10_edition"
+  "bottom_chat_panel@hud.chat_panel_base": {
+    "visible": "(not $touch)"
   },
 
 

@@ -306,7 +306,7 @@
             }
           ],
           "$options_2": [
-            {
+            /*{
               "new_death_screen_toggle_input_panel@settings_common.option_toggle": {
                 "type": "input_panel",
                 "enabled": "($is_publish or not $education_edition)",
@@ -334,7 +334,7 @@
                   }
                 ]
               }
-            }
+            }*/
           ]
         }
       },

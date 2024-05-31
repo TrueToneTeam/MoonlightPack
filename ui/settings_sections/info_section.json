@@ -55,6 +55,21 @@
       },
       {
         "pack_build_label@info_text_base": {
+          "$pack_type_color|default": "$alpha_build_color",
+          "variables": [
+            {
+              "requires": "($pack_type = 'Beta'",
+              "$pack_type_color": "$beta_build_color"
+            },
+            {
+              "requires": "($pack_type = 'Preview'",
+              "$pack_type_color": "$preview_build_color"
+            },
+            {
+              "requires": "($pack_type = 'Developer'",
+              "$pack_type_color": "$developer_build_color"
+            }
+          ],
           "$title_text": "global.pack_info.build.title",
           "$data_text": "$pack_type",
           "$data_text_font_type": "MinecraftTen",
@@ -75,12 +90,6 @@
             { "made_by@data_label_base": { "$data_text": "global.pack_info.made_by", "$data_text_color": [ 0.827, 0.592, 0.831 ] } },
             { "made_by_team@data_label_base": { "$data_text": "global.pack_info.made_by.team", "$data_text_color": [ 0.337, 0.694, 0.78 ] } }
           ]
-        }
-      },
-      {
-        "pack_url_label@info_text_base": {
-          "$title_text": "global.pack_info.url.title",
-          "$data_text": "global.pack_info.url"
         }
       },
       {
@@ -304,9 +313,7 @@
           ]
         }
       },
-
       { "minecraft_build_info_void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
-
       {
         "build_id_text@custom_common.label_base": {
           "size": [ "100%", "default" ],
@@ -334,6 +341,25 @@
           "bindings": [
             {
               "binding_name": "#build_date"
+            }
+          ]
+        }
+      },
+      {
+        "network_info_text@custom_common.label_base": {
+          "size": [ "100%", "default" ],
+          "max_size": [ "100%", "default" ],
+          "text": "#network_info",
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "color": [ 0.7, 0.7, 0.7 ],
+          "bindings": [
+            {
+              "binding_name": "#network_info"
+            },
+            {
+              "binding_name": "#network_info_visible",
+              "binding_name_override": "#visible"
             }
           ]
         }

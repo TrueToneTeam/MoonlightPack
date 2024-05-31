@@ -85,37 +85,7 @@
     "$default_selector_toggle_index": 0,
     "ttsSectionContainer": true,
     "controls": [
-	  {
-        "world_selector_pane@world_section.selector_pane_content": {
-          "ignored": "(not $include_world_section)"
-        }
-      },
-
-      {
-        "realm_selector_pane@realms_settings.selector_panel": {
-          "ignored": "(not $include_realm_section)",
-          "$world_toggle_index": "$world_forced_index",
-          "$members_toggle_index": "$members_forced_index",
-          "$subscription_toggle_index": "$subscription_forced_index",
-          "$backup_toggle_index": "$backup_forced_index",
-          "$dev_options_toggle_index": "$dev_options_forced_index"
-        }
-      },
-
-	  {
-        "spacer_realm_selector": {
-          "ignored": "(not $include_realm_section)",
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-	  {
-        "realm_light_line_panel@settings_common.light_line_panel": {
-		  "ignored": "(not $include_realm_section)"
-		}
-      },
-
-      //Account
+      //Account & Quick Settings
       {
         "account_button@general_section.account_button": {
           "ignored": "(not $include_controls_and_settings_sections)",
@@ -125,17 +95,10 @@
         }
       },
 	  {
-	    "account_light_line@settings_common.light_line_panel": {
-          "ignored": "(not $include_controls_and_settings_sections)"
-	    } 
-	  },
-
-      //Quick Setting
-	  {
         "spacer_quick_settings": {
           "ignored": "(not $include_controls_and_settings_sections)",
           "type": "panel",
-          "size": [ "100%", 2 ]
+          "size": [ "100%", 6 ]
         }
       },
       {
@@ -164,8 +127,39 @@
 	    }
 	  },
 	  {
-        "quick_settings_light_line@settings_common.light_line_panel": {
-		  "ignored": "(not $include_controls_and_settings_sections)"
+	    "account_quickSettings_light_line@settings_common.light_line_panel": {
+          "ignored": "(not $include_controls_and_settings_sections)"
+	    }
+	  },
+
+      //World
+	  {
+        "world_selector_pane@world_section.selector_pane_content": {
+          "ignored": "(not $include_world_section)"
+        }
+      },
+
+      //Realms
+      {
+        "realm_selector_pane@realms_settings.selector_panel": {
+          "ignored": "(not $include_realm_section)",
+          "$world_toggle_index": "$world_forced_index",
+          "$members_toggle_index": "$members_forced_index",
+          "$subscription_toggle_index": "$subscription_forced_index",
+          "$backup_toggle_index": "$backup_forced_index",
+          "$dev_options_toggle_index": "$dev_options_forced_index"
+        }
+      },
+	  {
+        "spacer_realm_selector": {
+          "ignored": "(not $include_realm_section)",
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+	  {
+        "realm_light_line_panel@settings_common.light_line_panel": {
+		  "ignored": "(not $include_realm_section)"
 		}
       },
 

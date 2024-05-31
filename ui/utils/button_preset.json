@@ -1,7 +1,7 @@
 {
   "namespace": "button_preset",
 
-  //Button
+  // Button
   "ore_button_base@common_buttons.light_text_button": {
     "$default_button_texture": "textures/ui/ore/button_borderless_light",
     "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
@@ -45,7 +45,7 @@
   },
 
 
-  //Toggle
+  // Toggle
   "ore_toggle_base@common_toggles.light_content_toggle": {
     "$default_texture": "textures/ui/ore/button_borderless_light",
     "$hover_texture": "textures/ui/ore/button_borderless_lightpressed",
@@ -92,8 +92,30 @@
     "$hover_checked_text_color": [ 1.0, 1.0, 1.0 ]
   },
 
+  "underline_toggle_base@common_toggles.light_content_toggle": {
+    "$button_type_panel": "button_content_preset.underline_toggle_content",
 
-  //Section Toggle
+    "$default_texture": "textures/ui/empty",
+    "$hover_texture": "textures/ui/empty",
+    "$pressed_texture": "textures/ui/empty",
+    "$pressed_no_hover_texture": "textures/ui/empty",
+
+    "$default_border_visible": false,
+    "$hover_border_visible": false,
+
+    "$button_offset|default": [ 0, 0 ],
+    "$void_panel_size|default": [ 10, "100%" ],
+
+    "$radio_toggle_group": true,
+    "$toggle_name": "underline_navigation_toggle",
+    "$toggle_group_default_selected": "$default_selector_toggle_index",
+    "$toggle_view_binding_name": "$section_topic",
+    "$toggle_state_binding_name": "#toggle_state",
+    "$toggle_on_hover_binding_name": "none",
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence"
+  },
+
   "ore_section_toggle_base@common_toggles.light_content_toggle": {
     "$button_type_panel": "custom_common.tab_button_content_panel",
 
@@ -149,7 +171,7 @@
   },
 
 
-  //Icon Button
+  // Icon Button
   "icon_button_base@common_buttons.light_content_button": {
     "$button_type_panel": "common_buttons.button_content_panel",
 

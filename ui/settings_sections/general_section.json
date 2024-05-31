@@ -250,6 +250,52 @@
         }
       },
 
+      {
+        "paddingGameTipsFeature": {
+          "type": "panel",
+          "size": "$spatialPatternsPadding",
+          "bindings": [
+            {
+              "binding_name": "#tutorial_toggle_enabled",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+
+      {
+        "tutorial_toggle@settings_common.option_toggle": {
+          "$option_label": "options.tutorial",
+          "$option_binding_name": "#tutorial_option_toggle",
+          "$toggle_name": "tutorial_option_toggle",
+          "$has_option_description": true,
+          "$option_description": "options.tutorialHint",
+          "bindings": [
+            {
+              "binding_name": "#tutorial_toggle_enabled",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+
+      {
+        "tutorial_restart_button@settings_common.action_button": {
+          "$pressed_button_name": "button.tutorial_restart",
+          "$button_text": "options.restartTutorial",
+          "bindings": [
+            {
+              "binding_name": "#tutorial_toggle_enabled",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_name": "#gametips_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+
       // Add some padding between the buttons/toggles to reduce the impression upon the eyes. (ADO:515619)
       {
         "paddingTrustedSkins": {
@@ -492,13 +538,71 @@
                           }
                         },
                         {
-                          "edition@custom_common.label_base": {
-                            "size": [ "100%", "default" ],
-                            "text": "$edition_text",
-                            "text_alignment": "left",
-                            "font_type": "smooth",
-                            "font_scale_factor": 0.9,
-                            "color": [ 0.7, 0.7, 0.7 ]
+                          "edition_os_stack_panel@custom_common.stack_panel_base": {
+                            "size": [ "100%", "100%cm" ],
+                            "orientation": "horizontal",
+                            "controls": [
+                              {
+                                "edition@custom_common.label_base": {
+                                  "$edition_text|default": "Unknow",
+                                  "variables": [
+                                    {
+                                      "requires": "$win10_edition",
+                                      "$edition_text": "Windows Edition"
+                                    },
+                                    {
+                                      "requires": "$pocket_edition",
+                                      "$edition_text": "Pocket Edition"
+                                    },
+                                    {
+                                      "requires": "$console_edition",
+                                      "$edition_text": "Console Edition"
+                                    }
+                                  ],
+                                  "size": [ "default", "default" ],
+                                  "text": "$edition_text",
+                                  "text_alignment": "left",
+                                  "font_type": "smooth",
+                                  "font_scale_factor": 0.9,
+                                  "color": [ 0.7, 0.7, 0.7 ]
+                                }
+                              },
+                              {
+                                "line@custom_common.label_base": {
+                                  "size": [ "default", "default" ],
+                                  "text": " - ",
+                                  "text_alignment": "left",
+                                  "font_type": "smooth",
+                                  "font_scale_factor": 0.9,
+                                  "color": [ 0.7, 0.7, 0.7 ]
+                                }
+                              },
+                              {
+                                "os@custom_common.label_base": {
+                                  "$os_text|default": "Unknow",
+                                  "variables": [
+                                    {
+                                      "requires": "$microsoft_os",
+                                      "$os_text": "Windows 10/11"
+                                    },
+                                    {
+                                      "requires": "$apple_os",
+                                      "$os_text": "iOS/iPadOS"
+                                    },
+                                    {
+                                      "requires": "$google_os",
+                                      "$os_text": "Android"
+                                    }
+                                  ],
+                                  "size": [ "default", "default" ],
+                                  "text": "$os_text",
+                                  "text_alignment": "left",
+                                  "font_type": "smooth",
+                                  "font_scale_factor": 0.9,
+                                  "color": [ 0.7, 0.7, 0.7 ]
+                                }
+                              }
+                            ]
                           }
                         }
                       ]
@@ -1464,7 +1568,7 @@
             {
               "editor_spacer": {
                 "type": "panel",
-                "size": [ "100%", 7 ]
+                "size": [ "100%", 4 ]
               }
             },
             {
@@ -1532,65 +1636,67 @@
     "size": [ "100%", "100%c" ],
     "controls": [
       {
-        "copy_coordinate_section_stack_panel": {
-          "type": "stack_panel",
-          "visible": "$supports_clipboard_set",
-          "controls": [
-            {
-              "content_log_label_header": {
-                "type": "label",
-                "color": "$body_text_color",
-                "shadow": true,
-                "font_type": "MinecraftTen",
-                "font_scale_factor": 1.6,
-                "text": "options.creatorTitle"
-              }
-            },
-            {
-              "content_log_spacer": {
-                "type": "panel",
-                "size": [ "100%", 7 ]
-              }
-            },
-            {
-              "option_content_file_log@settings_common.option_toggle": {
-                "$option_label": "options.copyCoordinateUI",
-                "$option_binding_name": "#copy_coordinate_ui",
-                "$toggle_name": "copy_coordinate_ui"
-              }
-            }
-          ]
+        "content_log_section_label": {
+          "type": "label",
+          "text": "options.creatorTitle",
+          "color": "$body_text_color"
         }
       },
+      { "content_log_section_label_spacer@common.empty_panel": { "size": [ "100%", 2 ] } },
       {
-        "creator_setting_button": {
+        "creator_stack_panel": {
           "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
           "orientation": "horizontal",
-          "size": [ "100%", 30 ],
-          "bindings": [
-            {
-              "binding_name": "#show_keybinds_button",
-              "binding_name_override": "#visible"
-            }
-          ],
           "controls": [
             {
-              "go_to_keybinds@settings_common.action_button": {
-                "$pressed_button_name": "button.go_to_keybinds",
-                "$button_text": "options.go_to_keybinds",
-                "size": [ "100%", "100%" ],
-                "bindings": [
+              "copy_coordinate_section_stack_panel": {
+                "type": "stack_panel",
+                "size": [ "fill", 26 ],
+                "enabled": "$supports_clipboard_set",
+                "controls": [
+                  { "start_void_panel@common.empty_panel": { "size": [ "100%", "fill + 4px" ] } },
                   {
-                    "binding_name": "#go_to_keybinds",
-                    "binding_name_override": "#enabled"
-                  }
+                    "option_content_file_log@settings_common.option_toggle": {
+                      "size": [ "100%", "default" ],
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "$option_label": "options.copyCoordinateUI",
+                      "$option_binding_name": "#copy_coordinate_ui",
+                      "$toggle_name": "copy_coordinate_ui"
+                    }
+                  },
+                  { "end_void_panel@common.empty_panel": { "size": [ "100%", "fill" ] } }
                 ]
               }
             },
+            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
             {
-              "creator_settings_section_label_spacer": {
-                "type": "panel",
-                "size": [ "1%", "100%" ]
+              "creator_setting_button": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "fill", 26 ],
+                "bindings": [
+                  {
+                    "binding_name": "#show_keybinds_button",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "controls": [
+                  {
+                    "go_to_keybinds@settings_common.action_button": {
+                      "$pressed_button_name": "button.go_to_keybinds",
+                      "$button_text": "options.go_to_keybinds",
+                      "size": [ "100%", "100%" ],
+                      "bindings": [
+                        {
+                          "binding_name": "#go_to_keybinds",
+                          "binding_name_override": "#enabled"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -1598,6 +1704,138 @@
       },
       {
         "creator_toggles_light_line_panel@settings_common.light_line_panel": {}
+      }
+    ]
+  },
+
+  "debugger_toggles_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "bindings": [
+      {
+        "binding_name": "#script_debugger_options_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ],
+    "controls": [
+      {
+        "primary_panel": {
+          "type": "stack_panel",
+          "controls": [
+            {
+              "heading": {
+                "type": "label",
+                "shadow": true,
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.6,
+                "text": "options.creator.debuggerHeading",
+                "color": "$body_text_color"
+              }
+            },
+            {
+              "spacer": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "auto_attach_toggle@settings_common.option_toggle": {
+                "ignored": "$build_platform_UWP",
+                "$option_label": "options.creator.debuggerAutoAttach",
+                "$option_binding_name": "#script_debugger_auto_attach",
+                "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                "$toggle_name": "script_debugger_auto_attach"
+              }
+            },
+            {
+              "auto_connect_toggle@settings_common.option_toggle": {
+                "ignored": "(not $build_platform_UWP)",
+                "$option_label": "options.creator.debuggerAutoConnect",
+                "$option_binding_name": "#script_debugger_auto_attach",
+                "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                "$toggle_name": "script_debugger_auto_attach"
+              }
+            },
+            {
+              "all_options_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_name": "#creator_show_debugger_options",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "attach_mode_option@settings_common.option_radio_dropdown_group": {
+                      "ignored": "$build_platform_UWP",
+                      "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                      "$radio_buttons": [
+                        {
+                          "connect@settings_common.radio_with_label": {
+                            "$toggle_state_binding_name": "#script_debugger_attach_mode_connect",
+                            "$radio_label_text": "options.creator.debuggerConnect"
+                          }
+                        },
+                        {
+                          "listen@settings_common.radio_with_label": {
+                            "$toggle_state_binding_name": "#script_debugger_attach_mode_listen",
+                            "$radio_label_text": "options.creator.debuggerListen"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "host_and_port_panel": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": [ "100%", 40 ],
+                      "controls": [
+                        {
+                          "host_input@settings_common.option_text_edit": {
+                            "size": [ "49.5%", "100%" ],
+                            "$option_text_edit_control_size": [ "100%", 24 ],
+                            "$text_box_name": "script_debugger_host",
+                            "$max_text_edit_length": 15,
+                            "$option_label": "options.creator.debuggerHost",
+                            "$option_binding_name": "#script_debugger_host",
+                            "bindings": [
+                              {
+                                "binding_name": "#script_debugger_attach_mode_connect",
+                                "binding_name_override": "#enabled"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "spacer": {
+                            "type": "panel",
+                            "size": [ "1%", "100%" ]
+                          }
+                        },
+                        {
+                          "port_input@settings_common.option_text_edit": {
+                            "size": [ "49.5%", "100%" ],
+                            "$option_text_edit_control_size": [ "100%", 24 ],
+                            "$text_box_name": "script_debugger_port",
+                            "$max_text_edit_length": 5,
+                            "$option_label": "options.creator.debuggerPort",
+                            "$option_binding_name": "#script_debugger_port"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "section_panel_1@settings_common.light_line_panel": {}
       }
     ]
   },
@@ -1619,9 +1857,60 @@
       {
         "content_log_spacer": {
           "type": "panel",
-          "size": [ "100%", 7 ]
+          "size": [ "100%", 4 ]
         }
       },
+      {
+        "warning_text_panel": {
+          "type": "image",
+          "size": [ "100%", 30 ],
+          "texture": "textures/ui/hud_text_background_white",
+          "color": [ 1.0, 0.0, 0.0 ],
+          "layer": 5,
+          "controls": [
+            {
+              "content_stack": {
+                "type": "stack_panel",
+                "size": [ "100% - 8px", "100% - 8px" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "warning_icon": {
+                      "type": "image",
+                      "size": [ "50%y", "100%" ],
+                      "texture": "textures/ui/WarningGlyph",
+                      "layer": 7
+                    }
+                  },
+                  { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+                  {
+                    "text_panel": {
+                      "type": "panel",
+                      "size": [ "fill", "100%" ],
+                      "controls": [
+                        {
+                          "text": {
+                            "type": "label",
+                            "size": [ "default", "default" ],
+                            "max_size": [ "100%", "100%" ],
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
+                            "text": "settingScreen.creator.warning_text",
+                            "layer": 7
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "warning_void@common.empty_panel": { "size": [ 0, 4 ] } },
       {
         "content_log_options": {
           "type": "stack_panel",
@@ -1774,6 +2063,22 @@
     ],
     "controls": [
       {
+        "creator_label_header": {
+          "type": "label",
+          "color": "$body_text_color",
+          "shadow": true,
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.6,
+          "text": "options.creatorTitle"
+        }
+      },
+      {
+        "content_log_spacer": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
         "editor_toggle@general_section.editor_toggle_panel": {}
       },
       {
@@ -1783,6 +2088,9 @@
       },
       {
         "creator_toggles@general_section.creator_toggles_panel": {}
+      },
+      {
+        "debugger_toggles_panel@general_section.debugger_toggles_panel": {}
       },
       {
         "content_log_panel@general_section.content_log_panel": {

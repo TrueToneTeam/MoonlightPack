@@ -40,6 +40,91 @@
   },
 
 
+  // Underline Content
+  "underline_toggle_content": {
+    "type": "panel",
+    "size": [ "100%c", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+
+    "$underline_button_size|default": [ "100%c", "100%c" ],
+    "$single_label_size": [ "default", 8 ],
+    "$single_line_font_scale_factor": 0.8,
+
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "label_default@common.single_line_label": {
+                "$single_line_label_color": "$dark_button_default_text_color",
+                "$underline_control": [
+                  { "underline_default@common.underline": {} }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_property_name": "$default_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hover": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "label_hover@common.single_line_label": {
+                "$single_line_label_color": "$dark_button_default_text_color",
+                "$underline_control": [
+                  { "underline_default@common.underline": {} }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_property_name": "$hover_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "pressed": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "label_pressed@common.single_line_label": {
+                "$single_line_label_color": "$dark_button_default_text_color",
+                "$underline_control": [
+                  { "underline_default@common.underline": {} }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_property_name": "(not $default_state and not $hover_state and not $locked_state)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
   // Orientation Content
   "orientation_content_panel_base": {
     "type": "panel",

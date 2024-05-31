@@ -99,7 +99,7 @@
 
   "light_line_horizontal_panel": {
     "type": "panel",
-    "size": [ "100%", "100%c + 14px" ],
+    "size": [ "100%", 14 ],
     "$line_size|default": [ "100% - 30px", 2 ],
     "$line_color|default": [ 1.0, 1.0, 1.0 ],
     "controls": [

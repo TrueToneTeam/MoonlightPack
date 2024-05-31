@@ -1,10 +1,12 @@
 {
   /// Pack Info ///
+  "$pack_is_developer_mode": false,
+
   "$pack_type": "Alpha",
-  "$pack_type_color": [ 0.882, 0.816, 0.969 ],
+  "$pack_version": "v1.2",
+
   "$alpha_build_color": [ 0.882, 0.816, 0.969 ],
   "$beta_build_color": [ 0.412, 1, 0.192 ],
   "$preview_build_color": [ 0.969, 0.306, 0.424 ],
-  "$developer_build_color": [ 0.635, 0.478, 0.522 ],
-  "$pack_version": "v1.1"
+  "$developer_build_color": [ 0.635, 0.478, 0.522 ]
 }

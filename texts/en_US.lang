@@ -11,8 +11,6 @@ global.pack_info.editor.title=Editor:	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
 global.pack_info.build.title=Build:	#
 global.pack_info.base_version.title=Pack Version:	#
-global.pack_info.url.title=Homepage:	#
-global.pack_info.url=§etruetoneteam.kro.kr	#
 global.pack_info.licenses.title=Licenses:	#
 global.pack_info.licenses.1= * The resource pack is an open-source project by the Moonlight Team (TrueToneTeam) that can be modified and redistributed by anyone.	#
 global.pack_info.licenses.2= * However, the contents of the tab and the display of the original creator and team name cannot be modified or removed. Secondary modifiers can be distributed by adding a name to the Modifier item.	#
@@ -37,9 +35,12 @@ options.myResourcePacks=My Resource Packs	#
 options.minecraftInfo=Minecraft Info	#
 
 controls_section.contorl_title=Control	#
-controls_section.sensitivity_title=Sensitivity	#
+controls_section.sensitivity_and_vibration_title=Sensitivity & Vibration	#
 controls_section.button_title=Button	#
 controls_section.hotbar_title=Hotbar	#
+controls_section.controls.classic=Classic	#
+controls_section.controls.touch=Touch	#
+controls_section.controls.crosshair=Crosshair	#
 
 video_section.frame_title=Frame	#
 video_section.graphic_and_rendering_title=Graphic & Rendering	#
@@ -71,12 +72,15 @@ settingScreen.networkTitle=Network Setting	#
 settingScreen.info_group=Info	#
 settingScreen.pack_info=Moonlight Pack	#
 
+settingScreen.creator.warning_text=If you turn on the content log after applying that resource pack, you might see various error logs.	#
+
 
 ## Play Screen
 playScreen.title=Play	#
 playScreen.tab.all_worlds=All Worlds	#
 playScreen.tab.multiplay=Multiplay	#
 playScreen.tab.server=Server	#
+playScreen.tab.debug=Debug	#
 
 playScreen.search_world.title=Search World	#
 playScreen.search_world.name=Search world name...	#
@@ -85,25 +89,15 @@ playScreen.search_world.result=Search world result: 	#
 playScreen.side_menu.friends.title=Friends	#
 playScreen.side_menu.friends.player_search=Search for players	#
 playScreen.side_menu.friends.not_friends.title=Oh! I don't have any friends playing right now...	#
-playScreen.side_menu.friends.not_friends.lore=Ask your friend to play with you! Or find a new friend and make a new connection!	#
+playScreen.side_menu.friends.not_friends.lore=Ask your friend to play with you, or use the 'Search Player' feature to find new friends!	#
 
 playScreen.contentButton.quick_play.title=Quick Play	#
 playScreen.contentButton.quick_play.lore=You can quickly create a new world with a random seed.	#
 playScreen.contentButton.change_to_new_ui.title=Change to New UI	#
 playScreen.contentButton.change_to_new_ui.lore=Meet the redesigned UI! This feature is available in Beta or Preview versions.	#
 
-playScreen.category.main.title=Main Screen	#
-
 playScreen.category.realms_plus.title=Realms Plus	#
-playScreen.category.realms_plus.lore_short=Always use §gRealms Plus§f to meet friends and other people!	#
-playScreen.category.realms_plus.lore.1=As a §cpaid service§f paid monthly, §gRealms Plus§f provides a server that you can enjoy with friends or others anytime, anywhere, §a24 hours a day§f.	#
-playScreen.category.realms_plus.lore.2=Try out the service by purchasing §gRealms Plus§f, which lets you play with §e2§f or §e10§f people!	#
-playScreen.category.realms_plus.lore.3=Additionally, §gRealms Plus§f gives you access to over 150 §amarketplace contents§f. 	#
-
 playScreen.category.lan.title=LAN Server	#
-playScreen.category.lan.lore_short=Play with someone playing on the same network!	#
-playScreen.category.lan.lore.1=This feature allows you to play with §eother users§f or §efriends§f who are playing on the same §anetwork§f.	#
-playScreen.category.lan.lore.2=You must §aenable§f §emultiplay settings§f and §eLAN settings§f in world settings to display your LAN server on other users' screens.	#
 
 playScreen.quick_menu.title=Quick Menu	#
 

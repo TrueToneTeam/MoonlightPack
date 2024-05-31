@@ -54,6 +54,13 @@
     "size": [ 20, 20 ]
   },
 
+  "dressing_room_icon": {
+    "type": "image",
+    "texture": "textures/ui/start/icon_dressing_room",
+    "layer": 3,
+    "size": [ 22, 22 ]
+  },
+
   "profile_icon": {
     "type": "image",
     "texture": "textures/ui/start/icon_profile",
@@ -154,6 +161,13 @@
     "uv_size": [ 16, 16 ],
     "size": [ 22, 22 ],
     "uv": "@start.inbox_bell_animation"
+  },
+
+  "realms_icon": {
+    "type": "image",
+    "texture": "textures/ui/realmsIcon",
+    "layer": 3,
+    "size": [ 20, 20 ]
   },
 
   "debug_icon": {
@@ -329,12 +343,38 @@
     "$button_text": "menu.getStarted"
   },
 
-  "profile_custom_icon_button@start.custom_icon_button_base": {
-    "$button_color": [ 0.565, 0.929, 1 ],
-    "$button_content": "start.profile_icon",
-    "$button_text": "options.profile",
+  "realms_custom_icon_button@start.custom_icon_button_base": {
+    "$button_color": [ 0.384, 0.106, 0.761 ],
+    "$button_content": "start.realms_icon",
+    "$pressed_button_name": "button.menu_realms",
+    "$button_text": "menu.realmsServer"
+  },
+
+  "dressing_room_custom_icon_button@start.custom_icon_button_base": {
+    "$button_color": [ 0.459, 0.624, 0.835 ],
+    "$button_content": "start.dressing_room_icon",
+    "$button_text": "profileScreen.header",
     "$pressed_button_name": "button.to_profile_screen",
-    "$button_tts_header": "options.profile"
+    "$focus_id": "profile_button",
+    "bindings": [
+      {
+        "binding_name": "#dressing_room_button_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "profile_custom_icon_button@start.custom_icon_button_base": {
+    "$button_color": [ 0.78, 0.694, 0.361 ],
+    "$button_content": "start.profile_icon",
+    "$button_text": "menu.profile",
+    "$pressed_button_name": "button.menu_profile",
+    "bindings": [
+      {
+        "binding_name": "#profile_button_a_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
   },
 
   "setting_custom_icon_button@start.custom_icon_button_base": {
@@ -361,7 +401,7 @@
     "$pressed_button_name": "button.feedback_button_pressed"
   },
 
-  "pre_release_feedback_icon_button@start.release_feedback_button": {
+  "pre_release_feedback_icon_button@start.release_feedback_icon_button": {
     "property_bag": {
       "#hyperlink": "https://aka.ms/minecraftfbbeta"
     }
@@ -767,7 +807,23 @@
   },
 
 
-  // Gamertag
+  // Gamertag & Gamerpic
+  "new_gamerpic": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "layer": 2,
+    "bindings": [
+      {
+        "binding_name": "#gamerpic_texture_path",
+        "binding_name_override": "#texture"
+      },
+      {
+        "binding_name": "#gamerpic_texture_location_type",
+        "binding_name_override": "#texture_file_system"
+      }
+    ]
+  },
+
   "gamertag_label": {
     "type": "label",
     "color": "$gamertag_color",
@@ -805,25 +861,9 @@
                 "type": "panel",
                 "size": [ "100%c", "100%" ],
                 "controls": [
+                  { "gamerpic@new_gamerpic": { "layer": 1, "size": [ 26, 26 ] } },
                   {
-                    "gamerpic": {
-                      "type": "image",
-                      "size": [ 26, 26 ],
-                      "layer": 1,
-                      "bindings": [
-                        {
-                          "binding_name": "#gamerpic_texture_path",
-                          "binding_name_override": "#texture"
-                        },
-                        {
-                          "binding_name": "#gamerpic_texture_location_type",
-                          "binding_name_override": "#texture_file_system"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "border_white@common.focus_border_white": {
+                    "border_black@common.focus_border_black": {
                       "layer": 3,
                       "size": [ 26, 26 ]
                     }
@@ -831,31 +871,16 @@
                 ]
               }
             },
-            { "spacer": { "type": "panel", "size": [ 2, 0 ] } },
+            { "spacer@common.empty_panel": { "size": [ 2, 0 ] } },
             {
               "gamertag_label_panel": {
                 "type": "panel",
                 "size": [ "100%c - 75%c", "100%" ],
                 "$gamertag_color|default": [ 1.0, 1.0, 1.0 ],
                 "controls": [
-                  {
-                    "gamertag_label_pink@start.gamertag_label": {
-                      "$gamertag_color": [ 1.0, 0.0, 1.0 ],
-                      "$gamertag_offset": [ 1, 4 ]
-                    }
-                  },
-                  {
-                    "gamertag_label_lightBlue@start.gamertag_label": {
-                      "$gamertag_color": [ 0.0, 1.0, 1.0 ],
-                      "$gamertag_offset": [ -1, 2 ]
-                    }
-                  },
-                  {
-                    "gamertag_label_white@start.gamertag_label": {
-                      "$gamertag_color": [ 1.0, 1.0, 1.0 ],
-                      "$gamertag_offset": [ 0, 2.5 ]
-                    }
-                  }
+                  { "gamertag_pink@start.gamertag_label": { "$gamertag_color": [ 1.0, 0.0, 1.0 ], "$gamertag_offset": [ 1, 4 ] } },
+                  { "gamertag_lightBlue@start.gamertag_label": { "$gamertag_color": [ 0.0, 1.0, 1.0 ], "$gamertag_offset": [ -1, 2 ] } },
+                  { "gamertag_white@start.gamertag_label": { "$gamertag_color": [ 1.0, 1.0, 1.0 ], "$gamertag_offset": [ 0, 2.5 ] } }
                 ]
               }
             }
@@ -898,7 +923,7 @@
           "anchor_from": "center",
           "$buttons_panel_size": [ "100%", "100%cm + 10px" ],
           "$side_void_panel_size": [ "fill", 0 ],
-          "$void_panel_size": [ 14, 0 ],
+          "$void_panel_size": [ 12, 0 ],
           "controls": [
             {
               "buttons_00": {
@@ -914,8 +939,8 @@
                   { "get_started@start.get_started_custom_icon_button": {} },
                   { "void_panel_1@custom_common.panel_base": { "size": "$void_panel_size" } },
                   { "setting@start.setting_custom_icon_button": {} },
-                  { "void_panel_3@custom_common.panel_base": { "size": "$void_panel_size" } },
-                  { "profile@start.profile_custom_icon_button": {} },
+                  { "void_panel_2@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  { "dressing_room@start.dressing_room_custom_icon_button": {} },
                   { "end_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } }
                 ]
               }
@@ -929,11 +954,11 @@
                 "orientation": "horizontal",
                 "controls": [
                   { "start_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } },
-                  { "marketplace@start.marketplace_custom_icon_button": {} },
+                  { "inbox@start.inbox_custom_icon_button": {} },
                   { "void_panel_0@custom_common.panel_base": { "size": "$void_panel_size" } },
                   { "achievements@start.achievements_custom_icon_button": {} },
                   { "void_panel_1@custom_common.panel_base": { "size": "$void_panel_size" } },
-                  { "inbox@start.inbox_custom_icon_button": {} },
+                  { "marketplace@start.marketplace_custom_icon_button": {} },
                   { "end_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } }
                 ]
               }
@@ -952,7 +977,7 @@
                   { "none_1@start.none_custom_icon_button": {} },
                   { "void_panel_1@custom_common.panel_base": { "size": "$void_panel_size" } },
                   { "none_2@start.none_custom_icon_button": {} },
-                  { "void_panel_3@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  { "void_panel_2@custom_common.panel_base": { "size": "$void_panel_size" } },
                   {
                     "login@start.binding_custom_icon_button_base": {
                       "$custom_icon_button": "start.login_custom_icon_button",
@@ -985,6 +1010,7 @@
       }
     ]
   },
+
 
   //---------------------------------------------------------------------------
   // Start Screen: Main Screen

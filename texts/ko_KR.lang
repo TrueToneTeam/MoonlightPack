@@ -11,8 +11,6 @@ global.pack_info.editor.title=수정자:	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
 global.pack_info.build.title=빌드:	#
 global.pack_info.base_version.title=팩 버전:	#
-global.pack_info.url.title=홈페이지:	#
-global.pack_info.url=§etruetoneteam.kro.kr	#
 global.pack_info.licenses.title=라이센스:	#
 global.pack_info.licenses.1= * 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
 global.pack_info.licenses.2= * 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
@@ -37,9 +35,12 @@ options.myResourcePacks=나의 리소스 팩	#
 options.minecraftInfo=Minecraft 정보	#
 
 controls_section.contorl_title=컨트롤	#
-controls_section.sensitivity_title=감도	#
+controls_section.sensitivity_and_vibration_title=감도 & 진동	#
 controls_section.button_title=버튼	#
 controls_section.hotbar_title=핫바	#
+controls_section.controls.classic=클래식	#
+controls_section.controls.touch=터치	#
+controls_section.controls.crosshair=포인터	#
 
 video_section.frame_title=프레임	#
 video_section.graphic_and_rendering_title=그래픽 & 렌더링	#
@@ -73,12 +74,15 @@ settingScreen.networkTitle=네트워크 설정	#
 settingScreen.info_group=정보	#
 settingScreen.pack_info=Moonlight Pack	#
 
+settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
+
 
 ## Play Screen
 playScreen.title=플레이	#
 playScreen.tab.all_worlds=모든 월드	#
 playScreen.tab.multiplay=멀티 플레이	#
 playScreen.tab.server=서버	#
+playScreen.tab.debug=디버그	#
 
 playScreen.search_world.title=월드 검색	#
 playScreen.search_world.name=월드 이름 검색...	#
@@ -87,25 +91,15 @@ playScreen.search_world.result=월드 검색 결과: 	#
 playScreen.side_menu.friends.title=친구	#
 playScreen.side_menu.friends.player_search=플레이어 검색	#
 playScreen.side_menu.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...	#
-playScreen.side_menu.friends.not_friends.lore=친구에게 같이 플레이하자고 말해보세요! 아니면 새로운 친구를 찾아서 새로운 인연을 만들어보세요!	#
+playScreen.side_menu.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요!	#
 
 playScreen.contentButton.quick_play.title=빠른 플레이	#
 playScreen.contentButton.quick_play.lore=랜덤한 시드로 새로운 월드를 빠르게 생성할 수 있습니다.	#
 playScreen.contentButton.change_to_new_ui.title=새 UI로 전환	#
 playScreen.contentButton.change_to_new_ui.lore=새롭게 디자인된 UI를 만나보세요! 해당 기능은 Beta 또는 Preview 버전에서먄 이용하실 수 있습니다.	#
 
-playScreen.category.main.title=메인 화면	#
-
 playScreen.category.realms_plus.title=Realms Plus	#
-playScreen.category.realms_plus.lore_short=§gRealms Plus§f를 이용해서 언제나 친구나 다른 사람들을 만나보세요!	#
-playScreen.category.realms_plus.lore.1=§gRealms Plus§f는 매달 결제되는 §c유료 서비스§f로서 §a24시간 언제나 어디서나§f §e친구들§f이나 §e다른 사람§f들과 함께 즐길 수 있는 서버를 제공해줍니다.	#
-playScreen.category.realms_plus.lore.2=§e2명§f 또는 §e10명§f과 함께 플레이하실 수 있는 §gRealms Plus§f를 구매해서 서비스를 이용해보세요!	#
-playScreen.category.realms_plus.lore.3=또한 §gRealms Plus§f 이용 시 §e150가지 이상§f의 §a마켓플레이스 콘텐츠§f를 이용하실 수 있습니다. 	#
-
 playScreen.category.lan.title=LAN 서버	#
-playScreen.category.lan.lore_short=같은 네트워크에서 플레이 중인 사람과 같이 플레이 해보세요!	#
-playScreen.category.lan.lore.1=같은 §a네트워크§f에서 플레이하고 있는 §e다른 유저§f나 §b친구§f와 함께 플레이 하실 수 있는 기능입니다.	#
-playScreen.category.lan.lore.2=월드 설정에서 §e멀티 플레이 설정§f 및 §eLAN 설정§f을 §a활성화§f 해주셔야 다른 유저의 화면에서 자신의 LAN 서버가 표시됩니다.	#
 
 playScreen.quick_menu.title=빠른 메뉴	#
 
