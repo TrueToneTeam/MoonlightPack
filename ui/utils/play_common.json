@@ -593,6 +593,7 @@
                                   "layer": 20,
                                   "type": "label",
                                   "max_size": [ "default", "100%" ],
+                                  "offset": [ 0, 2 ],
                                   "anchor_from": "center",
                                   "anchor_to": "center",
                                   "text": "playScreen.category.lan.title",
@@ -677,6 +678,7 @@
                                   "layer": 20,
                                   "type": "label",
                                   "max_size": [ "default", "100%" ],
+                                  "offset": [ 0, 2 ],
                                   "anchor_from": "center",
                                   "anchor_to": "center",
                                   "text": "playScreen.category.realms_plus.title",
@@ -861,6 +863,77 @@
     ]
   },
 
+  "last_play_world_button_content_base": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "(not $default_state and not $hover_state and not $locked_state)",
+        "$button_content_offset": [ 0, 2 ]
+      }
+    ],
+    "offset": "$button_content_offset",
+    "controls": [
+      {
+        "content_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "world_image": {
+                "layer": 60,
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "fill": true,
+                "force_texture_reload": true,
+                "bindings": [
+                  {
+                    "binding_nane": "#local_world_image",
+                    "binding_name_override": "#texture",
+                    "binding_type": "collection_details",
+                    "binding_collection_name": "local_worlds"
+                  },
+                  {
+                    "binding_nane": "#local_world_texture_source",
+                    "binding_name_override": "#texture_file_system",
+                    "binding_type": "collection_details",
+                    "binding_collection_name": "local_worlds"
+                  },
+                  {
+                    "binding_type": "collection_details",
+                    "binding_collection_name": "local_worlds"
+                  }
+                ],
+                "controls": [
+                  {
+                    "world_name_panel": {
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 10px" ],
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "controls": [
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 32,
+                            "$button_text_size": [ "100% - 4px", "default" ],
+                            "$button_text_max_size": [ "100% - 4px", "default" ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
 
   //--------------------------------------------------------------------------------
   // Side Menu
@@ -997,7 +1070,7 @@
       }
     ],
     "controls": [
-      { "icon@$icon": { "layer": "$icon_layer", "offset": "offset": [ -0.5, -1 ] } }
+      { "icon@$icon": { "layer": "$icon_layer", "offset": [ -0.5, -1 ] } }
     ]
   }
 }

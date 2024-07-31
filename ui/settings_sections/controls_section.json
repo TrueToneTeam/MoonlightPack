@@ -1135,63 +1135,34 @@
           ]
         }
       },
-	  
       {
-        "option_enable_new_touch_control_schemes_button@settings_common.option_toggle": {
-          "$option_label": "options.enableNewTouchControlSchemes",
-          "$option_binding_name": "#enable_new_touch_control_schemes",
-          "$option_enabled_binding_name": "#enable_new_touch_control_schemes_enabled",
-          "$toggle_name": "enable_new_touch_control_schemes",
-          "bindings": [
+        "leftHanded_enableNewTouchControlSchemes_options@settings_common.new_options_design_base": {
+          "$options_1": [
             {
-              "binding_name": "#new_touch_control_schemes_preview_enabled",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-
-
-      {
-        "hotbar_light_line_panel@settings_common.light_line_panel": {}
-      },
-      {
-        "hotbar_label_header": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "shadow": true,
-          "font_type": "MinecraftTen",
-          "font_scale_factor": 1.6,
-          "text": "controls_section.hotbar_title"
-        }
-      },
-      { "hotbar_void@common.empty_panel": { "size": [ "100%", 4 ] } },
-      {
-        "hotbar_scale@settings_common.option_slider": {
-          "$option_label": "#hotbar_scale_slider_label",
-          "$slider_name": "hotbar_scale",
-          "$slider_value_binding_name": "#hotbar_scale",
-          "$slider_tts_text_value": "#hotbar_scale_text_value",
-          "$option_enabled_binding_name": "#hotbar_scale_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
+              "option_toggle_left_handed@settings_common.option_toggle": {
+                "$option_label": "options.lefthanded",
+                "$option_binding_name": "#left_handed",
+                "$option_enabled_binding_name": "#left_handed_enabled",
+                "$toggle_name": "left_handed"
+              }
             }
           ],
-          "bindings": [
+          "$options_2": [
             {
-              "binding_name": "#resizable_ui_active",
-              "binding_name_override": "#enabled"
+              "option_enable_new_touch_control_schemes_button@settings_common.option_toggle": {
+                "$option_label": "options.enableNewTouchControlSchemes",
+                "$option_binding_name": "#enable_new_touch_control_schemes",
+                "$option_enabled_binding_name": "#enable_new_touch_control_schemes_enabled",
+                "$toggle_name": "enable_new_touch_control_schemes",
+                "bindings": [
+                  {
+                    "binding_name": "#new_touch_control_schemes_preview_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
             }
           ]
-        }
-      },
-      {
-        "hotbar_only_touch_toggle@settings_common.option_toggle": {
-          "$option_label": "options.hotbarOnlyTouch",
-          "$option_binding_name": "#hotbar_only_touch",
-          "$option_enabled_binding_name": "#hotbar_only_touch_enabled",
-          "$toggle_name": "hotbar_only_touch"
         }
       },
 
@@ -1283,20 +1254,27 @@
         }
       },
       {
-        "option_toggle_auto_jump@settings_common.option_toggle": {
-          "$option_label": "options.autojump",
-          "$option_binding_name": "#touch_autojump",
-          "$option_enabled_binding_name": "#touch_autojump_enabled",
-          "$toggle_name": "touch_autojump"
-        }
-      },
-      {
-        "option_toggle_left_handed@settings_common.option_toggle": {
-          "visible": false,
-          "$option_label": "options.lefthanded",
-          "$option_binding_name": "#left_handed",
-          "$option_enabled_binding_name": "#left_handed_enabled",
-          "$toggle_name": "left_handed"
+        "autoJump_hotbarOnlyTouch_options@settings_common.new_options_design_base": {
+          "$options_1": [
+            {
+              "option_toggle_auto_jump@settings_common.option_toggle": {
+                "$option_label": "options.autojump",
+                "$option_binding_name": "#touch_autojump",
+                "$option_enabled_binding_name": "#touch_autojump_enabled",
+                "$toggle_name": "touch_autojump"
+              }
+            }
+          ],
+          "$options_2": [
+            {
+              "hotbar_only_touch_toggle@settings_common.option_toggle": {
+                "$option_label": "options.hotbarOnlyTouch",
+                "$option_binding_name": "#hotbar_only_touch",
+                "$option_enabled_binding_name": "#hotbar_only_touch_enabled",
+                "$toggle_name": "hotbar_only_touch"
+              }
+            }
+          ]
         }
       }
     ]

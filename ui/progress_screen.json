@@ -18,6 +18,10 @@
       { "mobile_data_icon@progress.mobile_data_icon": {} },
       {
         "title_panel_content@common_art.title_panel_content": {
+          "size": [ "70%", "8%x" ],
+          "offset": [ 0, "5%" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
           "$splash_text_visible": false,
           "layer": -2
         }
@@ -31,6 +35,55 @@
     ]
   },
 
+  "realms_loading_world_modal_progress_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "mobile_data_icon@progress.mobile_data_icon": {} },
+      {
+        "realms_title_image": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "type": "image",
+          "offset": [ 0, -7 ],
+          "size": [ 220, "30%x" ],
+          "texture": "textures/ui/realms_title"
+        }
+      },
+      {
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {
+          "$modal_button_panel_type": "progress.modal_button_panel"
+        }
+      },
+      { "popup_dialog_factory@progress.popup_dialog_factory": {} }
+    ]
+  },
+
+  "world_save_modal_progress_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "title_panel_content@common_art.title_panel_content": {
+          "size": [ "70%", "8%x" ],
+          "offset": [ 0, "5%" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$splash_text_visible": false
+        }
+      },
+      {
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {
+          "$modal_button_panel_type": "progress.modal_button_panel_with_retry"
+        }
+      },
+      {
+        "save_icon@progress.auto_save": {}
+      },
+      { "popup_dialog_factory@progress.popup_dialog_factory": {} }
+    ]
+  },
+
+
+  // Progress Content
   "empty_progress_bar_icon": {
     "type": "image",
     "texture": "textures/ui/experience_bar_empty_blue"
@@ -160,53 +213,75 @@
         }
       },
       {
-        "base_content": {
-          "type": "stack_panel",
+        "content_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%cm" ],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
-          "size": [ "100%", "100%c" ],
-          "offset": [ 0, 0 ],
           "controls": [
             {
-              "stack_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%cm" ],
+              "gradient": {
+                "layer": 10,
+                "type": "custom",
+                "size": [ "100%", "100%sm" ],
+                "offset": [ 0, 0 ],
+
+                "renderer": "gradient_renderer",
+                "gradient_direction": "vertical",
+                "color1": [ 0, 0, 0, 0 ],
+                "color2": [ 0, 0, 0, 1 ]
+              }
+            },
+            {
+              "base_content": {
+                "layer": 15,
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "offset": [ 0, 0 ],
                 "controls": [
                   {
-                    "progress_title_text_panel": {
+                    "stack_panel": {
                       "type": "panel",
-                      "size": [ "100%", "100%c" ],
+                      "size": [ "100%", "100%cm" ],
                       "controls": [
                         {
-                          "progress_title_world_panel@progress.progress_title_world_panel": {
-                            "anchor_from": "center",
-                            "anchor_to": "center"
+                          "progress_title_text_panel": {
+                            "type": "panel",
+                            "size": [ "100%", "100%c" ],
+                            "controls": [
+                              {
+                                "progress_title_world_panel@progress.progress_title_world_panel": {
+                                  "anchor_from": "center",
+                                  "anchor_to": "center"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "close_button_panel": {
+                            "type": "panel",
+                            "size": [ "100%c", "100%c" ],
+                            "anchor_from": "right_middle",
+                            "anchor_to": "right_middle",
+                            "controls": [
+                              { "cancel_button_world_loading@progress.new_cancel_button": { } }
+                            ]
                           }
                         }
                       ]
                     }
                   },
+                  { "void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
                   {
-                    "close_button_panel": {
+                    "fancy_progress_loading_bars_panel": {
                       "type": "panel",
-                      "size": [ "100%c", "100%c" ],
-                      "anchor_from": "right_middle",
-                      "anchor_to": "right_middle",
+                      "size": [ "100%", 14 ],
                       "controls": [
-                        { "cancel_button_world_loading@progress.new_cancel_button": { } }
+                        { "fancy_progress_loading_bars@progress.fancy_progress_loading_bars": { "anchor_from": "center", "anchor_to": "center" } }
                       ]
                     }
                   }
-                ]
-              }
-            },
-            { "void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
-            {
-              "fancy_progress_loading_bars_panel": {
-                "type": "panel",
-                "size": [ "100%", 14 ],
-                "controls": [
-                  { "fancy_progress_loading_bars@progress.fancy_progress_loading_bars": { "anchor_from": "center", "anchor_to": "center" } }
                 ]
               }
             }

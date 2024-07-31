@@ -220,7 +220,7 @@
 
   // Messages Panel //
 
-  "messages_text": {
+  "new_messages_text": {
     "type": "panel",
     "size": [ "100%", "100%c" ],
     "controls": [
@@ -246,7 +246,7 @@
   },
 
   "message_tts_wrapper@common.tts_label_focus_wrapper": {
-    "$tts_label_panel": "chat.messages_text",
+    "$tts_label_panel": "chat.new_messages_text",
     "$focus_border_visible_binding": "#host_options_menu_not_open_and_tts_enabled"
   },
 

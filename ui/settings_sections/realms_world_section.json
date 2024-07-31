@@ -205,14 +205,14 @@
           "ignored": "$realm_no_world_edit",
           "type": "stack_panel",
           "orientation": "horizontal",
-          "size": [ "100%", "264px" ],
+          "size": [ "100%", "100%cm" ],
 		  "controls": [
 		    {
 			  "button_panel_sub_1": {
 			    "type": "stack_panel",
 				"anchor_from": "top_left",
 				"anchor_to": "top_left",
-			    "size": [ "50%", "100%" ],
+			    "size": [ "50%", "100%c" ],
 				"controls": [
 				  {
 				    "worldOptions_label_header": {
@@ -251,6 +251,17 @@
 					  "$focus_override_right": "FOCUS_OVERRIDE_STOP",
 					  "$toggle_binding_condition": "always_when_visible"
 					}
+				  },
+				  {
+				    "show_days_played_toggle@settings_common.option_toggle": {
+				      "$tts_section_header": "createWorldScreen.worldSettings",
+				      "$option_label": "createWorldScreen.showDaysPlayed",
+				      "$option_binding_name": "#show_days_played",
+				      "$option_enabled_binding_name": "#show_days_played_enabled",
+				      "$toggle_name": "show_days_played",
+				      "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+				      "$toggle_binding_condition": "always_when_visible"
+				    }
 				  },
 				  {
 					"fire_spreads_toggle@settings_common.option_toggle": {
@@ -361,7 +372,7 @@
 			    "type": "stack_panel",
 				"anchor_from": "top_left",
 				"anchor_to": "top_left",
-			    "size": [ "50%", "100%" ],
+			    "size": [ "50%", "100%c" ],
 				"controls": [
 				  {
 				    "world_cheats_label_header": {

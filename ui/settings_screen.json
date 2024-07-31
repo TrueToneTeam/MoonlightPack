@@ -102,11 +102,11 @@
         }
       },
       {
-        "quick_settings_toggle@quick_section.button_with_checkbox_toggle": {
+        "quick_settings_toggle@button_preset.button_with_checkbox_toggle": {
           "ignored": "(not $include_controls_and_settings_sections)",
-          "$toggle_group_forced_index": 180,
           "size": [ "100%", 24 ],
           "$button_text": "settingScreen.quick_settings",
+          "$toggle_group_forced_index": 180,
           "$toggle_name": "quick_settings_visible_toggle",
           "$toggle_view_binding_name": "quick_settings_visible"
         }
@@ -197,9 +197,9 @@
                           }
                         },
                         {
-                          "network_button@general_section.network_button": {
+                          "creator_button@general_section.creator_button": {
                             "size": [ "fill", "100%" ],
-                            "$toggle_group_forced_index": "$general_forced_index",
+                            "$toggle_group_forced_index": "$creator_forced_index",
                             "$tts_section_header": "$general_section_header"
                           }
                         }
@@ -258,7 +258,7 @@
 			{
               "etc_button@general_section.etc_button": {
                 "size": [ "100%", 24 ],
-                "$button_text":"settingScreen.etc",
+                "$button_text":"etc_section.etc",
 				"$toggle_group_forced_index": 90
               }
             },
@@ -362,6 +362,13 @@
                 ]
               }
             },
+            {
+              "edu_cloud_storage_button@general_section.edu_cloud_storage_button": {
+                "ignored": "(not $education_edition or not $edu_save_to_cloud_on)",
+                "$toggle_group_forced_index": "$edu_cloud_storage_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
 
             //General Section
             {
@@ -376,31 +383,11 @@
               }
             },
 			{
-              "creator_button@general_section.creator_button": {
-                "size": [ "100%", 24 ],
-				"$toggle_group_forced_index": "$creator_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-			{
               "view_subscriptions_button@general_section.view_subscriptions_button": {
                 "ignored": "$is_editor_mode_enabled",
 				"size": [ "100%", 24 ],
 				"$button_text":"options.viewSubscriptions",
                 "$toggle_group_forced_index": "$view_subscriptions_section__header"
-              }
-            },
-
-            //Info Section
-            {
-              "spacer_group_info": {
-                "type": "panel",
-                "size": [ "100%", 6 ]
-              }
-            },
-            {
-              "selector_group_label_info@settings_common.selector_group_label": {
-                "text": "settingScreen.info_group"
               }
             },
 			{
@@ -410,72 +397,110 @@
 				"ignored": "(not $include_controls_and_settings_sections)"
 			  }
 			},
-			{
-			  "pack_info_button@info_section.pack_info_button": {
+            {
+              "preview_button@general_section.preview_button": {
+                "ignored": "(not $show_preview_button)",
 				"size": [ "100%", 24 ],
-				"$toggle_group_forced_index": 71
-			  }
-			},
-			{
-			  "minecraft_info_button@info_section.minecraft_info_button": {
-				"size": [ "100%", 24 ],
-				"$button_text":"options.minecraftInfo",
-				"$toggle_group_forced_index": 70
-			  }
-			},
+                "$toggle_group_forced_index": "$preview_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "info_stack_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 24 ],
+				"ignored": "$ignore_global_resources_section",
+                "visible": "($is_global_texture_packs_visible and not $include_world_section)",
+                "controls": [
+                  {
+                    "pack_info_button@info_section.pack_info_button": {
+                      "size": [ "50%", "100%" ],
+                      "$toggle_group_forced_index": 71
+                    }
+                  },
+                  {
+                    "minecraft_info_button@info_section.minecraft_info_button": {
+                      "size": [ "50%", "100%" ],
+                      "$button_text":"options.minecraftInfo",
+                      "$toggle_group_forced_index": 70
+                    }
+                  }
+                ]
+              }
+            },
 			
-			//Debug Section(Not Use)
+			//Debug Section
 			{
               "spacer_group_debug": {
-				"ignored": "$is_publish",
+                "ignored": "$is_publish",
                 "type": "panel",
                 "size": [ "100%", 6 ]
               }
             },
-            {
-              "selector_group_label_debug@settings_common.selector_group_label": {
-                "ignored": "$is_publish",
-                "text": "options.debug"
-              }
-            },
 			{
-              "debug_button@general_section.debug_button": {
+              "debug_settings_stack_panel": {
                 "ignored": "$is_publish",
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "ui_debug_button@general_section.ui_debug_button": {
-                "ignored": "$is_publish",
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$ui_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "marketplace_debug_button@general_section.marketplace_debug_button": {
-                "ignored": "$is_publish",
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$marketplace_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "flighting_debug_button@general_section.flighting_debug_button": {
-                "ignored": "$is_publish",
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$flighting_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "automation_button@general_section.automation_button": {
-                "ignored": "($is_publish or $test_infrastructure_disabled)",
-				"size": [ "100%", 24 ],
-                "$toggle_group_forced_index": "$automation_forced_index",
-                "$tts_section_header": "$general_section_header"
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "selector_group_label_debug@settings_common.selector_group_label": {
+                      "text": "options.debug"
+                    }
+                  },
+                  {
+                    "debug_button@general_section.debug_button": {
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "ui_debug_button@general_section.ui_debug_button": {
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$ui_debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "edu_debug_button@general_section.edu_debug_button": {
+                      "ignored": "($creator_build or not $education_edition)",
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$edu_debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "marketplace_debug_button@general_section.marketplace_debug_button": {
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$marketplace_debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "gatherings_debug_button@general_section.gatherings_debug_button": {
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$gatherings_debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "flighting_debug_button@general_section.flighting_debug_button": {
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$flighting_debug_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  },
+                  {
+                    "automation_button@general_section.automation_button": {
+                      "ignored": "($test_infrastructure_disabled)",
+                      "size": [ "100%", 24 ],
+                      "$toggle_group_forced_index": "$automation_forced_index",
+                      "$tts_section_header": "$general_section_header"
+                    }
+                  }
+                ]
               }
             }
           ]
@@ -510,6 +535,7 @@
             },
             { "server_section@world_section.server_section": {} },
             { "multiplayer_section@world_section.multiplayer_section": {} },
+            { "cloud_section@world_section.cloud_section": {} },
             {
               "debug_section@world_section.debug_section": {
                 "ignored": "$is_publish",
@@ -545,7 +571,6 @@
             { "controller_section@controls_section.controller_section": { "ignored": "(not $gamepad_supported)"  } },
             { "touch_section@controls_section.touch_section": { "ignored": "($is_holographic or not $touch_supported)" } },
 
-            { "network_section@general_section.network_section": { "visible": false } },
             { "account_section@general_section.account_section": { "visible": false } },
 			{ "creator_section@general_section.creator_section": { "visible": false } },
             {
@@ -563,12 +588,18 @@
             },
             { "pack_info_section@info_section.pack_info_section": { } },
             { "minecraft_info_section@info_section.minecraft_info_section": { } },
-            { "card_info_section@info_section.card_info_section": { } },
+            { "sound_section@general_section.sound_section": { } },
             { "etc_section@general_section.etc_section": { } },
 			{ "view_section@view_section.view_section": { } },
-            { "sound_section@general_section.sound_section": { } },
             { "language_section@general_section.language_section": { } },
-			{
+            {
+              "preview_section@general_section.preview_section": {
+                "ignored": "($trial or $pre_release or (not $is_ps4))",
+                "visible": false
+              }
+            },
+
+            {
               "debug_section@general_section.debug_section": {
                 "ignored": "$is_publish",
                 "visible": false
@@ -581,7 +612,19 @@
               }
             },
             {
+              "edu_debug_section@general_section.edu_debug_section": {
+                "ignored": "($is_publish or (not $education_edition))",
+                "visible": false
+              }
+            },
+            {
               "marketplace_debug_section@general_section.marketplace_debug_section": {
+                "ignored": "$is_publish",
+                "visible": false
+              }
+            },
+            {
+              "gatherings_debug_section@general_section.gatherings_debug_section": {
                 "ignored": "$is_publish",
                 "visible": false
               }
@@ -598,6 +641,7 @@
                 "visible": false
               }
             },
+
 			{ "vr_section@optifine_store_section.vr_section": {
  				"enabled": "(not $include_world_section)"} 
 			},
@@ -640,9 +684,10 @@
       {
         "general_and_controls_sections": {
           "type": "stack_panel",
-          "size": ["100%", "100%c"],
+          "size": [ "100%", "100%c" ],
           "ignored": "(not $include_controls_and_settings_sections)",
           "controls": [
+            { "sound_section_header@general_section.sound_section_header": { } },
             { "storage_management_header@general_section.storage_management_header": { } }
           ]
         }
@@ -672,11 +717,11 @@
           "size": ["100%", "100%c"],
           "ignored": "(not $include_controls_and_settings_sections)",
           "controls": [
+            { "sound_section_footer@general_section.sound_section_footer": { } },
             { "storage_management_footer@general_section.storage_management_footer": { } }
           ]
         }
       }
     ]
   }
-
 }

@@ -21,7 +21,7 @@
     "controls": [
       {
         "image_panel@custom_common.panel_base": {
-          "size": [ "100%c", "100%" ],
+          "size": [ "100%y", "100%" ],
           "controls": [
             { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
           ]

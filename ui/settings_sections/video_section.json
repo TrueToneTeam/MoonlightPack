@@ -419,6 +419,17 @@
         }
       },
       {
+        "vsync_dropdown@settings_common.option_dropdown": {
+          "$option_label": "options.vsync",
+          "$dropdown_content": "general_section.vysnc_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "vsync_dropdown",
+          "$options_dropdown_toggle_label_binding": "#vsync_dropdown_toggle_label",
+          "$option_enabled_binding_name": "#vsync_dropdown_enabled",
+          "$dropdown_scroll_content_size": [ "100%", "200%" ]
+        }
+      },
+      {
         "max_framerate_slider@general_section.max_framerate_slider": {
           "ignored": "($new_video_settings)",
           "enabled": "(not $education_edition)"
@@ -427,21 +438,6 @@
       {
         "vsync_improvedInputResponse_options@settings_common.new_options_design_base": {
           "$options_1": [
-            {
-              "vsync_toggle@settings_common.option_toggle": {
-                "enabled": "($microsoft_os or $vsync_video_setting)",
-                "$option_label": "options.vsync",
-                "$option_binding_name": "#vsync",
-                "$option_enabled_binding_name": "#vsync_enabled",
-                "$toggle_name": "vsync",
-                "controls": [
-                  { "vsync_tooltip_option@general_section.vsync_tooltip_option": {} },
-                  { "option_generic_core@settings_common.option_generic_core": {} }
-                ]
-              }
-            }
-          ],
-          "$options_2": [
             {
               "option_toggle_improved_input_response@settings_common.option_toggle": {
                 "enabled": "($is_improve_input_response_platform_supported)",
@@ -456,7 +452,8 @@
                 ]
               }
             }
-          ]
+          ],
+          "$options_2": []
         }
       },
 

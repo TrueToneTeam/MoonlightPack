@@ -7,7 +7,7 @@
     "$glyph_texture": "textures/ui/pack_info_glyph",
     "$glyph_color_texture": "textures/ui/pack_info_glyph_color",
     "$glyph_size": [ 16, 16 ],
-    "$button_text": "global.pack.name",
+    "$button_text": "info_section.pack_info",
     "$toggle_property_bag": {
       "#panel_title": "global.pack.name_bold"
     }
@@ -30,68 +30,133 @@
     ],
     "controls": [
       {
-        "pack_info_label_header": {
+        "pack_icon_panel": {
+          "type": "panel",
+          "size": [ "100%", "20%x" ],
+          "controls": [
+           {
+             "pack_icon": {
+               "type": "image",
+               "size": [ "100%y - 2px", "100% - 2px" ],
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "texture": "textures/ui/pack_info_glyph_color"
+             }
+           },
+           {
+             "outline": {
+               "type": "image",
+               "size": [ "100%y", "100%" ],
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "texture": "textures/ui/border_line"
+             }
+           }
+         ]
+        }
+      },
+
+      { "packInfo_void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
+        "pack_name": {
           "type": "label",
+          "size": [ "100%", "default" ],
           "max_size": [ "100%", "default" ],
           "color": "$sub_header_text_color",
           "shadow": true,
           "font_type": "MinecraftTen",
           "font_scale_factor": 1.6,
-          "text": "global.pack.name"
+          "text": "global.pack_info.name",
+          "text_alignment": "center"
         }
       },
       {
-        "void_panel": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-
-      {
-        "pack_name_label@info_text_base": {
-          "$title_text": "global.pack_info.name.title",
-          "$data_text": "global.pack_info.name"
-        }
-      },
-      {
-        "pack_build_label@info_text_base": {
-          "$pack_type_color|default": "$alpha_build_color",
-          "variables": [
+        "pack_version_build": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            { "start_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } },
             {
-              "requires": "($pack_type = 'Beta'",
-              "$pack_type_color": "$beta_build_color"
+              "pack_version": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "color": [ 0.043, 0.984, 0.953 ],
+                "shadow": true,
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "text": "$pack_version",
+                "text_alignment": "center"
+              }
             },
             {
-              "requires": "($pack_type = 'Preview'",
-              "$pack_type_color": "$preview_build_color"
+              "line_text": { "type": "label", "text": "  -  ", "shadow": true, "font_type": "MinecraftTen", "font_scale_factor": 1.2 }
             },
             {
-              "requires": "($pack_type = 'Developer'",
-              "$pack_type_color": "$developer_build_color"
-            }
-          ],
-          "$title_text": "global.pack_info.build.title",
-          "$data_text": "$pack_type",
-          "$data_text_font_type": "MinecraftTen",
-          "$data_text_color": "$pack_type_color"
-        }
-      },
-      {
-        "pack_base_version_label@info_text_base": {
-          "$title_text": "global.pack_info.base_version.title",
-          "$data_text": "$pack_version",
-          "$data_text_color": [ 0.043, 0.984, 0.953 ]
-        }
-      },
-      {
-        "pack_made_by_label@info_text_base": {
-          "$title_text": "global.pack_info.made_by.title",
-          "$data_texts": [
-            { "made_by@data_label_base": { "$data_text": "global.pack_info.made_by", "$data_text_color": [ 0.827, 0.592, 0.831 ] } },
-            { "made_by_team@data_label_base": { "$data_text": "global.pack_info.made_by.team", "$data_text_color": [ 0.337, 0.694, 0.78 ] } }
+              "pack_build": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "max_size": [ "default", "default" ],
+                "color": "$pack_type_text_color",
+                "$pack_type_text|default": "$pack_type",
+                "$pack_type_text_color|default": "$pack_type_color",
+                "variables": [
+                  {
+                    "requires": "($pack_is_developer_mode",
+                    "$pack_type_text": "Developer",
+                    "$pack_type_text_color": [ 0.635, 0.478, 0.522 ]
+                  }
+                ],
+                "shadow": true,
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "text": "$pack_type_text",
+                "text_alignment": "center"
+              }
+            },
+            { "end_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } }
           ]
         }
       },
+
+      { "pack_madeBy_supportLanguage_light_line@settings_common.light_line_panel": {} },
+      {
+        "pack_madeBy_supportLanguage": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%cm" ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "pack_made_by_label@info_text_base": {
+                "size": [ "fill", "100%c" ],
+                "$title_text": "global.pack_info.made_by.title",
+                "$data_texts": [
+                  { "made_by@data_label_base": { "$data_text": "global.pack_info.made_by", "$data_text_color": [ 0.827, 0.592, 0.831 ] } },
+                  { "made_by_team@data_label_base": { "$data_text": "global.pack_info.made_by.team", "$data_text_color": [ 0.337, 0.694, 0.78 ] } }
+                ]
+              }
+            },
+            { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+            {
+              "pack_support_language@info_text_base": {
+                "size": [ "fill", "100%c" ],
+                "$title_text": "global.pack_info.support_language.title",
+                "$data_texts": [
+                  { "english@data_label_base": { "$data_text": "global.pack_info.support_language.english", "$data_text_color": [ 0.855, 0.914, 0.89 ] } },
+                  { "korean@data_label_base": { "$data_text": "global.pack_info.support_language.korean", "$data_text_color": [ 0.855, 0.914, 0.89 ] } }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+      { "packInfo_void_panel@common.empty_panel": { "visible": false, "size": [ "100%", 4 ] } },
       {
         "pack_editor_label@info_text_base": {
           "visible": false,
@@ -102,24 +167,12 @@
 
       { "pack_licenses_label_light_line@settings_common.light_line_panel": {} },
       {
-        "pack_licenses_title_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.licenses.title"
-        }
-      },
-      {
-        "pack_licenses_1_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.licenses.1"
-        }
-      },
-      {
-        "pack_licenses_2_label": {
-          "type": "label",
-          "max_size": [ "100%", "default" ],
-          "text": "global.pack_info.licenses.2"
+        "pack_licenses_label@info_text_base": {
+          "$title_text": "global.pack_info.licenses.title",
+          "$data_texts": [
+            { "pack_licenses_1@data_label_base": { "$data_text": "global.pack_info.licenses.1" } },
+            { "pack_licenses_2@data_label_base": { "$data_text": "global.pack_info.licenses.2" } }
+          ]
         }
       }
     ]

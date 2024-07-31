@@ -9,7 +9,7 @@
           "$header": "addExternalServerScreen.nameTextBoxLabel",
           "$placeholder_label": "addExternalServerScreen.namePlaceholder",
           "$text_box_name": "#name_text_box",
-          "$max_length": 16,
+          "$max_length": 30,
           "$content_binding_name": "#name_text_box_content",
           "$text_box_tts_header": "addExternalServerScreen.nameTextBoxLabel",
           "$focus_id": "0_name",
@@ -24,7 +24,7 @@
           "controls": [
             {
               "ip_edit@add_external_server.text_edit_group": {
-                "size": [ "70%", "100%" ],
+                "size": [ "85%", "100%" ],
                 "$header": "addExternalServerScreen.ipTextBoxLabel",
                 "$placeholder_label": "addExternalServerScreen.ipPlaceholder",
                 "$text_box_name": "#ip_text_box",
@@ -35,12 +35,7 @@
                 "$focus_override_right": "2_port"
               }
             },
-            {
-              "void": {
-                "type": "panel",
-                "size": [ "4px", "100%" ]
-              }
-            },
+            { "void_panel@common.empty_panel": { "size": [ "4px", "100%" ] } },
             {
               "port_edit@add_external_server.text_edit_group": {
                 "size": [ "fill", "100%" ],
@@ -57,13 +52,71 @@
             }
           ]
         }
+      },
+      {
+        "warning_text_box_panel": {
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "controls": [
+            {
+              "warning_text_box": {
+                "type": "image",
+                "size": [ "100% - 4px", "100% - 4px" ],
+                "offset": [ 0, -16 ],
+                "texture": "textures/ui/hud_text_background_white",
+                "color": [ 1.0, 1.0, 0.0 ],
+                "controls": [
+                  {
+                    "content_stack": {
+                      "type": "stack_panel",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "orientation": "horizontal",
+                      "controls": [
+                        {
+                          "warning_icon": {
+                            "type": "image",
+                            "size": [ "50%y", "100%" ],
+                            "texture": "textures/ui/WarningGlyph",
+                            "layer": 7
+                          }
+                        },
+                        { "void_panel@common.empty_panel": { "size": [ 4, 0 ] } },
+                        {
+                          "text_panel": {
+                            "type": "panel",
+                            "size": [ "fill", "100%" ],
+                            "controls": [
+                              {
+                                "text": {
+                                  "type": "label",
+                                  "size": [ "default", "default" ],
+                                  "max_size": [ "100%", "100%" ],
+                                  "anchor_from": "left_middle",
+                                  "anchor_to": "left_middle",
+                                  "text": "addExternalServerScreen.add_warning_text",
+                                  "layer": 7
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   },
 
   "main_panel": {
     "type": "input_panel",
-    "size": [ "100% - 35%", "144px" ],
+    "size": [ "100% - 35%", "174px" ],
     "controls": [
       {
         "common_panel@common.common_panel": {

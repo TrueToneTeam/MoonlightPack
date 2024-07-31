@@ -257,7 +257,7 @@
         }
       },
       {
-        "gui_accessibility_scaling_fullscreen_options@settings_common.new_options_design_base": {
+        "guiAccessibilityScaling_fullscreen_options@settings_common.new_options_design_base": {
           "$options_1": [
             {
               "gui_accessibility_scaling_toggle@settings_common.option_toggle": {
@@ -287,7 +287,7 @@
         }
       },
       {
-        "screen_animations_new_death_screen_options@settings_common.new_options_design_base": {
+        "screenAnimations_dynamicTextures_options@settings_common.new_options_design_base": {
           "$options_1": [
             {
               "option_toggle_screen_animations@settings_common.option_toggle": {
@@ -306,35 +306,20 @@
             }
           ],
           "$options_2": [
-            /*{
-              "new_death_screen_toggle_input_panel@settings_common.option_toggle": {
-                "type": "input_panel",
-                "enabled": "($is_publish or not $education_edition)",
-                "consume_hover_events": false,
-                "focus_enabled": true,
-                "$new_death_screen_toggle_disabled_is_hovered_button_event|default": "button.new_death_screen_toggle_disabled_is_hovered",
-                "button_mappings": [
-                  {
-                    "to_button_id": "$new_death_screen_toggle_disabled_is_hovered_button_event",
-                    "mapping_type": "pressed"
-                  }
-                ],
+            {
+              "dynamic_textures_toggle@settings_common.option_toggle": {
+                "enabled": "($is_dynamic_textures_platform_supported)",
+                "$option_label": "options.dynamicTexturesToggle",
+                "$option_binding_name": "#dynamic_textures",
+                "$option_enabled_binding_name": "#dynamic_textures_enabled",
+                "$toggle_name": "dynamic_textures",
+                "layer": 1,
                 "controls": [
-                  {
-                    "new_death_screen_toggle@settings_common.option_toggle": {
-                      "$option_label": "options.betaNewDeathScreenToggle",
-                      "$option_binding_name": "#new_death_screen_toggle",
-                      "$toggle_name": "new_death_screen_toggle",
-                      "$option_enabled_binding_name": "#new_death_screen_toggle_enabled",
-                      "controls": [
-                        { "new_death_screen_toggle_disabled@general_section.new_death_screen_toggle_disabled": {} },
-                        { "option_generic_core@settings_common.option_generic_core": {} }
-                      ]
-                    }
-                  }
+                  { "dynamic_textures_option@general_section.dynamic_textures_option": {} },
+                  { "option_generic_core@settings_common.option_generic_core": {} }
                 ]
               }
-            }*/
+            }
           ]
         }
       },

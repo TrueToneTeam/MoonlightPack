@@ -181,8 +181,8 @@
     "layer": 2,
     "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
     "$button_texture_size|default": [ "100%", "100%" ],
+    "$button_texture_offset|default": [ 0, 0 ],
     "$void_panel_size|default": [ 2, "100%" ],
-    "$image_offset|default": [ 0, 0 ],
     "$new_ui_label_offset|default": "$button_offset",
     "controls": [
       {
@@ -197,11 +197,11 @@
             {
               "image_panel": {
                 "type": "panel",
-                "size": [ "100%y", "90%" ],
+                "size": [ "100%y", "100%" ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [
-                  { "image": { "type": "image", "size": "$button_texture_size", "texture": "$button_texture", "color": "$button_texture_color", "offset": "$image_offset" } }
+                  { "image": { "type": "image", "size": "$button_texture_size", "texture": "$button_texture", "color": "$button_texture_color", "offset": "$button_texture_offset", "anchor_from": "center", "anchor_to": "center" } }
                 ]
               } 
             },
@@ -213,7 +213,7 @@
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "controls": [
-                  { "text": { "type": "label", "max_size": [ "default", "100%" ], "text": "$button_text", "color": "$text_color", "offset": [ 0, -1 ] } }
+                  { "text": { "type": "label", "size": [ "default", "default" ], "max_size": [ "default", "default" ], "text": "$button_text", "color": "$text_color", "offset": [ 0, 0 ], "text_alignment": "center", "anchor_from": "center", "anchor_to": "center" } }
                 ]
               } 
             }

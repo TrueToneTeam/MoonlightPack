@@ -125,23 +125,23 @@
       },
       {
         "screen_position_slider_x@settings_common.option_slider": {
-          "ignored": "$is_publish",
+          "ignored": "(not $is_publish)",
           "$option_label": "#screen_position_x_slider_label",
           "$slider_name": "screen_position_x",
           "$slider_value_binding_name": "#screen_position_x",
           "$option_enabled_binding_name": "#screen_position_x_enabled",
-          "$slider_select_on_hover": true,
+          "$slider_select_on_hover": false,
           "$slider_tts_text_value": "#screen_position_x_text_value"
         }
       },
       {
         "screen_position_slider_y@settings_common.option_slider": {
-          "ignored": "$is_publish",
+          "ignored": "(not $is_publish)",
           "$option_label": "#screen_position_y_slider_label",
           "$slider_name": "screen_position_y",
           "$slider_value_binding_name": "#screen_position_y",
           "$option_enabled_binding_name": "#screen_position_y_enabled",
-          "$slider_select_on_hover": true,
+          "$slider_select_on_hover": false,
           "$slider_tts_text_value": "#screen_position_y_text_value"
         }
       },

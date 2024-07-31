@@ -170,6 +170,13 @@
     "size": [ 20, 20 ]
   },
 
+  "servers_icon": {
+    "type": "image",
+    "texture": "textures/ui/servers",
+    "layer": 3,
+    "size": [ 20, 20 ]
+  },
+
   "debug_icon": {
     "type": "image",
     "texture": "textures/ui/csb_faq_parrot",
@@ -343,6 +350,13 @@
     "$button_text": "menu.getStarted"
   },
 
+  "servers_custom_icon_button@start.custom_icon_button_base": {
+    "$button_color": [ 0.251, 0.878, 0.816 ],
+    "$button_content": "start.servers_icon",
+    "$pressed_button_name": "button.menu_servers",
+    "$button_text": "menu.servers"
+  },
+
   "realms_custom_icon_button@start.custom_icon_button_base": {
     "$button_color": [ 0.384, 0.106, 0.761 ],
     "$button_content": "start.realms_icon",
@@ -422,7 +436,7 @@
     "$button_color": [ 0.776, 0.776, 0.776 ],
     "$button_content": "start.login_icon",
     "$pressed_button_name": "gui.signIn",
-    "$button_text": "gui.signIn"
+    "$button_text": "xbox.signin"
   },
 
   "invite_notification_icon_button@start.custom_icon_button_base": {
@@ -537,8 +551,10 @@
   },
 
   "test_custom_icon_button@start.custom_icon_button_base": {
+    "$button_color": [ 0.0, 0.0, 0.0 ],
     "$button_content": "start.none_icon",
-    "$pressed_button_name": "button.to_profile_screen"
+    "$pressed_button_name": "button.ai_lesson_crafter",
+    "$button_text": "menu.ai_lesson_crafter"
   },
 
   "none_custom_icon_button@start.custom_icon_button_base": {
@@ -553,19 +569,11 @@
   //---------------------------------------------------------------------------
   // Start Screen: Sub Panel
   //---------------------------------------------------------------------------
-  "title_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      { "title_panel_content@common_art.start_title_panel_content": { "size": [ "100%", 40 ], "offset": [ 0, 0 ], "anchor_from": "top_middle", "anchor_to": "top_middle", "$splash_text_visible": false } }
-    ]
-  },
-
   "skin_viewer_panel": {
     "type": "input_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [ "80%", "80% - 16px" ],
+    "size": [ "100%", "100%" ],
     "offset": [ 0, 0 ],
     "gesture_tracking_button": "button.turn_doll",
     "tts_ignore_count": true,
@@ -581,7 +589,7 @@
       {
         "paper_doll_panel": {
           "type": "panel",
-          "size": [ "100% + 16px", "100% + 6px" ],
+          "size": [ "100%", "100%" ],
           "controls": [
             {
               "paper_doll": {
@@ -594,7 +602,7 @@
                 "anchor_to": "bottom_middle",
                 "rotation": "gesture_x",
                 "size": [ "100%", "100%" ],
-                "offset": [ 0, -14 ],
+                "offset": [ 0, "-17%" ],
                 "animation_reset_name": "screen_animation_reset",
                 "anims": [
                   "@common.screen_exit_size_animation_push",
@@ -636,13 +644,14 @@
       },
       {
         "paper_doll_name_tag": {
+          "visible": false,
           "type": "custom",
           "renderer": "name_tag_renderer",
           "layer": 2,
           "anchor_from": "top_middle",
-          "anchor_to": "bottom_middle",
+          "anchor_to": "top_middle",
           "size": [ 8, 8 ],
-          "offset": [ 0, -2 ],
+          "offset": [ 0, 0 ],
           "bindings": [
             {
               "binding_name": "#playername"
@@ -655,10 +664,10 @@
 
   "skin_panel": {
     "type": "panel",
-    "anchor_to": "bottom_right",
-    "anchor_from": "bottom_right",
     "size": [ "100%", "100%" ],
-    "offset": [ 0, "-10% - 4px" ],
+    "offset": [ 0, "-7%" ],
+    "anchor_to": "center",
+    "anchor_from": "center",
     "controls": [
       { "viewer_panel@start.skin_viewer_panel": {} }
     ]
@@ -666,7 +675,7 @@
 
 
   // Top Panel
-  "top_panel_image": {
+  "top_panel_gradient": {
     "type": "custom",
     "size": [ "100%", "100%" ],
     "renderer": "gradient_renderer",
@@ -683,7 +692,7 @@
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
     "controls": [
-      { "background_image@top_panel_image": { "size": [ "30%", "100%" ], "offset": [ "-15%", 0 ],  "anchor_from": "right_middle", "anchor_to": "right_middle" } },
+      { "background_image@top_panel_gradient": { "size": [ "27%", "100%" ], "offset": [ "-15%", 0 ],  "anchor_from": "right_middle", "anchor_to": "right_middle" } },
       {
         "game_text_panel": {
           "type": "panel",
@@ -776,7 +785,7 @@
           ]
         }
       },
-      { "start_text": { "type": "label", "size": [ "default", "default" ], "text": "[", "shadow": true } },
+      { "start_text": { "type": "label", "size": [ "default", "default" ], "text": "[ ", "shadow": true } },
       {
         "development_version": {
           "type": "label",
@@ -792,7 +801,7 @@
           ]
         }
       },
-      { "end_text": { "type": "label", "size": [ "default", "default" ], "text": "]", "shadow": true } }
+      { "end_text": { "type": "label", "size": [ "default", "default" ], "text": " ]", "shadow": true } }
     ]
   },
 
@@ -824,7 +833,7 @@
     ]
   },
 
-  "gamertag_label": {
+  "gamertag_label": { // New
     "type": "label",
     "color": "$gamertag_color",
     "layer": 1,
@@ -834,9 +843,15 @@
     "offset": "$gamertag_offset",
     "font_type": "MinecraftTen",
     "font_scale_factor": 1.3,
-    "text_alignment": "center",
     "bindings": [
       { "binding_name": "#gamertag_label" }
+    ]
+  },
+
+  "player_name_label@gamertag_label": { // Legacy
+    "text": "#playername",
+    "bindings": [
+      { "binding_name": "#playername" }
     ]
   },
 
@@ -862,12 +877,7 @@
                 "size": [ "100%c", "100%" ],
                 "controls": [
                   { "gamerpic@new_gamerpic": { "layer": 1, "size": [ 26, 26 ] } },
-                  {
-                    "border_black@common.focus_border_black": {
-                      "layer": 3,
-                      "size": [ 26, 26 ]
-                    }
-                  }
+                  { "border_black@common.focus_border_black": { "layer": 3, "size": [ 26, 26 ] } }
                 ]
               }
             },
@@ -901,7 +911,6 @@
   "function_butttons_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
-    "offset": [ 0, 0 ],
     "anchor_from": "center",
     "anchor_to": "center",
 
@@ -918,7 +927,6 @@
         "functions_stack_panel": {
           "type": "stack_panel",
           "size": [ "100%", "100%c" ],
-          "offset": [ 0, 0 ],
           "anchor_to": "center",
           "anchor_from": "center",
           "$buttons_panel_size": [ "100%", "100%cm + 10px" ],
@@ -926,13 +934,8 @@
           "$void_panel_size": [ 12, 0 ],
           "controls": [
             {
-              "buttons_00": {
-                "type": "stack_panel",
-                "size": "$buttons_panel_size",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "orientation": "horizontal",
-                "controls": [
+              "buttons_00@buttons_panel_base": {
+                "$panel_controls": [
                   { "start_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } },
                   { "play@start.play_custom_icon_button": {} },
                   { "void_panel_0@custom_common.panel_base": { "size": "$void_panel_size" } },
@@ -946,13 +949,8 @@
               }
             },
             {
-              "buttons_01": {
-                "type": "stack_panel",
-                "size": "$buttons_panel_size",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "orientation": "horizontal",
-                "controls": [
+              "buttons_01@buttons_panel_base": {
+                "$panel_controls": [
                   { "start_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } },
                   { "inbox@start.inbox_custom_icon_button": {} },
                   { "void_panel_0@custom_common.panel_base": { "size": "$void_panel_size" } },
@@ -964,27 +962,52 @@
               }
             },
             {
-              "buttons_02": {
+              "buttons_02@buttons_panel_base": {
+                "$panel_controls": [
+                  { "start_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } },
+                  { "servers@start.servers_custom_icon_button": {} },
+                  { "void_panel_0@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  { "feedback@start.feedback_custom_icon_button": {} },
+                  { "void_panel_1@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  {
+                    "realms@start.binding_custom_icon_button_base": {
+                      "$custom_icon_button": "start.realms_custom_icon_button",
+                      "$binding_type_name": "#realms_promo_visible"
+                    }
+                  },
+                  { "void_panel_2@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  { "none_1@start.none_custom_icon_button": {} },
+                  { "end_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } }
+                ]
+              }
+            },
+            {
+              "bottom_button_stack_panel": {
                 "type": "stack_panel",
-                "size": "$buttons_panel_size",
+                "size": [ "100%", 28 ],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "orientation": "horizontal",
                 "controls": [
-                  { "start_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } },
-                  { "feedback@start.feedback_custom_icon_button": {} },
-                  { "void_panel_0@custom_common.panel_base": { "size": "$void_panel_size" } },
-                  { "none_1@start.none_custom_icon_button": {} },
-                  { "void_panel_1@custom_common.panel_base": { "size": "$void_panel_size" } },
-                  { "none_2@start.none_custom_icon_button": {} },
-                  { "void_panel_2@custom_common.panel_base": { "size": "$void_panel_size" } },
+                  { "start_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } },
                   {
-                    "login@start.binding_custom_icon_button_base": {
-                      "$custom_icon_button": "start.login_custom_icon_button",
-                      "$binding_type_name": "#sign_in_visible"
+                    "login@start.icon_text_button_panel": {
+                      "size": [ "33.33%", 24 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$pressed_button_name": "button.signin",
+                      "$button_texture": "textures/ui/login_icon",
+                      "$button_text": "xbox.signin",
+                      "$focus_id": "menu_xbox_signin_button"
                     }
                   },
-                  { "end_void_panel@custom_common.panel_base": { "size": "$side_void_panel_size" } }
+                  { "end_void_panel@common.empty_panel": { "size": [ "fill", 0 ] } }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#sign_in_visible",
+                    "binding_name_override": "#visible"
+                  }
                 ]
               }
             }
@@ -994,21 +1017,52 @@
     ]
   },
 
-  "buttons_panel_base": {
+  "icon_text_button_panel": {
     "type": "panel",
+    "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
     "controls": [
       {
-        "buttons@custom_common.stack_panel_base": {
-          "size": "$buttons_size",
-          "orientation": "horizontal",
+        "icon_text_button@common_buttons.light_text_button": {
+          "size": [ "100% - 8px", "100%" ],
           "anchor_from": "center",
           "anchor_to": "center",
-          "controls": "$panel_controls"
+
+          "$button_pressed_offset": [ 0, 0 ],
+          "$button_texture_size": [ "80%", "80%" ],
+
+          "$button_type_panel": "custom_common.button_image_text_content_panel"
         }
       }
     ]
+  },
+
+  "buttons_panel_base": {
+    "type": "stack_panel",
+    "$buttons_panel_size|default": [ "100%", "100%" ],
+    "$panel_controls|default": [],
+    "size": "$buttons_panel_size",
+    "orientation": "horizontal",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": "$panel_controls"
+  },
+
+
+  // Alpha
+  "anim_login_by_wait": {
+    "anim_type": "wait",
+    "duration": 1,
+    "next": "@start.anim_login_by_off"
+  },
+
+  "anim_login_by_off": {
+    "anim_type": "alpha",
+    "easing": "in_quart",
+    "duration": 1,
+    "from": 1.0,
+    "to": 0
   },
 
 
@@ -1098,7 +1152,7 @@
     ],
     "controls": [
       {
-        "title_and_skin_panel": {
+        "start_content_panel": {
           "type": "panel",
           "size": [ "80%", "80%" ],
           "offset": [ 0, 20 ],
@@ -1114,27 +1168,57 @@
                 "anchor_to": "center",
                 "controls": [
                   {
-                    "minecraftLogo_PlayerSkin_stack_panel": {
-                      "type": "stack_panel",
+                    "left_content_panel": {
+                      "type": "panel",
                       "size": [ "40%", "100%" ],
-                      "orientation": "vertical",
                       "controls": [
                         {
-                          "minecraft_title": {
-                            "type": "panel",
-                            "size": [ "100%", "100%c" ],
+                          "left_content_stack_panel": {
+                            "type": "stack_panel",
+                            "size": [ "100%", "75%" ],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "orientation": "vertical",
                             "controls": [
-                              { "title@start.title_panel": { "splash_text_visible": false } }
-                            ]
-                          }
-                        },
-                        { "void_panel@common.empty_panel": { "size": [ "100%", 6 ] } },
-                        {
-                          "player_skin": {
-                            "type": "panel",
-                            "size": [ "100%", "fill" ],
-                            "controls": [
-                              { "skin@start.skin_panel": {} }
+                              {
+                                "player_skin": {
+                                  "type": "panel",
+                                  "size": [ "100%", "fill" ],
+                                  "controls": [
+                                    { "skin@start.skin_panel": {} }
+                                  ]
+                                }
+                              },
+                              {
+                                "void_panel@common.empty_panel": {
+                                  "size": [ 0, 6 ],
+                                  "bindings": [
+                                    {
+                                      "binding_name": "#profile_button_a_visible",
+                                      "binding_name_override": "#visible"
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "profile_button_panel": {
+                                  "type": "panel",
+                                  "size": [ "100%", "100%c" ],
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "controls": [
+                                    {
+                                      "profile@start.profile_button": {}
+                                    }
+                                  ],
+                                  "bindings": [
+                                    {
+                                      "binding_name": "#profile_button_a_visible",
+                                      "binding_name_override": "#visible"
+                                    }
+                                  ]
+                                }
+                              }
                             ]
                           }
                         }
@@ -1158,13 +1242,32 @@
       },
       { "top_tab@start.top_tab_panel": {} },
       {
+        "title_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "anchor_to": "center",
+          "anchor_from": "center",
+          "controls": [
+            {
+              "minecraft_title@common_art.title_panel_content": {
+                "size": [ "45%", 28 ],
+                "offset": [ 0, "5%" ],
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "$splash_text_visible": false
+              }
+            }
+          ]
+        }
+      },
+      {
         "left_bottom_stack_panel": {
           "type": "stack_panel",
           "orientation": "vertical",
           "anchor_to": "bottom_left",
           "anchor_from": "bottom_left",
           "size": [ "50% - 75px", "100%c" ],
-          "offset": [ 0, "-10%" ],
+          "offset": [ 0, "-5%" ],
           "controls": [
             { "gathering_panel@start.gathering_panel": {} }
           ]

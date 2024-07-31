@@ -2,18 +2,18 @@
 global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name.title=팩 이름:	#
-global.pack_info.name=§pMoonlight Pack	#
+global.pack_info.name=§hMoonlight Pack	#
 global.pack_info.made_by.title=제작자:	#
 global.pack_info.made_by=NeroLuna	#
 global.pack_info.made_by.team=Moonlight Team(TrueToneTeam)	#
+global.pack_info.support_language.title=지원되는 언어	#
+global.pack_info.support_language.english=영어	#
+global.pack_info.support_language.korean=한국어	#
 global.pack_info.editor.title=수정자:	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.build.title=빌드:	#
-global.pack_info.base_version.title=팩 버전:	#
 global.pack_info.licenses.title=라이센스:	#
-global.pack_info.licenses.1= * 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
-global.pack_info.licenses.2= * 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
+global.pack_info.licenses.1=* 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
+global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
 
 
 ## Setting Screen
@@ -33,11 +33,11 @@ options.creditsHeader=제작진 & 권한 정보	#
 options.advanced_video_options=고급 비디오	#
 options.myResourcePacks=나의 리소스 팩	#
 options.minecraftInfo=Minecraft 정보	#
+options.creator.copyCoordinate=좌표 복사 설졍	#
 
 controls_section.contorl_title=컨트롤	#
 controls_section.sensitivity_and_vibration_title=감도 & 진동	#
 controls_section.button_title=버튼	#
-controls_section.hotbar_title=핫바	#
 controls_section.controls.classic=클래식	#
 controls_section.controls.touch=터치	#
 controls_section.controls.crosshair=포인터	#
@@ -61,20 +61,16 @@ world_section.experimental_title=실험	#
 
 settingScreen.quick_settings=빠른 설정	#
 
-settingScreen.etc=기타	#
-settingScreen.etcTitle=기타 설정	#
+settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
+
+info_section.pack_info=팩 정보	#
+
+etc_section.etc=기타	#
+etc_section.etcTitle=기타 설정	#
 etc_section.beta.title=베타	#
-etc_section.beta.info=해당 기능들은 정식 기능이 아닌 테스트 기능들이며, 사용 시 버그를 유발할 수 있습니대.	#
+etc_section.beta.info=해당 기능들은 정식 기능이 아닌 테스트 기능들이며, 사용 시 버그를 유발할 수 있습니다.	#
 etc_section.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.	#
 etc_section.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.	#
-
-settingScreen.network=네트워크	#
-settingScreen.networkTitle=네트워크 설정	#
-
-settingScreen.info_group=정보	#
-settingScreen.pack_info=Moonlight Pack	#
-
-settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
 
 
 ## Play Screen
@@ -84,27 +80,27 @@ playScreen.tab.multiplay=멀티 플레이	#
 playScreen.tab.server=서버	#
 playScreen.tab.debug=디버그	#
 
-playScreen.search_world.title=월드 검색	#
 playScreen.search_world.name=월드 이름 검색...	#
-playScreen.search_world.result=월드 검색 결과: 	#
+
+playScreen.not_local_world.title=생성된 월드가 없습니다.	#
+playScreen.not_local_world.lore='새로운 월드 만들기' 또는 '빠른 플레이' 버튼을 눌러서 새로운 월드를 생성해보세요.	#
 
 playScreen.side_menu.friends.title=친구	#
 playScreen.side_menu.friends.player_search=플레이어 검색	#
 playScreen.side_menu.friends.not_friends.title=앗! 현재 플레이 중인 친구가 없습니다...	#
 playScreen.side_menu.friends.not_friends.lore=친구에게 같이 플레이 하자고 하거나, '플레이어 검색' 기능을 이용해서 새로운 친구를 찾아보세요!	#
 
-playScreen.contentButton.quick_play.title=빠른 플레이	#
-playScreen.contentButton.quick_play.lore=랜덤한 시드로 새로운 월드를 빠르게 생성할 수 있습니다.	#
-playScreen.contentButton.change_to_new_ui.title=새 UI로 전환	#
-playScreen.contentButton.change_to_new_ui.lore=새롭게 디자인된 UI를 만나보세요! 해당 기능은 Beta 또는 Preview 버전에서먄 이용하실 수 있습니다.	#
-
 playScreen.category.realms_plus.title=Realms Plus	#
 playScreen.category.lan.title=LAN 서버	#
 
-playScreen.quick_menu.title=빠른 메뉴	#
+playScreen.switch_to_new_ui=새 UI로 전환	#
+
+playScreen.additional_server.lore=외부 서버는 Mojang이 제공하는 공식 서버와는 다른 사람들이 운영하는 서버입니다. 외부 서버에서는 여러 사람들과 같이 다양한 장르를 즐기실 수 있습니다.	#
 
 
 ## Other
+addExternalServerScreen.add_warning_text=외부 서버는 안정적인 플레이 환경을 보장할 수 없습니다. 항상 이 점을 유의하면서 플레이하세요.	#
+
 createWorldScreen.beta.settings=베타 설정	#
 createWorldScreen.classroom.settings=클래스 설정	#
 

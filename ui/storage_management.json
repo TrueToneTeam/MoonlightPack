@@ -46,14 +46,14 @@
                         {
                           "clear_cache_button_panel": {
                             "type": "panel",
-                            "size": [ "100%", "100%c + 2px" ],
+                            "size": [ "100%", "100%c" ],
                             "$focus_override_right": "FOCUS_OVERRIDE_STOP",
                             "$focus_override_up": "FOCUS_OVERRIDE_STOP",
                             "$clear_cache_button_text|default": "#none",
                             "controls": [
                               {
                                 "clear_cache_button@common_buttons.light_text_button": {
-                                  "size": [ "100%", 30 ],
+                                  "size": [ "100%", 24 ],
                                   "offset": [ -1, -2 ],
                                   "$pressed_button_name": "button.clear_cache",
                                   "$button_text": "$clear_cache_button_text"
@@ -78,6 +78,7 @@
                             "ignored": "($is_holographic and $is_reality_mode)",
                             "visible": "(not $gear_vr)",
                             "enabled": "$storage_location_switch_enabled",
+                            "$option_dropdown_size": [ "100%", 24 ],
                             "$dropdown_content": "general_section.file_storage_location_content",
                             "$dropdown_area": "content_area",
                             "$dropdown_name": "file_storage_location",

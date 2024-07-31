@@ -1,0 +1,70 @@
+{
+
+  "namespace": "choose_realm",
+
+  "realms_scroll_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%-4px", "100%c" ],
+    "offset": [ 2, 0 ],
+    "controls": [
+      {
+        "realms_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "orientation": "vertical",
+          "controls": [
+            {
+              "realms_stack_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%cm" ],
+                "orientation": "horizontal",
+                "controls": [
+                  { "ten_player_button@choose_realm.new_ten_player_button": {} },
+                  { "padding_1@common.empty_panel": { "size": [ 2, 0 ] } },
+                  { "two_player_button@choose_realm.new_two_player_button": {} }
+                ]
+              }
+            },
+            { "padding_0@common.empty_panel": { "size": [ 0, 2 ] } },
+            { "realms_world_item_grid@choose_realm.realms_world_item_grid": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "new_ten_player_button@settings_common.action_button_dark_text": {
+    "size": [ "fill", 24 ],
+    "$button_text_max_size": [ "100%", 20 ],
+    "$default_button_texture": "textures/ui/realmsContent",
+    "$hover_button_texture": "textures/ui/realmsContentHover",
+    "$pressed_button_texture": "textures/ui/realmsContentPressed",
+    "$button_text": "chooseRealmScreen.realmsplusbuttontext",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "default_focus_precedence": 2,
+    "$pressed_button_name": "button.ten_player",
+    "bindings": [
+      {
+        "binding_name": "#ten_player_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "new_two_player_button@common_buttons.light_text_button": {
+    "$pressed_button_name": "button.two_player",
+    "$button_text": "chooseRealmScreen.realmsbuttontext",
+    "size": [ "fill", 24 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "bindings": [
+      {
+        "binding_name": "#two_player_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  }
+}
