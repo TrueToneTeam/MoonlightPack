@@ -100,8 +100,8 @@
     "type": "panel",
     "anchor_from": "bottom_middle",
     "anchor_to": "bottom_middle",
-    "size": [ "90%", 10 ],
-	"offset": [ 0, 0 ],
+    "size": [ "95%", 10 ],
+    "offset": [ 0, 0 ],
     "layer": 5,
     "controls": [
       {
@@ -138,7 +138,7 @@
   "progress_title_world_panel": {
     "type": "stack_panel",
     "orientation": "vertical",
-    "size": [ "100% - 8px", "100%c" ],
+    "size": [ "100%", "100%c" ],
     "anchor_from": "center",
     "anchor_to": "center",
     "controls": [
@@ -147,7 +147,7 @@
           "size": [ "100%", "default" ],
           "max_size": [ "100%", "default" ],
           "text": "#title_text",
-          "text_alignment": "center",
+          "text_alignment": "left",
           "font_size": "large",
           "shadow": true,
           "bindings": [
@@ -160,9 +160,8 @@
           "size": [ "100%", "default" ],
           "max_size": [ "100%", "default" ],
           "text": "#progress_text",
-          "text_alignment": "center",
+          "text_alignment": "left",
           "shadow": true,
-          "localize": false,
           "bindings": [
             { "binding_name": "#progress_text" }
           ]
@@ -220,19 +219,6 @@
           "anchor_to": "bottom_middle",
           "controls": [
             {
-              "gradient": {
-                "layer": 10,
-                "type": "custom",
-                "size": [ "100%", "100%sm" ],
-                "offset": [ 0, 0 ],
-
-                "renderer": "gradient_renderer",
-                "gradient_direction": "vertical",
-                "color1": [ 0, 0, 0, 0 ],
-                "color2": [ 0, 0, 0, 1 ]
-              }
-            },
-            {
               "base_content": {
                 "layer": 15,
                 "type": "stack_panel",
@@ -247,10 +233,13 @@
                         {
                           "progress_title_text_panel": {
                             "type": "panel",
-                            "size": [ "100%", "100%c" ],
+                            "size": [ "80%", "100%c" ],
+                            "offset": [ "2.5%", 0 ],
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
                             "controls": [
                               {
-                                "progress_title_world_panel@progress.progress_title_world_panel": {
+                                "progress_text@progress.progress_title_world_panel": {
                                   "anchor_from": "center",
                                   "anchor_to": "center"
                                 }
@@ -262,6 +251,7 @@
                           "close_button_panel": {
                             "type": "panel",
                             "size": [ "100%c", "100%c" ],
+                            "offset": [ "-2.5%", 0 ],
                             "anchor_from": "right_middle",
                             "anchor_to": "right_middle",
                             "controls": [

@@ -2,16 +2,16 @@
 global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name=§hMoonlight Pack	#
-global.pack_info.made_by.title=제작자:	#
+global.pack_info.name=Moonlight Pack	#
+global.pack_info.made_by.title=제작	#
 global.pack_info.made_by=NeroLuna	#
 global.pack_info.made_by.team=Moonlight Team(TrueToneTeam)	#
 global.pack_info.support_language.title=지원되는 언어	#
 global.pack_info.support_language.english=영어	#
 global.pack_info.support_language.korean=한국어	#
-global.pack_info.editor.title=수정자:	#
+global.pack_info.editor.title=수정자	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.licenses.title=라이센스:	#
+global.pack_info.licenses.title=라이선스	#
 global.pack_info.licenses.1=* 해당 리소스 팩은 Moonlight Team(TrueToneTeam)의 오픈 소스 프로젝트로 누구나 수정 및 재배포가 가능합니다.	#
 global.pack_info.licenses.2=* 단, 해당 탭의 내용과 원제작자 및 팀명 표시는 수정 및 제거가 불가능 합니다. 2차 수정자는 [수정자] 항목에 이름을 추가하여 배포하실 수 있습니다.	#
 
@@ -32,38 +32,59 @@ options.crossPlatformPlay=크로스 플렛폼 플레이	#
 options.creditsHeader=제작진 & 권한 정보	#
 options.advanced_video_options=고급 비디오	#
 options.myResourcePacks=나의 리소스 팩	#
-options.minecraftInfo=Minecraft 정보	#
-options.creator.copyCoordinate=좌표 복사 설졍	#
+options.creator.copyCoordinate=좌표 복사 설정	#
 
-controls_section.contorl_title=컨트롤	#
+controls_section.controls=조작	#
+controls_section.controls.touch.title=조작 - 터치	#
+controls_section.controls.keyboardAndMouse.title=조작 - 키보드 & 마우스	#
+controls_section.controls.controller.title=조작 - 컨트롤러	#
+controls_section.contorl_title=조작	#
 controls_section.sensitivity_and_vibration_title=감도 & 진동	#
 controls_section.button_title=버튼	#
 controls_section.controls.classic=클래식	#
 controls_section.controls.touch=터치	#
 controls_section.controls.crosshair=포인터	#
 
-video_section.frame_title=프레임	#
-video_section.graphic_and_rendering_title=그래픽 & 렌더링	#
-video_section.vr_title=VR	#
-video_section.render_dragon_title=렌더 드래곤	#
-
-view_section.play_title=플레이	#
-view_section.uiAgui_title=UI & GUI	#
-view_section.splitscreen_title=분할 화면	#
-
 general_section.effect_title=효과	#
 general_section.text_title=텍스트	#
 general_section.storage_management_title=저장 공간 관리	#
 general_section.safe_zone_setting_title=안전 영역 설정	#
+general_section.language.info=언어 번역은 100% 정확하지 않을 수 있습니다	#
+general_section.language.highlight=자주 쓰는 언어	#
 
 world_section.multiplay_title=멀티 플레이	#
-world_section.experimental_title=실험	#
+world_section.general=일반	#
+world_section.advanced=고급	#
+world_section.cheats=치트	#
+world_section.experimental_features=실험 기능	#
 
-settingScreen.quick_settings=빠른 설정	#
+quick_section.quick_setting=빠른 설정	#
+quick_section.camera=카메라	#
+quick_section.camera.first_person=1인칭	#
+quick_section.camera.first_person.info=본인의 손만 보이는 시점으로, 건축이나 PVP에서 주로 최적화된 시점입니다.	#
+quick_section.camera.third_person_back=3인칭 후방	#
+quick_section.camera.third_person_back.info=더 넓은 시야로 건축물의 사이즈를 가늠할 때 주로 사용합니다.	#
+quick_section.camera.third_person_front=3인칭 전방	#
+quick_section.camera.third_person_front.info=더 넓은 시야를 유지하면서 촬영하거나 방송할 때 최적화된 시점입니다.	#
 
-settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
+graphics_section.graphics=그래픽	#
+graphics_section.graphicsTitle=그래픽 설정	#
+graphics_section.rtx=RTX	#
+graphics_section.rtx.info=RTX는 기존 Minecraft 그래픽에 여러가지 반사 효과나 광원 효과를 추가해서 더 아름답게 만들어줍니다.(RTX는 일부 그래픽 카드에서만 지원합니다.)	#
+graphics_section.render_dragon=렌더 드래곤	#
+graphics_section.render_dragon.info=기본 그래픽에서 더 업그레이드 된 그래픽을 보여줍니다.(현재 BETA/Preview 버전에서만 지원합니다.)	#
+graphics_section.frame_title=프레임	#
+graphics_section.graphic_and_rendering_title=그래픽 & 렌더링	#
+graphics_section.vr=VR	#
+graphics_section.play_title=플레이	#
+graphics_section.uiAgui_title=UI & GUI	#
+graphics_section.splitscreen_title=분할 화면	#
 
-info_section.pack_info=팩 정보	#
+info_section.info=정보	#
+info_section.packInfo=팩 정보	#
+info_section.minecraftInfo=Minecraft 정보	#
+info_section.minecraftInfo.detail=Minecraft 세부 정보	#
+info_section.packNotification=팩 알림	#
 
 etc_section.etc=기타	#
 etc_section.etcTitle=기타 설정	#
@@ -71,6 +92,17 @@ etc_section.beta.title=베타	#
 etc_section.beta.info=해당 기능들은 정식 기능이 아닌 테스트 기능들이며, 사용 시 버그를 유발할 수 있습니다.	#
 etc_section.drag_dwell.info=아이템 분할 후 해당 아이템을 움직일 수 있는 딜레이를 설정할 수 있습니다.	#
 etc_section.stack_splitting.info=아이템 분할 기능이 작동되는 딜레이를 설정할 수 있습니다.	#
+
+settingScreen.creator.warning_text=해당 리소스 팩을 적용한 후 콘텐츠 로그를 켤 경우 다양한 오류 로그가 나타날 수 있습니다.	#
+
+
+## Notification
+notification.pack_is_developer=개발 단계의 팩을 사용하고 있습니다. 심각한 버그나 문제가 생길 수 있습니다. 개발 중인 내용을 외부로 유출하지 마세요!	#
+notification.pack_is_beta=현재 BETA 버전의 팩을 사용하고 있습니다. 다양한 버그나 문제가 생길 수 있습니다.	#
+notification.pack_is_preview=사전 체험 버전을 사용하고 있습니다. 사용해보시고 문제점과 개선할 점을 찾아서 알려주세요!	#
+notification.pack_is_custom=커스텀 버전을 사용하고 있습니다.	#
+notification.minecraft_version.no_problem=팩에서 지원하는 [ Minecraft 버전 ]과 플레이 중인 [ Minecraft 버전 ]이 일치합니다.	#
+notification.minecraft_version.problem=팩에서 지원하는 [ Minecraft 버전 ]과 현재 플레이 중인 [ Minecraft 버전 ]이 일치하지 않습니다. 버그가 발생하거나 오류가 나타날 수 있습니다.	#
 
 
 ## Play Screen
@@ -117,9 +149,3 @@ button.accept.text=§l수락	#
 gui.upload=업로드	#
 
 chat.setting_text=채팅 설정	#
-
-
-## Screenshot Save Path
-screenshot.save_path.ios=저장 위치: §s파일 앱\(나의 iPhone) 또는 (나의 iPad)\Minecraft\screenshots\00000000-0000-0000-0000-000000000000\photos	#
-screenshot.save_path.android=저장 위치: §s파일\Android\data\com.mojang.minecraftpe\files\screenshots\00000000-0000-0000-0000-000000000000\photos	#
-screenshot.save_path.windows=저장 위치: §sC:\Users\(사용자 명)\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\Screenshots	#

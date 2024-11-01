@@ -40,6 +40,283 @@
   },
 
 
+  // Dynamic Upgrade Button Content
+  "dynamic_upgrade_button_background_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "fill": true,
+    "texture": "$button_background_image"
+  },
+
+  "binding_dynamic_upgrade_button_background_base": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "fill": true,
+    "$texture_path|default": "",
+    "$texture_file_system|default": "",
+    "bindings": [
+      {
+        "binding_name": "$texture_path",
+        "binding_name_override": "#texture"
+      },
+      {
+        "binding_name": "$texture_file_system",
+        "binding_name_override": "#texture_file_system"
+      }
+    ]
+  },
+
+  "dynamic_upgrade_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_background_image|default": "textures/ui/CreateNewWorld",
+    "controls": [
+      {
+        "content_panel": {
+          "layer": 30,
+          "type": "image",
+          "size": [ "100%", "100%" ],
+          "fill": true,
+          "texture": "$button_background_image",
+          "controls": [
+            {
+              "text_panel": {
+                "visible": "($default_state or $locked_state)",
+                "layer": 20,
+                "type": "custom",
+                "size": [ "100%", "100%" ],
+
+                "renderer": "gradient_renderer",
+                "gradient_direction": "vertical",
+                "color1": [ 0, 0, 0, 0.2 ],
+                "color2": [ 0, 0, 0, 0.75 ],
+
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 20,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 6px" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "controls": [
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 21,
+                            "$button_font_scale_factor": 1.1,
+                            "$text_alignment": "left",
+                            "$button_text_size": [ "100% - 4px", "default" ],
+                            "$button_text_max_size": [ "100% - 4px", "default" ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hover_pressed_content": {
+          "visible": "(not $default_state and not $locked_state)",
+          "layer": 21,
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          /*"type": "custom",
+          "size": [ "100%", "100%" ],
+
+          "renderer": "gradient_renderer",
+          "gradient_direction": "vertical",
+          "color1": "$border_texture_color_1",
+          "color2": "$border_texture_color_2",*/
+
+          "controls": [
+            {
+              "text_panel": {
+                "layer": 23,
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/control",
+                "alpha": 0.7,
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 25,
+                      "type": "stack_panel",
+                      "size": [ "100%", "100%" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        { "start_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } },
+                        {
+                          "button_icon_image_panel": {
+                            "layer": 26,
+                            "type": "panel",
+                            "size": [ "100%", "50%" ],
+                            "controls": [
+                              { "button_icon@$button_icon_content": { "size": [ "100%y - 4px", "100% - 4px" ], "anchor_from": "center", "anchor_to": "center" } }
+                            ]
+                          }
+                        },
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 26,
+                            "$button_font_scale_factor": 1.2,
+                            "$text_alignment": "center",
+                            "$button_text_size": [ "100%", "default" ],
+                            "$button_text_max_size": [ "100%", "default" ]
+                          }
+                        },
+                        { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "horizontal_dynamic_upgrade_button_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "$button_background_image|default": "textures/ui/CreateNewWorld",
+    "$button_background_base|default": "button_content_preset.dynamic_upgrade_button_background_base",
+    "controls": [
+      {
+        "content_panel@$button_background_base": {
+          "layer": 30,
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "text_panel": {
+                "visible": "($default_state or $locked_state)",
+                "layer": 20,
+                "type": "custom",
+                "size": [ "100%", "100%" ],
+
+                "renderer": "gradient_renderer",
+                "gradient_direction": "vertical",
+                "color1": [ 0, 0, 0, 0.2 ],
+                "color2": [ 0, 0, 0, 0.75 ],
+
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 20,
+                      "type": "panel",
+                      "size": [ "100%", "100%c + 6px" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "controls": [
+                        {
+                          "button_text@common_buttons.new_ui_binding_button_label": {
+                            "layer": 21,
+                            "$button_font_scale_factor": 1.1,
+                            "$text_alignment": "left",
+                            "$button_text_size": [ "100% - 4px", "default" ],
+                            "$button_text_max_size": [ "100% - 4px", "default" ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hover_pressed_content": {
+          "visible": "(not $default_state and not $locked_state)",
+          "layer": 21,
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+
+          "controls": [
+            {
+              "text_panel": {
+                "layer": 23,
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/control",
+                "alpha": 0.7,
+                "controls": [
+                  {
+                    "content_panel": {
+                      "layer": 25,
+                      "type": "stack_panel",
+                      "size": [ "100%", "100%" ],
+                      "offset": [ 0, 0 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "controls": [
+                        { "start_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } },
+                        {
+                          "content_panel": {
+                            "layer": 25,
+                            "type": "stack_panel",
+                            "size": [ "100%", "100% - 12px" ],
+                            "offset": [ 0, 0 ],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "orientation": "horizontal",
+                            "controls": [
+                              {
+                                "button_icon_image_panel": {
+                                  "layer": 26,
+                                  "type": "panel",
+                                  "size": [ "75%y", "100%" ],
+                                  "controls": [
+                                    { "button_icon@$button_icon_content": { "size": [ "100% - 10px", "100% - 10px" ], "anchor_from": "center", "anchor_to": "center" } }
+                                  ]
+                                }
+                              },
+                              {
+                                "button_text_panel": {
+                                  "layer": 26,
+                                  "type": "panel",
+                                  "size": [ "fill", "100%" ],
+                                  "controls": [
+                                    {
+                                      "button_text@common_buttons.new_ui_binding_button_label": {
+                                        "layer": 26,
+                                        "$button_font_scale_factor": 1.1,
+                                        "$anchor": "center",
+                                        "$text_alignment": "center",
+                                        "$button_text_size": [ "default", "default" ],
+                                        "$button_text_max_size": [ "100%", "100%" ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
   // Underline Content
   "underline_toggle_content": {
     "type": "panel",

@@ -72,10 +72,21 @@
   },
 
   "instructions_text": {
-    "type": "label",
-    "layer": 1,
-    "text": "options.safeZone.description",
-    "color": "$body_text_color"
+    "type": "panel",
+    "size": [ "100%", "100%c + 6px" ],
+    "controls": [
+      {
+        "inner_label": {
+          "type": "label",
+          "layer": 1,
+          "size": [ "100% - 6px", "default" ],
+          "text": "options.safeZone.description",
+          "color": "$body_text_color",
+          "anchor_to": "center",
+          "anchor_from": "center"
+        }
+      }
+    ]
   },
 
   "content_panel": {

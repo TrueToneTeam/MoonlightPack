@@ -208,6 +208,14 @@
   },
 
 
+  // Dynamic Upgrade Button
+  "dynamic_upgrade_button_base@common_buttons.dark_content_button": {
+    "$button_type_panel|default": "button_content_preset.dynamic_upgrade_button_content",
+    "$border_visible": false,
+    "$button_pressed_offset|default": [ 0, 0 ]
+  },
+
+
   // New Type Toggle
   "minus_image": {
     "type": "image",
@@ -244,7 +252,10 @@
     "$default_glyph_color|default": "$light_glyph_toggle_default_color",
     "$hover_glyph_color|default": "$dark_glyph_toggle_hover_color",
     "$default_checked_glyph_color|default": "$light_glyph_toggle_checked_default_color",
-    "$hover_checked_glyph_color|default": "$dark_glyph_toggle_checked_hover_color"
+    "$hover_checked_glyph_color|default": "$dark_glyph_toggle_checked_hover_color",
+
+    "$unchecked_locked_texture|default": "textures/ui/disabledButtonNoBorder",
+    "$checked_locked_texture|default": "textures/ui/disabledButtonNoBorder"
   },
 
   "toggle_checkbox_unchecked@update_check_box_button_ui_panel": {

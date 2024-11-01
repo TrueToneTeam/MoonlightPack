@@ -3,7 +3,7 @@
 
   "popup_anim": {
     "anim_type": "offset",
-    "easing": "in_out_bounce",
+    "easing": "in_out_cubic",
     "from": "$popup_distance_from",
     "to": "$popup_distance_to",
     "duration": "$transition_time",
@@ -34,7 +34,7 @@
     "offset": "$toast_offset",
     "anchor_from": "$toast_anchor_from",
     "anchor_to": "$toast_anchor_to",
-    "size": [ "40%", 26 ],
+    "size": [ "40%", 32 ],
     "$alpha_anims|default": [],
     "$offset_anims|default": [
       "@toast_screen.popup_anim"

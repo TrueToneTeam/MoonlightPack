@@ -1,0 +1,186 @@
+{
+  "namespace": "common_radios",
+
+  "upgrade_radio_template": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$content_offset|default": [ 0, 0 ],
+    "$button_texture|default": "",
+    "$button_texture_size|default": [ "100% - 2px", "100% - 2px" ],
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "$button_texture_alpha|default": 1.0,
+    "$button_texture_fill|default": false,
+    "$border_visible|default": true,
+    "$border_color|default": [ 1.0, 1.0, 1.0 ],
+    "$border_layer|default": 8,
+    "$radio_icon_visible|default": false,
+    "$radio_icon|default": "",
+    "$radio_icon_size|default": [ "60%y", "100%" ],
+    "$radio_icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$radio_icon_hover_visible|default": false,
+    "$radio_icon_hover|default": "",
+    "$radio_label_text|default": "",
+    "$radio_label_size|default": [ "default", "default" ],
+    "$radio_label_max_size|default": [ "100% - 8px", "100% - 8px" ],
+    "$radio_label_color|default": [ 1.0, 1.0, 1.0 ],
+    "$radio_label_bindings|default": [],
+
+    "$hover_state|default": false,
+
+    "controls": [
+      {
+        "radio_label": {
+          "layer": 5,
+          "visible": "(not $radio_icon_visible)",
+          "type": "label",
+          "size": "$radio_label_size",
+          "max_size": "$radio_label_max_size",
+          "offset": "$content_offset",
+          "color": "$radio_label_color",
+          "text": "$radio_label_text",
+          "bindings": "$radio_label_bindings"
+        }
+      },
+      {
+        "radio_icon_with_label": {
+          "layer": 5,
+          "visible": "$radio_icon_visible",
+          "type": "stack_panel",
+          "size": [ "100%c", "100%" ],
+          "offset": [ 0, -1 ],
+          "orientation": "horizontal",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "controls": [
+            {
+              "radio_icon_panel": {
+                "layer": 6,
+                "type": "panel",
+                "size": "$radio_icon_size",
+                "controls": [
+                  {
+                    "radio_icon": {
+                      "layer": 6,
+                      "type": "image",
+                      "size": [ "100%", "100%x" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "color": "$radio_icon_color",
+                      "offset": "$content_offset",
+                      "texture": "$radio_icon"
+                    }
+                  },
+                  {
+                    "radio_icon_hover": {
+                      "layer": 6,
+                      "visible": "($radio_icon_hover_visible and $hover_state)",
+                      "type": "image",
+                      "size": [ "100%", "100%x" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": "$content_offset",
+                      "texture": "$radio_icon_hover"
+                    }
+                  }
+                ]
+              }
+            },
+            { "void@common.empty_panel": { "size": [ 6, 0 ] } },
+            {
+              "radio_label_panel": {
+                "layer": 6,
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "radio_label": {
+                      "layer": 6,
+                      "type": "label",
+                      "size": "$radio_label_size",
+                      "max_size": [ "default", "default" ],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": "$content_offset",
+                      "color": "$radio_label_color",
+                      "text": "$radio_label_text",
+                      "bindings": "$radio_label_bindings"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "button": {
+          "type": "image",
+          "size": "$button_texture_size",
+          "texture": "$button_texture",
+          "color": "$button_texture_color",
+          "fill": "$button_texture_fill",
+          "alpha": "$button_texture_alpha"
+        }
+      },
+      {
+        "focus_border@common_buttons.focus_border": {
+          "layer": "$border_layer",
+          "visible": "$border_visible",
+          "color": "$border_color"
+        }
+      }
+    ]
+  },
+
+  "upgrade_radio_unchecked@common_radios.upgrade_radio_template": {
+    "$button_texture": "$default_button_texture",
+    "$radio_label_color": "$unchecked_radio_label_color",
+    "$border_color": "$light_border_default_color",
+    "$border_visible": "$unchecked_border_visible",
+    "$content_offset": "$unchecked_content_offset"
+  },
+
+  "upgrade_radio_checked@common_radios.upgrade_radio_template": {
+    "$button_texture": "$pressed_no_hover_button_texture",
+    "$radio_label_color": "$checked_radio_label_color",
+    "$border_color": "$light_border_default_color",
+    "$border_visible": "$checked_border_visible",
+    "$content_offset": "$checked_content_offset"
+  },
+
+  "upgrade_radio_unchecked_hover@common_radios.upgrade_radio_template": {
+    "$hover_state": true,
+    "$button_texture": "$hover_button_texture",
+    "$radio_label_color": "$unchecked_hover_radio_label_color",
+    "$border_color": "$light_border_hover_color",
+    "$border_visible": "$unchecked_hover_border_visible",
+    "$content_offset": "$unchecked_hover_content_offset"
+  },
+
+  "upgrade_radio_checked_hover@common_radios.upgrade_radio_template": {
+    "$hover_state": true,
+    "$button_texture": "$pressed_button_texture",
+    "$radio_label_color": "$checked_hover_radio_label_color",
+    "$border_color": "$light_border_hover_color",
+    "$border_visible": "$checked_hover_border_visible",
+    "$content_offset": "$checked_hover_content_offset"
+  },
+
+  "upgrade_radio_unchecked_locked@common_radios.upgrade_radio_template": {
+    "$button_texture": "$locked_button_texture",
+    "$radio_label_color": "$unchecked_locked_radio_label_color",
+    "$border_color": "$light_border_locked_color",
+    "$border_visible": "$unchecked_locked_border_visible",
+    "$content_offset": "$unchecked_locked_content_offset"
+  },
+
+  "upgrade_radio_checked_locked@common_radios.upgrade_radio_template": {
+    "$button_texture": "$pressed_locked_button_texture",
+    "$radio_label_color": "$checked_locked_radio_label_color",
+    "$border_color": "$light_border_locked_color",
+    "$border_visible": "$checked_locked_border_visible",
+    "$content_offset": "$checked_locked_content_offset"
+  }
+}

@@ -627,6 +627,22 @@
     ]
   },
 
+  "additional_server_thumbnail_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "$server_screenshot_path|default": "textures/ui/additional_server_screenshot",
+    "controls": [
+      {
+        "server_screenshot": {
+          "visible": false,
+          "type": "image",
+          "size": [ "100%", "30%x" ],
+          "texture": "$server_screenshot_path"
+        }
+      }
+    ]
+  },
+
   "server_name_panel": {
     "type": "panel",
     "size": [ "100%c", "100%c" ],
@@ -1862,32 +1878,6 @@
       }
     ]
   },
-  
-  "add_server_description_text_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%c" ],
-    "$description_max_size|default": [ "100% - 2px", 40 ],
-    "$description_text|default": "외부 서버에서는 다양한 사람들과 같이 여러가지 장르의 게임이나 콘텐츠를 즐기면서 플레이하실 수 있습니다.",
-    "controls": [
-      {
-        "contents_description": {
-          "type": "label",
-          "size": [ "100% - 2px", "default" ],
-          "max_size": "$description_max_size",
-          "offset": [ 2, 0 ],
-          "layer": 1,
-          "color": "$body_text_color",
-          "font_type": "#smooth_font",
-          "enable_profanity_filter": false,
-          "text": "$description_text",
-		  "shadow": true,
-          "notify_on_ellipses": [
-            "description_read_more_button_panel"
-          ]
-        }
-      }
-    ]
-  },
 
   "games_factory_object": {
     "type": "stack_panel",
@@ -2592,7 +2582,7 @@
   },
 
   "local_world_search_item": {
-    "type": "stack_panel",
+    "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "layer": 1,
@@ -2781,275 +2771,6 @@
     "layer": 1,
     "anchor_to": "top_left",
     "anchor_from": "top_left"
-  },
-
-
-  "world_quick_action_buttons_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%x" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%" ],
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "controls": [
-            {
-              "world_search_content": {
-                "type": "image",
-                "size": [ "100%", "fill" ],
-                "texture": "textures/ui/hud_text_background_white",
-                "color": [ 0.451, 0.78, 0.933 ],
-                "controls": [
-                  {
-                    "world_search_panel": {
-                      "type": "stack_panel",
-                      "size": [ "100% - 10px", "100% - 10px" ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "controls": [
-                        { "search_world_title": { "type": "label", "size": [ "default", "default" ], "text": "playScreen.search_world.title" } },
-                        {
-                          "search_world_edit_box@common.text_edit_box": {
-                            "size": [ "100%", 24 ],
-                            "$place_holder_text": "playScreen.search_world.name",
-                            "$text_edit_text_control": "search_world",
-
-                            "max_length": 30,
-                            "$text_edit_box_label_offset": [ 14, 0 ],
-
-                            "$text_edit_box_hovered_button_id": "button.search_bar_hovered",
-                            "$text_edit_box_clear_to_button_id": "button.search_bar_clear",
-                            "$text_edit_box_selected_to_button_id": "button.search_bar_selected",
-                            "$text_edit_box_deselected_to_button_id": "button.search_bar_deselected",
-
-                            "$text_clear_button_enabled" : true,
-                            "$text_clear_button_size": [ 15, 15 ],
-                            "$text_clear_button_offset": [ 2, 0 ],
-                            "$magnifying_glass_enabled": true,
-                            "$magnifying_glass_size": [ 12, 8 ],
-                            "$magnifying_glass_offset": [ 0, -0.5 ]
-                          }
-                        },
-                        { "search_world_padding": { "type": "panel", "size": [ "100%", 4 ] } },
-                        {
-                          "world_search_text": {
-                            "type": "label",
-                            "size": [ "default", "default" ],
-                            "max_size": [ "100%", "fill" ],
-                            "text": "playScreen.search_world.result"
-                          }
-                        },
-                        {
-                          "world_search_result_text": {
-                            "type": "label",
-                            "size": [ "default", "default" ],
-                            "max_size": [ "100%", "fill" ],
-                            "text": "#search",
-                            "bindings": [
-                              {
-                                "binding_type": "view",
-                                "source_property_name": "((not (#search = '')))",
-                                "target_property_name": "#visible"
-                              },
-                              {
-                                "binding_type": "view",
-                                "source_control_name": "search_world",
-                                "source_property_name": "#item_name",
-                                "target_property_name": "#search"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-			    ]
-			  }
-			},
-            { "void_panel@common.empty_panel": { "size": [ "100%", 4 ] } },
-            {
-              "last_play_world_content": {
-                "type": "panel",
-                "size": [ "100%", "fill" ],
-                "controls": [
-                  {
-                    "world_search_panel": {
-                      "type": "stack_panel",
-                      "size": [ "100%", "100%" ],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "collection_name": "local_worlds",
-                      "controls": [
-                        {
-                          "last_play_world@last_play_world_button_content_base": {
-                            "collection_index": 0,
-                            "size": [ "100% - 2px", "100% - 2px" ],
-                            "anchor_from": "center",
-                            "anchor_to": "center"
-                          }
-                        }
-                        /*{
-                          "last_play_world@common_buttons.dark_text_button": {
-                            "collection_index": 0,
-                            "size": [ "100%", "100%" ],
-
-                            "$button_type_panel": "play.last_play_world_button_content_base",
-                            "$button_pressed_offset": [ 0, 0 ],
-                            "$pressed_button_name": "button.menu_start_local_world",
-
-                            "$button_texture": "#local_world_image",
-                            "$button_texture_source": "#local_world_texture_source",
-
-                            "$button_text": "#local_world_name",
-                            "$button_text_binding_type": "collection",
-                            "$button_text_grid_collection_name": "local_worlds",
-                            "bindings": [
-                              {
-                                "binding_name": "#local_world_image",
-                                "binding_type": "collection",
-                                "binding_collection_name": "local_worlds"
-                              },
-                              {
-                                "binding_name": "#local_world_texture_source",
-                                "binding_type": "collection",
-                                "binding_collection_name": "local_worlds"
-                              },
-                              {
-                                "binding_name": "#local_world_name",
-                                "binding_type": "collection",
-                                "binding_collection_name": "local_worlds"
-                              },
-                              {
-                                "binding_name": "#world_button_focus_identifier",
-                                "binding_name_override": "#focus_identifier",
-                                "binding_type": "collection",
-                                "binding_collection_name": "local_worlds"
-                              },
-                              {
-                                "binding_type": "collection_details",
-                                "binding_collection_name": "local_worlds"
-                              }
-                            ]
-                          }
-                        }*/
-                      ]
-                    }
-                  }
-			    ]
-			  }
-			}
-            /*{ "new_ui@play.new_ui_image_button": { "size": [ "100%", "fill" ] } }*/
-          ]
-        }
-      }
-    ]
-  },
-
-  "last_play_world_button_content_base": {
-    "type": "image",
-    "size": [ "100%", "100%" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "$fit_to_width": false,
-    "force_texture_reload": true,
-    "fill": true,
-    "bindings": [
-      {
-        "binding_name": "#local_world_image",
-        "binding_name_override": "#texture",
-        "binding_type": "collection",
-        "binding_collection_name": "local_worlds"
-      },
-      {
-        "binding_name": "#local_world_texture_source",
-        "binding_name_override": "#texture_file_system",
-        "binding_type": "collection",
-        "binding_collection_name": "local_worlds"
-      }
-    ],
-    "controls": [
-      {
-        "button_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "controls": [
-            {
-              "last_play_world@common_buttons.dark_text_button": {
-                "size": [ "100% + 2px", "100% + 2px" ],
-                "anchor_from": "center",
-                "anchor_to": "center",
-
-                "$default_button_texture": "textures/ui/empty",
-                "$hover_button_texture": "textures/ui/empty",
-                "$pressed_button_texture": "textures/ui/empty",
-                "$locked_button_texture": "textures/ui/empty",
-
-                "$button_type_panel": "common.empty_panel",
-                "$button_pressed_offset": [ 0, 0 ],
-                "$pressed_button_name": "button.menu_start_local_world",
-                "bindings": [
-                  {
-                    "binding_name": "#world_button_focus_identifier",
-                    "binding_name_override": "#focus_identifier",
-                    "binding_type": "collection",
-                    "binding_collection_name": "local_worlds"
-                  },
-                  {
-                    "binding_type": "collection_details",
-                    "binding_collection_name": "local_worlds"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "world_name_panel": {
-          "type": "panel",
-          "size": [ "100%", "100%" ],
-          "controls": [
-            {
-              "world_name_panel": {
-                "layer": 30,
-                "type": "image",
-                "size": [ "100%", "100%c + 10px" ],
-                "offset": [ 0, 0.5 ],
-                "anchor_from": "bottom_middle",
-                "anchor_to": "bottom_middle",
-                "texture": "textures/ui/control",
-                "alpha": 0.7,
-                "controls": [
-                  {
-                    "button_text@common_buttons.new_ui_binding_button_label": {
-                      "layer": 32,
-                      "$button_text": "#local_world_name",
-                      "$button_text_size": [ "100% - 4px", "default" ],
-                      "$button_text_max_size": [ "100% - 4px", "default" ],
-                      "bindings": [
-                        {
-                          "binding_name": "#local_world_name",
-                          "binding_type": "collection",
-                          "binding_collection_name": "local_worlds"
-                        },
-                        {
-                          "binding_type": "collection_details",
-                          "binding_collection_name": "local_worlds"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
   },
 
 
@@ -3303,17 +3024,12 @@
 
           "sound_name": "block.end_portal_frame.fill",
 
-          "variables": [
-            {
-              "requires": "$realms_plus_on",
-              "$button_image_color": [ 0.356, 0.223, 0.537 ],
+          "$button_image_color": [ 0.356, 0.223, 0.537 ],
 
-              "$default_text_color": [ 1.0, 1.0, 1.0 ],
-              "$hover_text_color": [ 1.0, 1.0, 1.0 ],
-              "$pressed_text_color": [ 1.0, 1.0, 1.0 ],
-              "$locked_text_color": [ 1.0, 1.0, 1.0 ]
-            }
-          ]
+          "$default_text_color": [ 1.0, 1.0, 1.0 ],
+          "$hover_text_color": [ 1.0, 1.0, 1.0 ],
+          "$pressed_text_color": [ 1.0, 1.0, 1.0 ],
+          "$locked_text_color": [ 1.0, 1.0, 1.0 ]
         }
       }
     ]
@@ -4054,6 +3770,77 @@
                     }
                   },
                   {
+                    "get_offline_authcode_message_panel@play.label_background": {
+                      "size": [ "100%", 40 ],
+                      "controls": [
+                        {
+                          "content_stack": {
+                            "type": "stack_panel",
+                            "orientation": "horizontal",
+                            "size": [ "100%", "100%" ],
+                            "controls": [
+                              {
+                                "message_panel": {
+                                  "type": "panel",
+                                  "size": [ "100% - 15px", "100%" ],
+                                  "controls": [
+                                    {
+                                      "message_label": {
+                                        "type": "label",
+                                        "size": [ "100%", "default" ],
+                                        "text_alignment": "center",
+                                        "text": "networkWorld.addAsAuthorizedApp",
+                                        "shadow": false,
+                                        "color": "$store_white_text_color"
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "image_panel": {
+                                  "type": "panel",
+                                  "size": [ "100%c", "100%" ],
+                                  "controls": [
+                                    {
+                                      "link_image": {
+                                        "type": "image",
+                                        "size": [ 8, 8 ],
+                                        "texture": "textures/ui/external_link"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "focus_border@common.button": {
+                            "size": [ "100%", "100%sm" ],
+                            "default_control": "",
+                            "$pressed_button_name": "button.get_offline_authcode",
+                            "tts_inherit_siblings": true,
+                            "controls": [
+                              {
+                                "hover@common.focus_border_white": {}
+                              },
+                              {
+                                "pressed@common.focus_border_white": {}
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "bindings": [
+                        {
+                          "binding_name": "#get_offline_authcode_message_panel_visible",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "no_realms_grid@play.label_content_template": {
                       "$label_content_label": "playscreen.joinableRealms",
                       "$label_content_content": "play.information_panel",
@@ -4611,10 +4398,18 @@
                       "max_length": 30,
                       "$text_edit_box_label_offset": [ 14, 0 ],
 
+                      "$text_clear_button_enabled": false,
+
                       "$magnifying_glass_enabled": true,
                       "$magnifying_glass_size": [ 12, 8 ],
                       "$magnifying_glass_offset": [ 0, -0.5 ]
                     }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#local_worlds_visible",
+                    "binding_name_override": "#visible"
                   }
                 ]
               }
@@ -5234,8 +5029,9 @@
 
           "is_modal": false,
           "cache_screen": false,
+          "low_frequency_rendering": true,
           "screen_draws_last": true,
-          "$is_full_screen_layout": true,
+          "render_game_behind": true,
 
           "controls": [
             { "background_image": { "type": "image", "size": [ "200%", "200%" ], "texture": "textures/ui/White", "color": [ 0.0, 0.0, 0.0 ], "alpha": 0.7, "layer": 300 } },

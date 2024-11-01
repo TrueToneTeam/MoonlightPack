@@ -2,16 +2,16 @@
 global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
-global.pack_info.name=§hMoonlight Pack	#
-global.pack_info.made_by.title=Made By:	#
+global.pack_info.name=Moonlight Pack	#
+global.pack_info.made_by.title=Made By	#
 global.pack_info.made_by=§dNeroLuna	#
 global.pack_info.made_by.team=§7Moonlight Team(TrueToneTeam)	#
 global.pack_info.support_language.title=Support Language	#
 global.pack_info.support_language.english=English	#
 global.pack_info.support_language.korean=Korean	#
-global.pack_info.editor.title=Editor:	#
+global.pack_info.editor.title=Editor	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
-global.pack_info.licenses.title=Licenses:	#
+global.pack_info.licenses.title=Licenses	#
 global.pack_info.licenses.1=* The resource pack is an open-source project by the Moonlight Team (TrueToneTeam) that can be modified and redistributed by anyone.	#
 global.pack_info.licenses.2=* However, the contents of the tab and the display of the original creator and team name cannot be modified or removed. Secondary modifiers can be distributed by adding a name to the Modifier item.	#
 
@@ -32,9 +32,12 @@ options.crossPlatformPlay=Cross Platform Play	#
 options.creditsHeader=Credits & Attribution	#
 options.advanced_video_options=Advanced Video	#
 options.myResourcePacks=My Resource Packs	#
-options.minecraftInfo=Minecraft Info	#
 options.creator.copyCoordinate=Coordinate Copy Setting	#
 
+controls_section.controls=Controls	#
+controls_section.controls.touch.title=Controls - Touch	#
+controls_section.controls.keyboardAndMouse.title=Controls - Keyboard & Mouse	#
+controls_section.controls.controller.title=Controls - Controller	#
 controls_section.contorl_title=Control	#
 controls_section.sensitivity_and_vibration_title=Sensitivity & Vibration	#
 controls_section.button_title=Button	#
@@ -42,28 +45,46 @@ controls_section.controls.classic=Classic	#
 controls_section.controls.touch=Touch	#
 controls_section.controls.crosshair=Crosshair	#
 
-video_section.frame_title=Frame	#
-video_section.graphic_and_rendering_title=Graphic & Rendering	#
-video_section.vr_title=VR	#
-video_section.render_dragon_title=Render Dragon	#
-
-view_section.play_title=Play	#
-view_section.uiAgui_title=UI & GUI	#
-view_section.splitscreen_title=Splitscreen	#
-
 general_section.effect_title=Effect	#
 general_section.text_title=Text	#
 general_section.storage_management_title=Storage Management	#
 general_section.safe_zone_setting_title=Safe Zone Setting	#
+general_section.language.info=Language translations may not be 100% accurate	#
+general_section.language.highlight=Highlight Language	#
 
 world_section.multiplay_title=Multiplay	#
-world_section.experimental_title=Experimental	#
+world_section.general=General	#
+world_section.advanced=Advanced	#
+world_section.cheats=Cheats	#
+world_section.experimental_features=Beta Features	#
 
-settingScreen.quick_settings=Quick Settings	#
+quick_section.quick_setting=Quick Settings	#
+quick_section.camera=Camera	#
+quick_section.camera.first_person=First Person	#
+quick_section.camera.first_person.info=This is a viewpoint where only your hands are visible, and is mainly optimized for construction or PVP.	#
+quick_section.camera.third_person_back=Third Person Back	#
+quick_section.camera.third_person_back.info=It is mainly used to estimate the size of a building from a wider perspective.	#
+quick_section.camera.third_person_front=Third Person Front	#
+quick_section.camera.third_person_front.info=This is the optimal viewpoint for filming or broadcasting while maintaining a wider field of view.	#
 
-settingScreen.creator.warning_text=If you turn on the content log after applying that resource pack, you might see various error logs.	#
+graphics_section.graphics=Graphics	#
+graphics_section.graphicsTitle=Graphics Setting	#
+graphics_section.rtx=RTX	#
+graphics_section.rtx.info=RTX makes existing Minecraft graphics more beautiful by adding various reflection and lighting effects.(This feature is only supported by some graphics cards.)	#
+graphics_section.render_dragon=Render Dragon	#
+graphics_section.render_dragon.info=Shows upgraded graphics from basic graphics.(Currently only supported in BETA/Preview version.)	#
+graphics_section.frame_title=Frame	#
+graphics_section.graphic_and_rendering_title=Graphic & Rendering	#
+graphics_section.vr=VR	#
+graphics_section.play_title=Play	#
+graphics_section.uiAgui_title=UI & GUI	#
+graphics_section.splitscreen_title=Splitscreen	#
 
-info_section.pack_info=Pack Info	#
+info_section.info=Info	#
+info_section.packInfo=Pack Info	#
+info_section.minecraftInfo=Minecraft Info	#
+info_section.minecraftInfo.detail=Minecraft Info Detail	#
+info_section.packNotification=Pack Notification	#
 
 etc_section.etc=ETC	#
 etc_section.etcTitle=ETC Setting	#
@@ -71,6 +92,17 @@ etc_section.beta.title=Beta	#
 etc_section.beta.info=These functions are test functions, not official functions, and can cause bugs when used.	#
 etc_section.drag_dwell.info=After dividing the item, you can set the delay to move the item.	#
 etc_section.stack_splitting.info=You can set the delay for the item segmentation function to operate.	#
+
+settingScreen.creator.warning_text=If you turn on the content log after applying that resource pack, you might see various error logs.	#
+
+
+## Notification
+notification.pack_is_developer=Using a pack that is in development stage. Serious bugs or problems may occur. Do not leak any content you are developing to the outside world!	#
+notification.pack_is_beta=Using the BETA version of the pack. Various bugs or problems may occur.	#
+notification.pack_is_preview=Using the Early Access version. Please try it and let us know if you find any problems or areas for improvement!	#
+notification.pack_is_custom=Using a custom version of that pack.	#
+notification.minecraft_version.no_problem=The [ Minecraft version ] supported by the pack matches the [ Minecraft version ] you are playing.	#
+notification.minecraft_version.problem=The [ Minecraft version ] supported by the pack does not match the [ Minecraft version ] you are currently playing. Bugs may occur or errors may appear.	#
 
 
 ## Play Screen
@@ -117,9 +149,3 @@ button.accept.text=§lAccept	#
 gui.upload=Upload	#
 
 chat.setting_text=Chat Setting	#
-
-
-## Screenshot Save Path
-screenshot.save_path.ios=Save Location: §sFile App\(My iPhone) or (My iPad)\Minecraft\screenshots\00000000-0000-0000-0000-000000000000\photos	#
-screenshot.save_path.android=Save Location: §sFile\Android\data\com.mojang.minecraftpe\files\screenshots\00000000-0000-0000-0000-000000000000\photos	#
-screenshot.save_path.windows=Save Location: §sC:\Users\(User Name)\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\Screenshots	#

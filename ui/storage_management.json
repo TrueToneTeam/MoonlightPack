@@ -6,6 +6,17 @@
 {
   "namespace": "storage_management",
 
+  "storage_main_panel": {
+    "type": "panel",
+    "size": [ "100% - 1px", "100%c" ],
+    "offset": [ -1, 0 ],
+    "controls": [
+      {
+        "scroll_content@storage_management.storage_scroll_pane": {}
+      }
+    ]
+  },
+
   "storage_header_panel": {
     "type": "panel",
     "size": [ "100%", "100%c" ],
@@ -68,9 +79,8 @@
                   { "void_panel": { "type": "panel", "size": [ 8, 0 ] } },
                   {
                     "file_storage_options_panel": {
-                      "type": "stack_panel",
+                      "type": "panel",
                       "size": [ "fill", "100%c" ],
-                      "orientation": "vertical",
                       "controls": [
                         {
                           "file_storage_dropdown@settings_common.option_dropdown": {
@@ -78,6 +88,8 @@
                             "ignored": "($is_holographic and $is_reality_mode)",
                             "visible": "(not $gear_vr)",
                             "enabled": "$storage_location_switch_enabled",
+                            "anchor_from": "center",
+                            "anchor_to": "center",
                             "$option_dropdown_size": [ "100%", 24 ],
                             "$dropdown_content": "general_section.file_storage_location_content",
                             "$dropdown_area": "content_area",
@@ -93,8 +105,109 @@
                 ]
               }
             },
-            { "void_panel": { "type": "panel", "size": [ 0, 2 ] } },
-
+            {
+              "screenshots_options": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%cm" ],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "clear_screenshots_cache_options_panel": {
+                      "type": "stack_panel",
+                      "size": [ "fill", "100%c" ],
+                      "orientation": "vertical",
+                      "$clear_screenshots_cache_button_text|default": "#none",
+                      "controls": [
+                        {
+                          "clear_screenshots_cache_title@settings_common.white_label": {
+                            "ignored": "$education_edition",
+                            "$text": "$clear_screenshots_cache_button_text"
+                          }
+                        },
+                        {
+                          "clear_screenshots_cache_title_void": {
+                            "type": "panel",
+                            "size": [ "100%", 4 ]
+                          }
+                        },
+                        {
+                          "clear_screenshots_cache_button_panel": {
+                            "ignored": "$education_edition",
+                            "type": "panel",
+                            "size": [ "100%", "100%c + 2px" ],
+                            "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                            "controls": [
+                              {
+                                "clear_screenshots_cache_button@common_buttons.light_text_button": {
+                                  "size": [ "100%", 24 ],
+                                  "offset": [ -1, -2 ],
+                                  "$pressed_button_name": "button.clear_screenshots_cache",
+                                  "$button_text": "$clear_screenshots_cache_button_text"
+                                }
+                              }
+                            ],
+                            "bindings": [
+                              {
+                                "binding_name": "#screenshots_showcase_enabled",
+                                "binding_name_override": "#enabled"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "void_panel": { "type": "panel", "size": [ 8, 0 ] } },
+                  {
+                    "delete_local_screenshots_options_panel": {
+                      "type": "stack_panel",
+                      "size": [ "fill", "100%c" ],
+                      "orientation": "vertical",
+                      "$delete_local_screenshots_button_text|default": "#none",
+                      "controls": [
+                        {
+                          "delete_local_screenshots_title@settings_common.white_label": {
+                            "ignored": "$education_edition",
+                            "$text": "$delete_local_screenshots_button_text"
+                          }
+                        },
+                        {
+                          "delete_local_screenshots_title_void": {
+                            "type": "panel",
+                            "size": [ "100%", 4 ]
+                          }
+                        },
+                        {
+                          "delete_local_screenshots_button_panel": {
+                            "ignored": "$education_edition",
+                            "type": "panel",
+                            "size": [ "100%", "100%c + 2px" ],
+                            "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                            "controls": [
+                              {
+                                "delete_local_screenshots_button@common_buttons.light_text_button": {
+                                  "size": [ "100%", 24 ],
+                                  "offset": [ -1, -2 ],
+                                  "$pressed_button_name": "button.delete_local_screenshots",
+                                  "$button_text": "$delete_local_screenshots_button_text"
+                                }
+                              }
+                            ],
+                            "bindings": [
+                              {
+                                "binding_name": "#screenshots_gallery_enabled",
+                                "binding_name_override": "#enabled"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
             {
               "panel": {
                 "type": "panel",

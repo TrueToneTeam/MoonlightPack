@@ -257,7 +257,7 @@
     "$scrolling_content_anchor_to": "bottom_left",
     "factory": {
       "name": "messages_factory",
-      "max_children_size": 100,
+      "max_children_size": 200,
       "control_ids": {
         "chat_screen_messages": "chat_screen_messages@chat.message_tts_wrapper"
       }
@@ -271,7 +271,7 @@
     "offset": [ 2, -27 ],
     "$scrolling_content": "chat.messages_stack_panel",
     "$scroll_size": [ 5, "100%-4px" ],
-    "$jump_to_bottom_on_update": true,
+    "$jump_to_bottom_on_update": false,
     "$show_background": false,
     "$always_handle_scrolling": true
   },
@@ -282,7 +282,7 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ "fill", 27 ],
-    "max_length": 512,
+    "max_length": "$max_text_edit_length",
 
     "always_listening": true,
 
