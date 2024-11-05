@@ -2414,21 +2414,7 @@
     ]
   },
 
-  "local_world_edit_button@common_buttons.dark_glyph_button": {
-    "size": [ "100%y - 1px", "100%" ],
-    "$pressed_button_name": "button.menu_local_world_item_edit",
-    "$button_content": "play.edit_icon",
-    "$button_tts_header": "accessibility.play.editWorld",
-    "layer": 2,
-    "bindings": [
-      {
-        "binding_type": "collection_details",
-        "binding_collection_name": "local_worlds"
-      }
-    ]
-  },
-
-  "new_cloud_upload_button@common_buttons.dark_glyph_button": {
+  "new_cloud_upload_button@common_buttons.dark_content_button": {
     "size": [ "100%y - 1px", "100%" ],
     "$pressed_button_name": "button.cloud_upload",
     "$button_content": "play.cloud_upload_icon_and_text_content",
@@ -2441,21 +2427,6 @@
       }
     ]
   },
-
-  "cloud_upload_button@common_buttons.dark_glyph_button": {
-    "size": [ "100%y - 1px", "100%" ],
-    "$pressed_button_name": "button.cloud_upload",
-    "$button_content": "play.upload_icon",
-    "$button_tts_header": "accessibility.play.uploadWorld",
-    "layer": 2,
-    "bindings": [
-      {
-        "binding_type": "collection_details",
-        "binding_collection_name": "local_worlds"
-      }
-    ]
-  },
-
 
   "base_panel": {
     "type": "panel",
@@ -2471,6 +2442,7 @@
     "type": "stack_panel",
     "size": [ "100%c - 2px", "100%" ],
     "orientation": "horizontal",
+    "$glyph_color|default": [ 1.0, 1.0, 1.0 ],
     "controls": [
       {
         "cloud@play.new_cloud_upload_button": {
@@ -3638,7 +3610,7 @@
           ],
           "controls": [
             {
-              "text_panel@play.only_label_content_template": {
+              "text_panel@play.label_content_template": {
                 "$label_content_label": "playscreen.header.realms",
                 "$label_content_content": "play.information_panel",
                 "$information_panel_label_text": "#multiplayer_sessions",
@@ -3648,6 +3620,9 @@
             },
             {
               "open_uri_button@play.open_account_setting_button": {}
+            },
+            {
+              "open_account_setting_button_gamecore@play.open_account_setting_button_gamecore": {}
             }
           ]
         }
@@ -4044,12 +4019,12 @@
           "controls": [
             {
               "no_lan_grid_message@play.label_content_template": {
-                "ignored": "$education_edition",
                 "$label_content_label": "networkWorld.lan_label",
-                "$label_content_content": "play.information_panel",
-                "$information_panel_label_text": "networkWorld.no_lan_game",
-                "$information_panel_label_text_binding_type": "global",
-                "$information_panel_label_text_binding_condition": "always_when_visible",
+                "$label_content_content": "play.network_world_item_grid",
+                "$network_world_grid_item_template": "play.network_world_item",
+                "$network_world_icon": "play.lan_icon",
+                "$network_world_item_grid_dimension_binding": "#lan_network_world_item_grid_dimension",
+                "$collection_name": "lan_network_worlds",
                 "$tts_section_header": "$label_content_label",
                 "bindings": [
                   {
@@ -4332,10 +4307,10 @@
     "anchor_to": "top_left",
     "focus_container": true,
     "use_last_focus": true,
-    "focus_nagivation_mode_down": "contained",
-    "focus_nagivation_mode_up": "contained",
-    "focus_nagivation_mode_right": "contained",
-    "focus_nagivation_mode_left": "contained"
+    "focus_navigation_mode_down": "contained",
+    "focus_navigation_mode_up": "contained",
+    "focus_navigation_mode_right": "contained",
+    "focus_navigation_mode_left": "contained"
   },
 
   "scrolling_offsets@play.common_scrolling_panel": {
@@ -5023,15 +4998,11 @@
       },
       {
         "friends_side_menu_content": {
-          "type": "screen",
-          "size": [ "100%", "100%" ],
           "layer": 200,
+          "type": "panel",
+          "size": [ "100%", "100%" ],
 
-          "is_modal": false,
-          "cache_screen": false,
-          "low_frequency_rendering": true,
-          "screen_draws_last": true,
-          "render_game_behind": true,
+          "clips_children": false,
 
           "controls": [
             { "background_image": { "type": "image", "size": [ "200%", "200%" ], "texture": "textures/ui/White", "color": [ 0.0, 0.0, 0.0 ], "alpha": 0.7, "layer": 300 } },

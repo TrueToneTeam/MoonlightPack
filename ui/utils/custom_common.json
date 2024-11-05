@@ -58,7 +58,7 @@
   },
 
 
-  //Color Background
+  // Color Background
   "color_background_panel": {
     "$panel_size|default": [ "100%", "100%" ],
     "$panel_controls|default": [],
@@ -74,7 +74,7 @@
   },
 
 
-  //Light Line
+  // Light Line
   "light_line_vertical_panel": {
     "type": "panel",
     "size": [ 20, "100%" ],
@@ -138,7 +138,7 @@
   },
 
 
-  //Void Panel
+  // Void Panel
   "visible_void_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
@@ -153,7 +153,7 @@
   },
 
 
-  //Button Content
+  // Button Content
   "button_text_content_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],

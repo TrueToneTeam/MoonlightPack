@@ -55,7 +55,11 @@
     "$default_border_visible": false,
     "$hover_border_visible": false,
 
-    "$button_pressed_offset|default": [ 0, 2 ]
+    "$button_pressed_offset|default": [ 0, 2 ],
+
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": ""
   },
 
   "color_ore_toggle@button_preset.light_ore_toggle": {
@@ -93,6 +97,9 @@
   },
 
   "underline_toggle_base@common_toggles.light_content_toggle": {
+    "$button_sound_volume": 1.0,
+    "sound_volume": "$button_sound_volume",
+
     "$button_type_panel": "button_content_preset.underline_toggle_content",
 
     "$default_texture": "textures/ui/empty",
@@ -137,7 +144,11 @@
     "$toggle_state_binding_name": "#toggle_state",
     "$toggle_on_hover_binding_name": "none",
     "$toggle_tab_focus_binding_type": "global",
-    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence"
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": ""
   },
 
   "color_ore_section_toggle@button_preset.light_ore_section_toggle": {

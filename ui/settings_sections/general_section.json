@@ -1652,38 +1652,6 @@
     ]
   },
 
-  "creator_toggles_panel": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      { "start_spacer": { "type": "panel", "size": [ "100%", 4 ] } },
-      {
-        "header@settings_common.title_header": {
-          "$title": "options.creator.copyCoordinate"
-        }
-      },
-      { "content_log_section_label_spacer@common.empty_panel": { "size": [ "100%", 4 ] } },
-      {
-        "creator_stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "option_content_file_log@settings_common.ore_option_toggle": {
-                "anchor_from": "left_middle",
-                "anchor_to": "left_middle",
-                "$option_label": "options.copyCoordinateUI",
-                "$option_binding_name": "#copy_coordinate_ui",
-                "$toggle_name": "copy_coordinate_ui"
-              }
-            }
-          ]
-        }
-      },
-      { "end_spacer": { "type": "panel", "size": [ "100%", 4 ] } }
-    ]
-  },
-
   "debugger_toggles_panel": {
     "type": "stack_panel",
     "size": [ "100%", "100%c" ],
@@ -1720,6 +1688,27 @@
                 "$option_binding_name": "#script_debugger_auto_attach",
                 "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
                 "$toggle_name": "script_debugger_auto_attach"
+              }
+            },
+            {
+              "auto_attach_timeout_slider@settings_common.ore_option_slider": {
+                "$option_label": "#script_debugger_auto_attach_timeout_slider_label",
+                "$slider_name": "script_debugger_auto_attach_timeout",
+                "$slider_value_binding_name": "#script_debugger_auto_attach_timeout",
+                "$slider_tts_text_value": "#script_debugger_auto_attach_timeout_text_value",
+                "$option_enabled_binding_name": "#script_debugger_auto_attach_timeout_enabled",
+                "$slider_steps_binding_name": "#script_debugger_auto_attach_timeout_steps",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#creator_show_debugger_options",
+                    "binding_name_override": "#visible"
+                  }
+                ]
               }
             },
             {
@@ -1803,21 +1792,6 @@
                             "$option_label": "options.creator.debuggerPort",
                             "$option_binding_name": "#script_debugger_port"
                           }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "auto_attach_timeout_slider@settings_common.ore_option_slider": {
-                      "$option_label": "#script_debugger_auto_attach_timeout_slider_label",
-                      "$slider_name": "script_debugger_auto_attach_timeout",
-                      "$slider_value_binding_name": "#script_debugger_auto_attach_timeout",
-                      "$slider_tts_text_value": "#script_debugger_auto_attach_timeout_text_value",
-                      "$option_enabled_binding_name": "#script_debugger_auto_attach_timeout_enabled",
-                      "$slider_steps_binding_name": "#script_debugger_auto_attach_timeout_steps",
-                      "$label_bindings": [
-                        {
-                          "binding_name": "$option_label"
                         }
                       ]
                     }
@@ -2184,28 +2158,6 @@
       },
 
       {
-        "creator_category_toggle@button_preset.button_with_checkbox_toggle": {
-          "size": [ "100%", 24 ],
-          "$button_text": "options.creator.copyCoordinate",
-          "$toggle_group_forced_index": 400,
-          "$toggle_name": "creator_section_visible_toggle",
-          "$toggle_view_binding_name": "creator_category"
-        }
-      },
-      {
-        "creator_toggles@general_section.creator_toggles_panel": {
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "creator_category",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
-      },
-
-      {
         "debugger_category_toggle@button_preset.button_with_checkbox_toggle": {
           "size": [ "100%", 24 ],
           "$button_text": "options.creator.debuggerHeading",
@@ -2250,7 +2202,26 @@
       },
 
       {
-        "light_line@settings_common.light_line_panel": {}
+        "creator_light_line@settings_common.light_line_panel": {}
+      },
+      {
+        "creator_title_header@settings_common.title_header": {
+          "$title": "options.creator.copyCoordinate"
+        }
+      },
+      { "content_log_section_label_spacer@common.empty_panel": { "size": [ "100%", 4 ] } },
+      {
+        "copy_coordinate_ui_option@settings_common.ore_option_toggle": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$option_label": "options.copyCoordinateUI",
+          "$option_binding_name": "#copy_coordinate_ui",
+          "$toggle_name": "copy_coordinate_ui"
+        }
+      },
+
+      {
+        "content_log_light_line@settings_common.light_line_panel": {}
       },
       {
         "content_log_panel@general_section.content_log_panel": {

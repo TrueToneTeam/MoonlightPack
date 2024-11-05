@@ -434,7 +434,6 @@
                     "header_button": {
                       "type": "panel",
                       "size": [ "100%", 30 ],
-                      "ignored": "$add_friend_not_visible",
                       "controls": [
                         {
                           "add_friend@button_preset.green_ore_button": {
@@ -563,7 +562,6 @@
               "title_and_icon_panel": {
                 "type": "panel",
                 "size": [ "100%", "100%c + 8px" ],
-                "orientation": "horizontal",
                 "controls": [
                   {
                     "title_and_icon_stack_panel": {
@@ -648,7 +646,6 @@
               "title_and_icon_panel": {
                 "type": "panel",
                 "size": [ "100%", "100%c + 8px" ],
-                "orientation": "horizontal",
                 "controls": [
                   {
                     "title_and_icon_stack_panel": {
@@ -956,13 +953,11 @@
     "$image_path": "textures/ui/x_default"
   },
 
-  "main_transparent_side_menu_button@button_preset.color_ore_section_toggle": {
+  "main_transparent_side_menu_button@button_preset.ore_section_toggle_base": {
     "$default_texture": "textures/ui/empty",
     "$hover_texture": "textures/ui/empty",
     "$pressed_texture": "textures/ui/empty",
     "$pressed_no_hover_texture": "textures/ui/empty",
-
-    "sound_name": "none",
 
     "$toggle_name": "side_menu_navigation_toggle",
     "$button_type_panel": "common.empty_panel",

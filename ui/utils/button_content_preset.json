@@ -39,6 +39,45 @@
     ]
   },
 
+  "image_with_hover_text_content_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+
+    "$image_size|default": [ "100%", "100%" ],
+    "$image_path|default": "",
+    "$image_color|default": [ 1.0, 1.0, 1.0 ],
+    "$button_text|default": "",
+
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
+    "controls": [
+      {
+        "image_panel@custom_common.panel_base": {
+          "size": [ "100%", "100%" ],
+          "offset": [ 0, -1 ],
+          "controls": [
+            { "image": { "type": "image", "size": "$image_size", "offset": "$content_offset", "texture": "$image_path", "color": "$image_color", "anchor_from": "center", "anchor_to": "center" } }
+          ]
+        }
+      },
+      {
+        "hover_text@common.hover_text": {
+          "visible": "($hover_state or $pressed_state)",
+          "property_bag": {
+            "#hover_text": "$button_text"
+          }
+        }
+      }
+    ]
+  },
+
 
   // Dynamic Upgrade Button Content
   "dynamic_upgrade_button_background_base": {
@@ -107,7 +146,11 @@
                             "$button_font_scale_factor": 1.1,
                             "$text_alignment": "left",
                             "$button_text_size": [ "100% - 4px", "default" ],
-                            "$button_text_max_size": [ "100% - 4px", "default" ]
+                            "$button_text_max_size": [ "100% - 4px", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
                           }
                         }
                       ]
@@ -168,7 +211,11 @@
                             "$button_font_scale_factor": 1.2,
                             "$text_alignment": "center",
                             "$button_text_size": [ "100%", "default" ],
-                            "$button_text_max_size": [ "100%", "default" ]
+                            "$button_text_max_size": [ "100%", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
                           }
                         },
                         { "end_void_panel@common.empty_panel": { "size": [ 0, "fill" ] } }
@@ -223,7 +270,11 @@
                             "$button_font_scale_factor": 1.1,
                             "$text_alignment": "left",
                             "$button_text_size": [ "100% - 4px", "default" ],
-                            "$button_text_max_size": [ "100% - 4px", "default" ]
+                            "$button_text_max_size": [ "100% - 4px", "default" ],
+
+                            "$button_text_binding_type|default": "none",
+                            "$button_binding_condition|default": "none",
+                            "$button_text_grid_collection_name|default": ""
                           }
                         }
                       ]
@@ -294,7 +345,11 @@
                                         "$anchor": "center",
                                         "$text_alignment": "center",
                                         "$button_text_size": [ "default", "default" ],
-                                        "$button_text_max_size": [ "100%", "100%" ]
+                                        "$button_text_max_size": [ "100%", "100%" ],
+
+                                        "$button_text_binding_type|default": "none",
+                                        "$button_binding_condition|default": "none",
+                                        "$button_text_grid_collection_name|default": ""
                                       }
                                     }
                                   ]

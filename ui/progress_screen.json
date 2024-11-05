@@ -173,7 +173,6 @@
   "new_cancel_button@button_preset.light_ore_button": {
     "$pressed_button_name": "button.menu_exit",
     "$button_text": "gui.cancel",
-    "$button_text_binding_type": "global",
     "size": [ 80, 32 ],
     "offset": [ 0, 0 ],
     "bindings": [

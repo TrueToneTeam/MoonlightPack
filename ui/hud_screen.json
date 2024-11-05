@@ -50,77 +50,31 @@
 
 
   // Chat
-  "anim_chat_txt_alpha": {
-    "anim_type": "alpha",
-    "easing": "in_quart",
-    "duration": 1,
-    "from": 1,
-    "to": 0
-  },
-
-  "anim_chat_txt_wait": {
-    "anim_type": "wait",
-    "duration": "$chat_item_lifetime",
-    "next": "@hud.anim_chat_txt_alpha"
-  },
-
-  "anim_chat_bg_alpha": {
-    "anim_type": "alpha",
-    "easing": "in_quart",
-    "destroy_at_end": "chat_grid_item",
-    "duration": 1,
-    "from": 0.7,
-    "to": 0
-  },
-
-  "anim_chat_bg_wait": {
-    "anim_type": "wait",
-    "duration": "$chat_item_lifetime",
-    "next": "@hud.anim_chat_bg_alpha"
-  },
-
-  "anim_chat_off": {
+  "anim_chat_item_start": {
     "anim_type": "offset",
-    "easing": "in_expo",
-    "duration": "0.5",
-    "from": [ -1400, 0 ],
-    "to": [ -100, 0 ],
-    "next": "@hud.anim_chat_off1"
-  },
-
-  "anim_chat_off": {
-    "anim_type": "offset",
-    "easing": "out_sine",
-    "duration": "0.5",
-    "from": [ -100, 0 ],
+    "easing": "in_out_cubic",
+    "duration": 1,
+    "from": [ -200, 0 ],
     "to": [ 0, 0 ],
-    "next": "@hud.anim_chat_wait_off"
+    "next": "@hud.anim_chat_item_wait"
   },
 
-  "anim_chat_wait_off": {
+  "anim_chat_item_wait": {
     "anim_type": "wait",
-    "duration": 5.5,
-    "next": "@hud.anim_chat_out_off2"
+    "duration": "$chat_item_lifetime",
+    "next": "@hud.anim_chat_item_end"
   },
 
-  "anim_chat_out_off1": {
+  "anim_chat_item_end": {
     "anim_type": "offset",
-    "easing": "in_sine",
-    "duration": "0.5",
-    "from": [ -100, 0 ],
-    "to": [ -1400, 0 ]
-  },
-
-  "anim_chat_out_off2": {
-    "anim_type": "offset",
-    "easing": "in_sine",
-    "duration": "0.5",
+    "easing": "in_out_cubic",
+    "duration": 1,
     "from": [ 0, 0 ],
-    "to": [ -100, 0 ],
-    "next": "@hud.anim_chat_out_off1"
+    "to": [ -200, 0 ],
+    "destroy_at_end": "chat_grid_item"
   },
 
-  "chat_label": {
+  "new_chat_label": {
     "type": "label",
     "layer": 31,
     "text": "#text",
@@ -131,9 +85,6 @@
     "font_type": "$chat_font_type",
     "font_scale_factor": "$chat_font_scale_factor",
     "line_padding": "$chat_line_spacing",
-    "anims": [
-      "@hud.anim_chat_txt_wait"
-    ],
     "bindings": [
       {
         "binding_name": "#chat_text",
@@ -146,12 +97,12 @@
   },
 
   "chat_grid_item": {
-    "type": "panel",
     "layer": 1,
-    "size": [ "100%-2px", "100%c" ],
+    "type": "panel",
+    "size": [ "100% - 2px", "100%c" ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "offset": "@hud.anim_chat_off",
+    "offset": "@hud.anim_chat_item_start",
     "bindings": [
       {
         "binding_name": "(not #on_new_death_screen)",
@@ -162,16 +113,15 @@
 	  {
         "chat_background": {
           "type": "image",
+          "size": [ "100%", "100%c" ],
           "texture": "textures/ui/Black",
           "alpha": 0.5,
-          "size": [ "100%", "100%c" ],
-          "offset": "@hud.anim_chat_off",
           "anims": [
-            "@hud.anim_chat_bg_wait"
+            "@hud.anim_chat_item_start"
           ],
           "controls": [
             {
-              "chat_text@chat_label": {
+              "chat_text@hud.new_chat_label": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "offset": [ 2, 0 ]
@@ -188,11 +138,10 @@
     "$anchor|default": "top_left",
     "anchor_from": "$anchor",
     "anchor_to": "$anchor",
-    //Uncomment when text formatting is being accounted for in word length
-    //"clips_children": true,
     "size": [ "100%", "100%c" ],
     "$max_size|default": [ "100%", "50%" ],
     "max_size": "$max_size",
+    "$offset|default": [ 0, 0 ],
     "offset": "$offset",
 
     "$max_children_size|default": 30,

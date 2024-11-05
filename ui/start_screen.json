@@ -311,7 +311,7 @@
     "$button_content": "start.inbox_bell_animated_icon",
     "$pressed_button_name": "button.menu_inbox",
     "$button_text": "menu.inbox",
-    "button_mappings": [
+    "$button_mappings": [
       {
         "from_button_id": "button.menu_select",
         "to_button_id": "$pressed_button_name",
@@ -638,6 +638,18 @@
   "dynamic_upgrade_button_base": {
     "type": "panel",
     "size": [ "100%", "100%" ],
+    "$button_mappings|default": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      }
+    ],
     "controls": [
       {
         "button_cover_image": {
@@ -652,7 +664,8 @@
               "button@button_preset.dynamic_upgrade_button_base": {
                 "size": [ "100% - 2px", "100% - 2px" ],
                 "anchor_from": "center",
-                "anchor_to": "center"
+                "anchor_to": "center",
+                "button_mappings": "$button_mappings"
               }
             }
           ]
@@ -728,7 +741,7 @@
     "$pressed_button_name": "button.menu_inbox",
     "$button_background_image": "textures/ui/start/start_background_inbox",
     "$button_text": "menu.inbox",
-    "button_mappings": [
+    "$button_mappings": [
       {
         "from_button_id": "button.menu_select",
         "to_button_id": "$pressed_button_name",
@@ -1251,7 +1264,7 @@
     ]
   },
 
-  "upgradd_design_start_content_panel": {
+  "upgrade_design_start_content_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
@@ -1557,7 +1570,7 @@
                       "type": "panel",
                       "size": [ "fill", "100%" ],
                       "controls": [
-                        { "function_buttons@start.upgradd_design_start_content_panel": {} }
+                        { "function_buttons@start.upgrade_design_start_content_panel": {} }
                       ]
                     }
                   }

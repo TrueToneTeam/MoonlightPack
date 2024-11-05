@@ -3,39 +3,34 @@
 
   // Luna Added
   "light_line_panel": {
+    "$panel_size|default": [ "100%", "100%c + 14px" ],
+    "$line_size|default": [ "100% - 30%", 1 ],
+
     "type": "panel",
-    "size": [ "100%", "100%c + 14px" ],
+    "size": "$panel_size",
     "controls": [
       {
         "section_divider": {
+          "layer": 3,
           "type": "image",
-          "size": [ "100% - 30px", 1 ],
+          "size": "$line_size",
           "anchor_from": "center",
           "anchor_to": "center",
-          "layer": 3,
           "texture": "textures/ui/list_item_divider_line_light"
         }
       }
     ]
   },
 
-  "light_line_vertical_panel": {
-    "type": "panel",
-    "size": [ 20, "100%" ],
-    "$line_size|default": [ 2, "50%" ],
-    "controls": [
-      {
-        "section_divider": {
-          "type": "image",
-          "size": "$line_size",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 3,
-          "texture": "textures/ui/light_line"
-        }
-      }
-    ]
+  "light_line_horizontal_panel@setttings_common.light_line_panel": {
+    // Base Size
   },
+
+  "light_line_vertical_panel@settings_common.light_line_panel": {
+    "$panel_size": [ 20, "100%" ],
+    "$line_size|default": [ 2, "50%" ]
+  },
+
 
   "subsection_title": {
     "type": "stack_panel",
@@ -277,7 +272,7 @@
     "$locked_button_texture|default": "textures/ui/ore/disabledButtonNoBorder"
   },
 
-  "link_button@common_buttons.hyperlink_button": {
+  "ore_link_button@common_buttons.hyperlink_button": {
     "$button_text|default": "unset $button_text",
     "size": [ "100%", 30 ],
     "anchor_from": "center",

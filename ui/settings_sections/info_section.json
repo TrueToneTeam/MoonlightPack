@@ -369,7 +369,7 @@
                       "type": "label",
                       "size": [ "default", "default" ],
                       "max_size": [ "100%", "default" ],
-                      "color": [ 0.604, 0.361, 0.776 ],
+                      "color": [ 0.255, 0.412, 0.882 ],
                       "shadow": true,
                       "font_type": "MinecraftTen",
                       "font_scale_factor": 1.5,
