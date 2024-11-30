@@ -1,10 +1,10 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "Moonlight Pack(v2.0.0 Preview)",
-		"description": "§fVersion: §7v2.0.0§l§b(Preview 2)§r\n§f편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §eMoonlight Team§f]",
+		"name": "Moonlight Pack(v2.0 Preview)",
+		"description": "§fVersion: §7v2.0§l§b(Preview 3)§r\n§f편리한 기능을 좀 더 추가해서 더 업그레이드 되었습니다.\n§7Made by §f[NeroLuna §7with §eMoonlight Team§f]",
 		"uuid": "11566906-dc72-4919-8959-2776a3d515d5",
-		"version": [ 0, 0, 2 ], // Preview 버전
+		"version": [ 0, 0, 3 ], // Preview 버전
 		"min_engine_version": [ 1, 21, 40 ]
 	},
 	"modules": [

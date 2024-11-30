@@ -5,15 +5,21 @@
   "light_line_panel": {
     "$panel_size|default": [ "100%", "100%c + 14px" ],
     "$line_size|default": [ "100% - 30%", 1 ],
+    "$line_offset|default": [ 0, 0 ],
+    "$line_color|default": [ 1.0, 1.0, 1.0 ],
 
     "type": "panel",
     "size": "$panel_size",
+    "anchor_from": "center",
+    "anchor_to": "center",
     "controls": [
       {
         "section_divider": {
           "layer": 3,
           "type": "image",
           "size": "$line_size",
+          "offset": "$line_offset",
+          "color": "$line_color",
           "anchor_from": "center",
           "anchor_to": "center",
           "texture": "textures/ui/list_item_divider_line_light"
@@ -22,13 +28,13 @@
     ]
   },
 
-  "light_line_horizontal_panel@setttings_common.light_line_panel": {
+  "light_line_horizontal_panel@settings_common.light_line_panel": {
     // Base Size
   },
 
   "light_line_vertical_panel@settings_common.light_line_panel": {
     "$panel_size": [ 20, "100%" ],
-    "$line_size|default": [ 2, "50%" ]
+    "$line_size": [ 2, "50%" ]
   },
 
 
@@ -216,29 +222,6 @@
   },
 
 
-  // Highlight Animation
-  "icon_highlight": {
-    "layer": 3,
-    "type": "image",
-    "texture": "textures/ui/ore/icon-highlight-spritesheet",
-    "size": [ 24, 24 ],
-    "uv_size": [ 24, 24 ],
-    "uv": "@settings_common.icon_highlight_uv_animation",
-    "disable_anim_fast_forward": true,
-    "bilinear": true
-  },
-
-  "icon_highlight_uv_animation": {
-    "anim_type": "flip_book",
-    "initial_uv": [ 0, 0 ],
-    "frame_count": 9,
-    "frame_step": 1,
-    "fps": 10,
-    "reversible": false,
-    "resettable": true
-  },
-
-
 
   // Ore UI Design Options
   "ore_action_button@common_buttons.light_text_button": {
@@ -327,8 +310,145 @@
     "$control_name": "settings_common.ore_option_slider_control"
   },
 
+  "ore_option_text_edit@settings_common.option_generic": {
+    "$option_place_holder_text|default": "",
+    "$max_text_edit_length|default": 30,
+    "$control_name": "settings_common.ore_option_text_edit_control"
+  },
+
+  "ore_option_text_edit_with_button@settings_common.option_generic": {
+    "$option_place_holder_text|default": "",
+    "$max_text_edit_length|default": 30,
+    "$control_name": "settings_common.ore_option_text_edit_control_with_button"
+  },
+
+  "ore_option_text_edit_with_text_button@settings_common.option_generic": {
+    "$option_place_holder_text|default": "",
+    "$max_text_edit_length|default": 30,
+    "$control_name": "settings_common.ore_option_text_edit_control_with_text_button"
+  },
+
 
   // Upgrade Option & Ore UI Design
+  "ore_option_text_edit_control@common.text_edit_box": {
+    "$option_text_edit_control_size|default": [ "100%", "30px" ],
+    "size": "$option_text_edit_control_size",
+    "max_length": "$max_text_edit_length",
+    "$text_edit_box_content_binding_name": "$option_binding_name",
+    "$text_edit_box_binding_collection_name": "$option_binding_name",
+    "$text_edit_box_binding_type": "global",
+    "$text_box_enabled_binding_name": "$option_enabled_binding_name",
+    "enabled": "$enabled",
+    "$place_holder_text": "$option_place_holder_text",
+    "$text_box_tts_header": "$option_label",
+    "$tts_override_control_value|default": " ",
+    "tts_override_control_value": "$tts_override_control_value",
+
+    "$text_background_default": "common_ore.edit_box_indent",
+    "$text_background_hover": "common_ore.edit_box_indent_hover",
+    "$text_offset": [ 0, 2 ],
+
+    "variables": [
+      {
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$text_box_enabled_binding_name": "#not_data_bound",
+        "$text_edit_box_enabled_binding_type": "none"
+      }
+    ]
+  },
+
+  "ore_option_text_edit_control_with_button": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "30px" ],
+    "controls": [
+      {
+        "text_box@common.text_edit_box": {
+          "size": [ "85%", "100%" ],
+          "max_length": "$max_text_edit_length",
+          "$text_edit_box_content_binding_name": "$option_binding_name",
+          "$text_edit_box_binding_collection_name": "$option_binding_name",
+          "$text_edit_box_binding_type": "global",
+          "$text_box_enabled_binding_name": "$option_enabled_binding_name",
+          "enabled": "$enabled",
+          "$place_holder_text": "$option_place_holder_text",
+
+          "$text_background_default": "common_ore.edit_box_indent",
+          "$text_background_hover": "common_ore.edit_box_indent_hover",
+          "$text_offset": [ 0, 2 ],
+
+          "$text_box_tts_header": "$option_label",
+          "variables": [
+            {
+              "requires": "(not $option_enabled_binding_name or not $enabled)",
+              "$text_box_enabled_binding_name": "#not_data_bound",
+              "$text_edit_box_enabled_binding_type": "none"
+            }
+          ]
+        }
+      },
+      {
+        "button@common_buttons.light_glyph_button": {
+          "$button_content": "settings_common.arrow_image",
+          "size": [ "fill", "100%" ],
+
+          "$border_visible": false,
+          "$default_button_texture": "textures/ui/ore/button_borderless_light",
+          "$hover_button_texture": "textures/ui/ore/button_borderless_lighthover",
+          "$pressed_button_texture": "textures/ui/ore/button_borderless_lightpressed",
+          "$locked_button_texture": "textures/ui/ore/disabledButtonNoBorder",
+
+          "$default_glyph_color": [ 0.7, 0.7, 0.7 ],
+          "$button_pressed_offset": [ 0, 2 ]
+        }
+      }
+    ]
+  },
+
+  "ore_option_text_edit_control_with_text_button": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "$option_text_edit_control_with_button_size|default": [ "100%", "30px" ],
+    "size": "$option_text_edit_control_with_button_size",
+    "controls": [
+      {
+        "text_box@common.text_edit_box": {
+          "$option_text_edit_control_size|default": [ "85%", "100%" ],
+          "size": "$option_text_edit_control_size",
+          "max_length": "$max_text_edit_length",
+          "$text_edit_box_content_binding_name": "$option_binding_name",
+          "$text_edit_box_binding_collection_name": "$option_binding_name",
+          "$text_edit_box_binding_type": "global",
+          "$text_box_enabled_binding_name": "$option_enabled_binding_name",
+          "enabled": "$enabled",
+          "$place_holder_text": "$option_place_holder_text",
+
+          "$text_background_default": "common_ore.edit_box_indent",
+          "$text_background_hover": "common_ore.edit_box_indent_hover",
+          "$text_offset": [ 0, 2 ],
+
+          "$text_box_tts_header": "$option_label",
+          "variables": [
+            {
+              "requires": "(not $option_enabled_binding_name or not $enabled)",
+              "$text_box_enabled_binding_name": "#not_data_bound",
+              "$text_edit_box_enabled_binding_type": "none"
+            }
+          ]
+        }
+      },
+      {
+        "button@button_preset.light_ore_button": {
+          "$pressed_button_name|default": "unset_button_name",
+          "$button_text|default": "unset $button_text",
+          "$option_button_control_size|default": [ "fill", "100%" ],
+          "size": "$option_button_control_size"
+        }
+      }
+    ]
+  },
+
+
   "ore_option_slider_control": {
     "type": "panel",
     "size": [ "100% - 6px", 16 ],
@@ -945,7 +1065,7 @@
     "offset": "$content_offset",
     "controls": [
       {
-        "highlight@settings_common.icon_highlight": {
+        "highlight@common_ore.icon_highlight": {
           "visible": "($use_highlight_border and $pressed_state)",
           "anchor_from": "$glyph_anchor_from",
           "anchor_to": "$glyph_anchor_to",

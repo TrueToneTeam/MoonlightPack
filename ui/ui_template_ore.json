@@ -1,0 +1,37 @@
+{
+  "namespace": "common_ore",
+
+  // Edit Box
+  "edit_box_indent": {
+    "type": "image",
+    "texture": "textures/ui/ore/edit_box_indent",
+    "alpha": "$alpha",
+    "$alpha|default": 1.0
+  },
+
+  "edit_box_indent_hover@common_ore.edit_box_indent": {
+    "texture": "textures/ui/ore/edit_box_indent"
+  },
+
+
+  // Highlight Icon
+  "icon_highlight": {
+    "type": "image",
+    "texture": "textures/ui/ore/icon-highlight-spritesheet",
+    "layer": 3,
+    "size": [ 12, 12 ],
+    "uv_size": [ 24, 24 ],
+    "uv": "@common_ore.icon_highlight_uv_animation",
+    "disable_anim_fast_forward": true,
+    "bilinear": true
+  },
+
+  "icon_highlight_uv_animation": {
+    "anim_type": "flip_book",
+    "initial_uv": [ 0, 0 ],
+    "frame_count": 9,
+    "frame_step": 9,
+    "fps": 10,
+    "reversible": false
+  }
+}

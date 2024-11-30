@@ -1,13 +1,15 @@
 {
   "ui_defs": [
     "ui/ui_template_radio.json",
+    "ui/ui_template_ore.json",
 
     "ui/settings_sections/graphics_section.json",
     "ui/settings_sections/quick_section.json",
     "ui/settings_sections/info_section.json",
 
-    "ui/utils/glitch_label.json",
     "ui/utils/play_common.json",
+    "ui/utils/worlds_common.json",
+    "ui/utils/glitch_label.json",
     "ui/utils/button_preset.json",
     "ui/utils/button_content_preset.json",
     "ui/utils/custom_common.json",

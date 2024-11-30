@@ -1,10 +1,7 @@
-/********************************************************
-+*   (c) Mojang. All rights reserved                       *
-+*   (c) Microsoft. All rights reserved.                   *
-+*********************************************************/
-
 {
   "namespace": "realms_world_section",
+
+  // Ore UI Design Soon..
 
   "realm_name_edit@settings_common.option_text_edit": {
     "ignored": "$is_realm_slot",

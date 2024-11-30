@@ -540,7 +540,1771 @@
   },
 
 
+  // Pack Grid Item & Pack Button Layout
+  "selected_pack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%-2px", "100%c" ],
+    "min_size": [ "100% - 2px", "50px" ],
+    "$button_collection_name": "$selected_pack_items",
+    "$resource_pack_button_0": "resource_packs.selected_pack_minus_button",
+    "$resource_pack_button_1": "resource_packs.selected_pack_store_button",
+    "$resource_pack_button_2": "resource_packs.selected_pack_options_button",
+    "$resource_pack_button_3": "resource_packs.selected_pack_up_button",
+    "$resource_pack_button_4": "resource_packs.selected_pack_down_button",
+    "$resource_pack_button_5": "resource_packs.selected_pack_warning_button",
+    "controls": [
+      {
+        "selected_pack_button@resource_packs.selected_pack_button": {
+          "layer": 1
+        }
+      },
+      {
+        "pad_0": { "type": "panel", "size": [ "100%", 2 ] }
+      },
+      {
+        "center_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "visibility_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "selected_pack_direction_buttons@resource_packs.input_button_panel": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "divider@common.horizontal_divider": {
+          "bindings": [
+            {
+              "binding_collection_name": "$button_collection_name",
+              "binding_name": "(not #direction_button_visible)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "pad_1": { "type": "panel", "size": [ "100%", 4 ] }
+      }
+    ]
+  },
 
+  "available_pack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%-2px", "100%c" ],
+    "min_size": [ "100% - 2px", "54px" ],
+    "$button_collection_name": "$available_pack_items",
+    "$resource_pack_button_0": "resource_packs.selected_pack_plus_button",
+    "$resource_pack_button_1": "resource_packs.selected_pack_store_button",
+    "$resource_pack_button_2": "resource_packs.selected_pack_warning_button",
+    "controls": [
+      {
+        "available_pack_button@resource_packs.available_pack_button": {
+          "layer": 1
+        }
+      },
+      {
+        "pad_0": { "type": "panel", "size": [ "100%", 2 ] }
+      },
+      {
+        "center_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "available_pack_direction_buttons@resource_packs.input_button_panel": {}
+            }
+          ]
+        }
+      },
+      {
+        "divider@common.horizontal_divider": {
+          "bindings": [
+            {
+              "binding_collection_name": "$button_collection_name",
+              "binding_name": "(not #direction_button_visible)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "pad_1": { "type": "panel", "size": [ "100%", 4 ] }
+      }
+    ]
+  },
+
+  "realms_pack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%-2px", "100%c" ],
+    "min_size": [ "100% - 2px", "54px" ],
+    "$button_collection_name": "$realms_pack_items",
+    "$resource_pack_button_0": "resource_packs.selected_pack_plus_button",
+    "$resource_pack_button_1": "resource_packs.selected_pack_store_button",
+    "$resource_pack_button_2": "resource_packs.selected_pack_warning_button",
+    "controls": [
+      {
+        "realms_pack_button@resource_packs.realms_pack_button": {
+          "layer": 1
+        }
+      },
+      {
+        "pad_0": { "type": "panel", "size": [ "100%", 2 ] }
+      },
+      {
+        "center_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "realms_pack_direction_buttons@resource_packs.input_button_panel": {}
+            }
+          ]
+        }
+      },
+      {
+        "divider@common.horizontal_divider": {
+          "bindings": [
+            {
+              "binding_collection_name": "$button_collection_name",
+              "binding_name": "(not #direction_button_visible)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "pad_1": { "type": "panel", "size": [ "100%", 4 ] }
+      }
+    ]
+  },
+
+  "unowned_pack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%-2px", "100%c" ],
+    "min_size": [ "100% - 2px", "54px" ],
+    "$button_collection_name": "$unowned_pack_items",
+    "$resource_pack_button_1": "resource_packs.selected_pack_store_button_fill",
+    "controls": [
+      {
+        "unowned_pack_button@resource_packs.unowned_pack_button": {
+          "layer": 1
+        }
+      },
+      {
+        "pad_0": { "type": "panel", "size": [ "100%", 2 ] }
+      },
+      {
+        "center_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "realms_pack_direction_buttons@resource_packs.input_button_panel": {}
+            }
+          ]
+        }
+      },
+      {
+        "divider@common.horizontal_divider": {
+          "bindings": [
+            {
+              "binding_collection_name": "$button_collection_name",
+              "binding_name": "(not #direction_button_visible)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "pad_1": { "type": "panel", "size": [ "100%", 4 ] }
+      }
+    ]
+  },
+
+  "invalid_pack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%-2px", "100%c" ],
+    "min_size": [ "100% - 2px", "54px" ],
+    "controls": [
+      {
+        "invalid_pack_button@resource_packs.invalid_pack_button": {
+          "layer": 1
+        }
+      },
+      {
+        "pad_0": { "type": "panel", "size": [ "100%", 2 ] }
+      },
+      {
+        "divider@common.horizontal_divider": {}
+      },
+      {
+        "pad_1": { "type": "panel", "size": [ "100%", 4 ] }
+      }
+    ]
+  },
+
+
+  // Text Panel
+  "selected_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, 1 ],
+    "size": [ "100% - 52px", "100%c" ],
+    "$size|default": [ "100% - 60px", 36 ],
+    "$inner_size|default": [ "100%", "fill" ],
+    "$description_size|default": [ "100%", "100%" ],
+    "controls": [
+      {
+        "name_panel": {
+          "layer": 5,
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", 10 ],
+          "controls": [
+            {
+              "selected_pack_name_label@resource_packs.selected_pack_name_label": {
+                "size": [ "fill", 10 ],
+                "layer": 1
+              }
+            },
+            {
+              "selected_file_size_label@resource_packs.selected_file_size_label": {
+                "size": [ "default", 10 ],
+                "layer": 1
+              }
+            },
+            {
+              "active_dot_panel": {
+                "type": "panel",
+                "size": [ 9, 7 ],
+                "controls": [
+                  {
+                    "active_dot": {
+                      "type": "image",
+                      "size": [ 7, 7 ],
+                      "offset": [ 0, 1 ],
+                      "texture": "textures/ui/online"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "light_line@settings_common.light_line_horizontal_panel": {
+          "$panel_size": [ "100%", "100%c + 2px" ],
+          "$line_size": [ "100%", 1 ]
+        }
+      },
+      {
+        "full_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": "$size",
+          "controls": [
+            {
+              "warning_line": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 10 ],
+                "controls": [
+                  {
+                    "warning_text@common.minecraftTenLabel": {
+                      "size": [ "default", "100%" ],
+                      "max_size": [ "50%", "100%" ],
+                      "text": "$warnings_text",
+                      "font_scale_factor": 0.8,
+                      "color": "$warning_text_color"
+                    }
+                  },
+                  {
+                    "warning_number@common.minecraftTenLabel": {
+                      "size": [ "default", "100%" ],
+                      "max_size": [ "50%", "100%" ],
+                      "text": "#num_warnings",
+                      "font_scale_factor": 0.8,
+                      "color": "$main_header_text_color",
+                      "bindings": [
+                        {
+                          "binding_name": "#num_warnings",
+                          "binding_collection_name": "$button_collection_name",
+                          "binding_type": "collection"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$button_collection_name",
+                    "binding_name": "#has_warnings",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            },
+            {
+              "error_line": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 10 ],
+                "controls": [
+                  {
+                    "error_text@common.minecraftTenLabel": {
+                      "size": [ "default", "100%" ],
+                      "max_size": [ "50%", "100%" ],
+                      "text": "$errors_text",
+                      "font_scale_factor": 0.8,
+                      "color": "$error_text_color"
+                    }
+                  },
+                  {
+                    "error_number@common.minecraftTenLabel": {
+                      "size": [ "default", "100%" ],
+                      "max_size": [ "50%", "100%" ],
+                      "text": "#num_errors",
+                      "font_scale_factor": 0.8,
+                      "color": "$main_header_text_color",
+                      "bindings": [
+                        {
+                          "binding_name": "#num_errors",
+                          "binding_collection_name": "$button_collection_name",
+                          "binding_type": "collection"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$button_collection_name",
+                    "binding_name": "#has_errors",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            },
+            {
+              "expired_line": {
+                "type": "panel",
+                "size": [ "100%", 10 ],
+                "controls": [
+                  {
+                    "expired_text@common.minecraftTenLabel": {
+                      "size": [ "100%", "100%" ],
+                      "text": "$expired_text",
+                      "font_scale_factor": 0.8,
+                      "color": "$realms_text_color"
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$button_collection_name",
+                    "binding_name": "#has_expired",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            },
+            {
+              "description_panel": {
+                "layer": 4,
+                "type": "panel",
+                "size": "$inner_size",
+                "controls": [
+                  {
+                    "selected_pack_description_label@resource_packs.selected_pack_description_label": {
+                      "layer": 1,
+                      "size": "$description_size",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "available_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, 1 ],
+    "size": [ "100% - 52px", "100%c" ],
+    "$size|default": [ "100% - 60px", 36 ],
+    "$inner_size|default": [ "100%", "fill" ],
+    "$description_size|default": [ "100%", "100%" ],
+    "controls": [
+      {
+        "name_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "10px" ],
+          "controls": [
+            {
+              "available_pack_name_label@resource_packs.available_pack_name_label": {
+                "layer": 5,
+                "size": [ "fill", 10 ]
+              }
+            },
+            {
+              "available_file_size_label@resource_packs.available_file_size_label": {
+                "layer": 5,
+                "size": [ "default", 10 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "light_line@settings_common.light_line_horizontal_panel": {
+          "$panel_size": [ "100%", "100%c + 2px" ],
+          "$line_size": [ "100%", 1 ]
+        }
+      },
+      {
+        "full_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": "$size",
+          "controls": [
+            {
+              "description_panel": {
+                "layer": 4,
+                "type": "panel",
+                "size": "$inner_size",
+                "controls": [
+                  {
+                    "available_pack_description_label@resource_packs.available_pack_description_label": {
+                      "layer": 1,
+                      "size": "$description_size",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "realms_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, 1 ],
+    "size": [ "100% - 52px", "100%c" ],
+    "$size|default": [ "100% - 60px", 36 ],
+    "controls": [
+      {
+        "name_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "10px" ],
+          "controls": [
+            {
+              "realms_pack_name_label@resource_packs.realms_pack_name_label": {
+                "layer": 5,
+                "size": [ "fill", 10 ]
+              }
+            },
+            {
+              "realms_file_size_label@resource_packs.realms_file_size_label": {
+                "layer": 5,
+                "size": [ "default", 10 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "light_line@settings_common.light_line_horizontal_panel": {
+          "$panel_size": [ "100%", "100%c + 2px" ],
+          "$line_size": [ "100%", 1 ]
+        }
+      },
+      {
+        "description_panel": {
+          "layer": 4,
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "realms_pack_description_label@resource_packs.realms_pack_description_label": {
+                "layer": 1,
+                "size": "$size",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "unowned_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, 1 ],
+    "size": [ "100% - 52px", "100%c" ],
+    "$size|default": [ "100% - 60px", 36 ],
+    "controls": [
+      {
+        "name_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "10px" ],
+          "controls": [
+            {
+              "unowned_pack_name_label@resource_packs.unowned_pack_name_label": {
+                "layer": 5,
+                "size": [ "fill", 10 ]
+              }
+            },
+            {
+              "unowned_file_size_label@resource_packs.unowned_file_size_label": {
+                "layer": 5,
+                "size": [ "default", 10 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "light_line@settings_common.light_line_horizontal_panel": {
+          "$panel_size": [ "100%", "100%c + 2px" ],
+          "$line_size": [ "100%", 1 ]
+        }
+      },
+      {
+        "description_panel": {
+          "layer": 4,
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "unowned_pack_description_label@resource_packs.unowned_pack_description_label": {
+                "layer": 1,
+                "size": "$size",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "invalid_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, 1 ],
+    "size": [ "100% - 52px", "100%c" ],
+    "$size|default": [ "100%", 28 ],
+    "$inner_size|default": [ "100%", "fill" ],
+    "$description_size|default": [ "100%", "100%" ],
+    "controls": [
+      {
+        "full_panel": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": "$size",
+          "controls": [
+            {
+              "error_line": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", "100%cm" ],
+                "controls": [
+                  {
+                    "error_text@common.minecraftTenLabel": {
+                      "size": [ "default", "default" ],
+                      "max_size": [ "50%", "default" ],
+                      "text": "$errors_text",
+                      "font_scale_factor": 0.8,
+                      "color": "$error_text_color"
+                    }
+                  },
+                  {
+                    "error_number@common.minecraftTenLabel": {
+                      "size": [ "default", "default" ],
+                      "max_size": [ "50%", "default" ],
+                      "text": "#num_errors",
+                      "font_scale_factor": 0.8,
+                      "bindings": [
+                        {
+                          "binding_name": "#num_errors",
+                          "binding_collection_name": "$invalid_pack_items",
+                          "binding_type": "collection"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$invalid_pack_items",
+                    "binding_name": "#has_errors",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  // Button Layout
+  "selected_pack_button_layout": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 6px" ],
+    "$name_collection_name": "$selected_pack_items",
+    "controls": [
+      {
+        "selected_icon_image@resource_packs.selected_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.selected_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full@resource_packs.selected_text_panel": {
+          "$description_size": [ "100%", "default" ],
+          "$inner_size": [ "100%", "100%c" ],
+          "$size": [ "100% - 60px", "100%c" ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "selected_pack_button_layout_hover": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 5px" ],
+    "$name_collection_name": "$selected_pack_items",
+    "controls": [
+      {
+        "hover_small@common.focus_border_white": {
+          "size": [ "100%", 50 ],
+          "offset": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "selected_icon_image@resource_packs.selected_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.selected_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full_hover": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "controls": [
+            {
+              "text_panel_full@resource_packs.selected_text_panel": {
+                "$description_size": [ "100%", "default" ],
+                "$inner_size": [ "100%", "100%c" ],
+                "$size": [ "100% - 60px", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_type": "collection_details"
+                  },
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_name": "#is_read_less",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "selected_pack_button@resource_packs.common_pack_button": {
+    "$pressed_button_name": "$button.selected_pack",
+    "controls": [
+      { "default@resource_packs.selected_pack_button_layout": {} },
+      { "pressed@resource_packs.selected_pack_button_layout_hover": {} },
+      { "hover@resource_packs.selected_pack_button_layout_hover": {} }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$selected_pack_items",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "available_pack_button_layout": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 6px" ],
+    "$name_collection_name": "$available_pack_items",
+    "controls": [
+      {
+        "available_icon_image@resource_packs.available_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.available_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full@resource_packs.available_text_panel": {
+          "$description_size": [ "100%", "default" ],
+          "$inner_size": [ "100%", "100%c" ],
+          "$size": [ "100% - 60px", "100%c" ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "available_pack_button_layout_hover": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 5px" ],
+    "$name_collection_name": "$available_pack_items",
+    "controls": [
+      {
+        "hover_small@common.focus_border_white": {
+          "size": [ "100%", 50 ],
+          "offset": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "available_icon_image@resource_packs.available_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.available_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full_hover": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "controls": [
+            {
+              "text_panel_full@resource_packs.available_text_panel": {
+                "$description_size": [ "100%", "default" ],
+                "$inner_size": [ "100%", "100%c" ],
+                "$size": [ "100% - 60px", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_type": "collection_details"
+                  },
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_name": "#is_read_less",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "available_pack_button@resource_packs.common_pack_button": {
+    "$pressed_button_name": "$button.available_pack",
+    "controls": [
+      { "default@resource_packs.available_pack_button_layout": {} },
+      { "pressed@resource_packs.available_pack_button_layout_hover": {} },
+      { "hover@resource_packs.available_pack_button_layout_hover": {} }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$available_pack_items",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "realms_pack_button_layout": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 6px" ],
+    "$name_collection_name": "$realms_pack_items",
+    "controls": [
+      {
+        "realms_icon_image@resource_packs.realms_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.realms_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full@resource_packs.realms_text_panel": {
+          "$size": [ "100% - 60px", "default" ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "realms_pack_button_layout_hover": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 5px" ],
+    "$name_collection_name": "$realms_pack_items",
+    "controls": [
+      {
+        "hover_small@common.focus_border_white": {
+          "size": [ "100%", 50 ],
+          "offset": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "realms_icon_image@resource_packs.realms_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.realms_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full_hover": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "controls": [
+            {
+              "text_panel_full@resource_packs.realms_text_panel": {
+                "$size": [ "100% - 60px", "default" ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_type": "collection_details"
+                  },
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_name": "#is_read_less",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "realms_pack_button@resource_packs.common_pack_button": {
+    "$pressed_button_name": "$button.realms_pack",
+    "controls": [
+      { "default@resource_packs.realms_pack_button_layout": {} },
+      { "pressed@resource_packs.realms_pack_button_layout_hover": {} },
+      { "hover@resource_packs.realms_pack_button_layout_hover": {} }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$realms_pack_items",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "unowned_pack_button_layout": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 6px" ],
+    "$name_collection_name": "$unowned_pack_items",
+    "controls": [
+      {
+        "unowned_icon_image@resource_packs.unowned_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.unowned_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full@resource_packs.unowned_text_panel": {
+          "$size": [ "100% - 60px", "default" ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "unowned_pack_button_layout_hover": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 5px" ],
+    "$name_collection_name": "$unowned_pack_items",
+    "controls": [
+      {
+        "hover_small@common.focus_border_white": {
+          "size": [ "100%", 50 ],
+          "offset": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "unowned_icon_image@resource_packs.unowned_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_small@resource_packs.unowned_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "text_panel_full_hover": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "controls": [
+            {
+              "text_panel_full@resource_packs.unowned_text_panel": {
+                "$size": [ "100% - 60px", "default" ],
+                "bindings": [
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_type": "collection_details"
+                  },
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_name": "#is_read_less",
+                    "binding_name_override": "#visible",
+                    "binding_type": "collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "read_more_button_panel@common_buttons.read_button": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$single_line_label_text": "store.mashup.readMore",
+          "$pressed_button_name": "$button.read_toggle",
+          "$offset": [ -6, -4 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_more",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "#using_ellipses",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "read_less_button_panel@common_buttons.read_button": {
+          "$offset": [ -6, -4 ],
+          "$single_line_label_text": "store.mashup.readLess",
+          "$pressed_button_name": "$button.read_toggle",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "$bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            },
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_name": "#is_read_less",
+              "binding_name_override": "#visible",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "unowned_pack_button@resource_packs.common_pack_button": {
+    "$pressed_button_name": "$button.unowned_pack",
+    "controls": [
+      { "default@resource_packs.unowned_pack_button_layout": {} },
+      { "pressed@resource_packs.unowned_pack_button_layout_hover": {} },
+      { "hover@resource_packs.unowned_pack_button_layout_hover": {} }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$unowned_pack_items",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "invalid_pack_button_layout": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 6px" ],
+    "$name_collection_name": "$invalid_pack_items",
+    "controls": [
+      {
+        "invalid_icon_image@resource_packs.invalid_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel@resource_packs.invalid_text_panel": {
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "invalid_pack_button_layout_hover": {
+    "type": "panel",
+    "size": [ "100%", "100%cm + 5px" ],
+    "$name_collection_name": "$invalid_pack_items",
+    "controls": [
+      {
+        "hover_small@common.focus_border_white": {
+          "size": [ "100%", 50 ],
+          "offset": [ 0, 0 ],
+          "bindings": [
+            {
+              "binding_collection_name": "$name_collection_name",
+              "binding_type": "collection_details"
+            }
+          ]
+        }
+      },
+      {
+        "invalid_icon_image@resource_packs.invalid_icon_image": {
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": [ 46, 46 ],
+          "offset": [ 2, 0 ]
+        }
+      },
+      {
+        "text_panel_full_hover": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "controls": [
+            {
+              "text_panel@resource_packs.invalid_text_panel": {
+                "bindings": [
+                  {
+                    "binding_collection_name": "$name_collection_name",
+                    "binding_type": "collection_details"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "invalid_pack_button@resource_packs.common_pack_button": {
+    "$pressed_button_name": "$button.invalid_pack",
+    "controls": [
+      { "default@resource_packs.invalid_pack_button_layout": {} },
+      { "pressed@resource_packs.invalid_pack_button_layout_hover": {} },
+      { "hover@resource_packs.invalid_pack_button_layout_hover": {} }
+    ],
+    "bindings": [
+      {
+        "binding_collection_name": "$invalid_pack_items",
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "name_label@resource_packs.white_label": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text": "#name"
+  },
+
+  "size_label@resource_packs.white_label": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text": "#size",
+    "font_type": "smooth"
+  },
+
+  "description_label@resource_packs.white_label": {
+    "text": "$bottom_description_text",
+    "font_type": "smooth"
+  },
+
+  "pack_label@resource_packs.white_label": {
+    "text": "#description",
+    "font_type": "smooth"
+  },
+
+
+  // Toggle
   "resource_packs_toggle_button_control": {
     "type": "panel",
     "layer": 2,
@@ -626,7 +2390,7 @@
     "layer": 2,
     "controls": [
       {
-        "highlight@settings_common.icon_highlight": {
+        "highlight@common_ore.icon_highlight": {
           "visible": "($pressed_state)",
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",

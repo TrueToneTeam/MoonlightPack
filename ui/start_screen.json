@@ -699,7 +699,7 @@
     "$border_texture_color_2": [ 1.0, 1.0, 1.0 ],
     "$button_icon_content": "start.get_started_dynamic_icon",
     "$pressed_button_name": "button.menu_get_started",
-    "$button_background_image": "textures/ui/start/start_background_play",
+    "$button_background_image": "textures/ui/start/start_background_get_started",
     "$button_text": "menu.getStarted"
   },
 

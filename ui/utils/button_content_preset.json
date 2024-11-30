@@ -7,8 +7,23 @@
     "size": [ "100%", "100%" ],
     "anchor_from": "center",
     "anchor_to": "center",
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, 0 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$content_offset|default": [ 0, 0 ],
     "controls": [
-      { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+      {
+        "image": {
+          "type": "image",
+          "size": "$icon_size",
+          "offset": "$icon_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "texture": "$icon_path",
+          "color": "$icon_color"
+        }
+      }
     ]
   },
 
@@ -18,12 +33,27 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "orientation": "horizontal",
+
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, 0 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
+    "$text|default": "",
+    "$text_color|default": "",
+
+    "$content_offset|default": [ 0, 0 ],
+    "variables": [
+      {
+        "requires": "($pressed_state)",
+        "$content_offset": [ 0, 2 ]
+      }
+    ],
     "controls": [
       {
         "image_panel@custom_common.panel_base": {
           "size": [ "100%y", "100%" ],
           "controls": [
-            { "image": { "type": "image", "size": "$image_size", "texture": "$image_path", "anchor_from": "center", "anchor_to": "center" } }
+            { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
           ]
         }
       },
@@ -45,9 +75,10 @@
     "anchor_from": "center",
     "anchor_to": "center",
 
-    "$image_size|default": [ "100%", "100%" ],
-    "$image_path|default": "",
-    "$image_color|default": [ 1.0, 1.0, 1.0 ],
+    "$icon_size|default": [ "100%", "100%" ],
+    "$icon_offset|default": [ 0, -1 ],
+    "$icon_path|default": "",
+    "$icon_color|default": [ 1.0, 1.0, 1.0 ],
     "$button_text|default": "",
 
     "$content_offset|default": [ 0, 0 ],
@@ -61,9 +92,9 @@
       {
         "image_panel@custom_common.panel_base": {
           "size": [ "100%", "100%" ],
-          "offset": [ 0, -1 ],
+          "offset": "$content_offset",
           "controls": [
-            { "image": { "type": "image", "size": "$image_size", "offset": "$content_offset", "texture": "$image_path", "color": "$image_color", "anchor_from": "center", "anchor_to": "center" } }
+            { "image": { "type": "image", "size": "$icon_size", "offset": "$icon_offset", "texture": "$icon_path", "color": "$icon_color", "anchor_from": "center", "anchor_to": "center" } }
           ]
         }
       },

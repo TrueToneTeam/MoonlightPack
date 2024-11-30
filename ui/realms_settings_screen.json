@@ -87,7 +87,16 @@
         }
       },
       {
-        "padding": { "type": "panel", "size": [ "100%", 6 ] }
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 6 ],
+          "bindings": [
+            {
+              "binding_name": "(#play_button_visible or #create_button_visible or #disabled_play_button_visible or #is_realm_expired)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
       },
       {
         "selector_group_label@settings_common.selector_group_label": {

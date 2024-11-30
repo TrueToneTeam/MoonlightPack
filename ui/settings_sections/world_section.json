@@ -454,7 +454,7 @@
 	  },
       {
         // for world create
-        "option_text_edit_0@settings_common.option_text_edit": {
+        "option_text_edit_0@settings_common.ore_option_text_edit": {
           "ignored": "(not $is_world_create)",
           "$option_label": "selectWorld.enterName",
           "$option_place_holder_text": "createWorldScreen.defaultName",
@@ -506,7 +506,7 @@
       {
         // for world edit/show (databound)
         // edit is 'enabled', show is 'not enabled'
-        "option_text_edit_1@settings_common.option_text_edit": {
+        "option_text_edit_1@settings_common.ore_option_text_edit": {
           "ignored": "$is_world_create",
           "$option_label": "selectWorld.enterName",
           "$option_binding_name": "#world_name",
@@ -688,10 +688,6 @@
             },
 			{
               "export_button@settings_common.ore_action_button": {
-                // std pocket should not have export until bedrock wants it
-                // export is disabled in game
-                // Some platforms such as fireTV do not support file picking
-                // EDU supports file picking on all supported platforms except ios which is pocket
 				"ignored": "(not $is_world_edit or not $is_pregame)",
                 "size": [ "fill", 26 ],
                 "anchor_from": "top_left",
@@ -747,7 +743,7 @@
                 "orientation": "horizontal",
                 "controls": [
                   {
-					"template_version@settings_common.option_text_edit": {
+					"template_version@settings_common.ore_option_text_edit": {
 					  "ignored": "(not $education_edition)",
 					  "size": [ "65%", 30 ],
 					  "$option_label": "gui.templateMinVersion",
@@ -1284,7 +1280,7 @@
 				"controls": [
 				  {
 					// No button for edu since edu doesn't use xforge
-					"level_seed_selector_edu@settings_common.option_text_edit": {
+					"level_seed_selector_edu@settings_common.ore_option_text_edit": {
 					  "$tts_section_header": "createWorldScreen.worldPreferences",
 					  "ignored": "(not $education_edition)",
 					  "$option_label": "createWorldScreen.levelSeed",
@@ -1294,7 +1290,7 @@
 					}
 				  },
 				  {
-					"level_seed_selector@settings_common.option_text_edit_with_button": {
+					"level_seed_selector@settings_common.ore_option_text_edit_with_button": {
 					  "$tts_section_header": "createWorldScreen.worldPreferences",
 					  "ignored": "($education_edition or not $is_seeds_enabled)",
 					  "$option_label": "createWorldScreen.levelSeed",
@@ -1493,7 +1489,7 @@
         }
       },
       {
-        "respawn_radius@settings_common.option_text_edit": {
+        "respawn_radius@settings_common.ore_option_text_edit": {
           "size": [ "100%", 46 ],
           "$option_label": "createWorldScreen.respawnRadius",
           "$option_binding_name": "#respawn_radius",
@@ -1775,7 +1771,7 @@
         }
       },
       {
-        "random_tick_speed@settings_common.option_text_edit_with_text_button": {
+        "random_tick_speed@settings_common.ore_option_text_edit_with_text_button": {
           "$option_label": "createWorldScreen.randomtickspeed",
           "$option_binding_name": "#random_tick_speed",
           "$option_enabled_binding_name": "#random_tick_speed_enabled",

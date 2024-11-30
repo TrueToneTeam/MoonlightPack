@@ -130,7 +130,7 @@
           "anchor_from": "center",
           "anchor_to": "center",
           "controls": [
-            { "bottom_divider@custom_common.light_line_horizontal_panel": { "size": [ "99%", "100%c" ], "$line_color": [ 0.3, 0.3, 0.3 ] } }
+            { "bottom_divider@custom_common.light_line_horizontal_panel": { "size": [ "100%", "100%c" ], "$line_color": [ 0.3, 0.3, 0.3 ] } }
           ]		
         }
       }

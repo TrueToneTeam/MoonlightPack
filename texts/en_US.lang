@@ -3,12 +3,13 @@ global.pack.name=Moonlight Pack	#
 global.pack.name_bold=§lMoonlight Pack	#
 global.pack.name_boldItalic=§l§oMoonlight Pack	#
 global.pack_info.name=Moonlight Pack	#
-global.pack_info.made_by.title=Made By	#
+global.pack_info.made_by.title=Made By & Editor	#
 global.pack_info.made_by=§dNeroLuna	#
 global.pack_info.made_by.team=§7Moonlight Team(TrueToneTeam)	#
 global.pack_info.support_language.title=Support Language	#
 global.pack_info.support_language.english=English	#
 global.pack_info.support_language.korean=Korean	#
+global.pack_info.support_version.title=Support Version #
 global.pack_info.editor.title=Editor	#
 global.pack_info.editor=[ 이 곳에 수정자 닉네임 작성 ]	#
 global.pack_info.licenses.title=Licenses	#
@@ -107,10 +108,14 @@ notification.minecraft_version.problem=The [ Minecraft version ] supported by th
 
 ## Play Screen
 playScreen.title=Play	#
-playScreen.tab.all_worlds=All Worlds	#
+playScreen.tab.worlds=Worlds	#
 playScreen.tab.multiplay=Multiplay	#
 playScreen.tab.server=Server	#
 playScreen.tab.debug=Debug	#
+
+playScreen.server.description=Server Description	#
+playScreen.server.activities=Activities	#
+playScreen.server.news=News	#
 
 playScreen.search_world.name=Search world name...	#
 
@@ -124,6 +129,7 @@ playScreen.side_menu.friends.not_friends.lore=Ask your friend to play with you, 
 
 playScreen.category.realms_plus.title=Realms Plus	#
 playScreen.category.lan.title=LAN Server	#
+playScreen.category.lan.not_lan_list=No open LAN servers found.	#
 
 playScreen.switch_to_new_ui=Switch to new UI	#
 

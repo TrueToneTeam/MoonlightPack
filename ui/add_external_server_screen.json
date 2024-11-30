@@ -5,6 +5,25 @@
     "type": "stack_panel",
     "controls": [
       {
+        "warning_text_box_panel": {
+          "type": "panel",
+          "size": [ "100%", 38 ],
+          "controls": [
+            {
+              "warning@settings_common.icon_with_text_border_base": {
+                "layer": 5,
+                "$border_size": [ "100%", 34 ],
+                "offset": [ 0, 0 ],
+                "$border_color": [ 1.0, 1.0, 0.0 ],
+                "$border_icon": "textures/ui/WarningGlyph",
+                "$border_text": "addExternalServerScreen.add_warning_text"
+              }
+            }
+          ]
+        }
+      },
+      { "void_panel@common.empty_panel": { "size": [ 0, 4 ] } },
+      {
         "name_edit@add_external_server.text_edit_group": {
           "$header": "addExternalServerScreen.nameTextBoxLabel",
           "$placeholder_label": "addExternalServerScreen.namePlaceholder",
@@ -53,29 +72,13 @@
           ]
         }
       },
-      {
-        "warning_text_box_panel": {
-          "type": "panel",
-          "size": [ "100%", 38 ],
-          "controls": [
-            {
-              "warning@settings_common.icon_with_text_border_base": {
-                "layer": 5,
-                "offset": [ 0, -16 ],
-                "$border_color": [ 1.0, 1.0, 0.0 ],
-                "$border_icon": "textures/ui/WarningGlyph",
-                "$border_text": "addExternalServerScreen.add_warning_text"
-              }
-            }
-          ]
-        }
-      }
+      { "end_void_panel@common.empty_panel": { "size": [ 0, 4 ] } }
     ]
   },
 
   "main_panel": {
     "type": "input_panel",
-    "size": [ "100% - 35%", "182px" ],
+    "size": [ "100% - 35%", "186px" ],
     "controls": [
       {
         "common_panel@common.common_panel": {
